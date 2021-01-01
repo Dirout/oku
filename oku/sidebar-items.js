@@ -1,1 +1,1 @@
-initSidebarItems({"fn":[["get_from_hash",""],["ipfs_download_directory",""],["ipfs_download_file",""],["main",""]],"struct":[["PROJECT_DIRECTORIES",""]]});
+initSidebarItems({"fn":[["main",""]],"struct":[["PROJECT_DIRECTORIES",""]]});

@@ -1,1 +1,1 @@
-initSidebarItems({"fn":[["main",""]],"struct":[["PROJECT_DIRECTORIES",""]]});
+initSidebarItems({"fn":[["connect",""],["main",""],["on_load",""]],"struct":[["PROJECT_DIRECTORIES",""]]});

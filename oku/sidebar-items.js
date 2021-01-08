@@ -1,1 +1,1 @@
-initSidebarItems({"fn":[["connect",""],["get_view",""],["main",""],["new_tab",""],["new_view",""],["update_nav_bar",""]],"struct":[["PROJECT_DIRECTORIES",""]]});
+initSidebarItems({"fn":[["connect",""],["get_view",""],["initial_tab",""],["main",""],["new_tab",""],["new_tab_label",""],["new_tab_page",""],["new_view",""],["update_nav_bar",""]],"struct":[["PROJECT_DIRECTORIES",""]]});

@@ -316,9 +316,6 @@
 <span id="313">313</span>
 <span id="314">314</span>
 <span id="315">315</span>
-<span id="316">316</span>
-<span id="317">317</span>
-<span id="318">318</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">/*
     This file is part of Oku.
@@ -337,12 +334,12 @@
     along with Oku.  If not, see &lt;https://www.gnu.org/licenses/&gt;.
 */</span>
 
+<span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">GtkWindowExt</span>;
 <span class="kw">use</span> <span class="ident">directories_next</span>::<span class="ident">ProjectDirs</span>;
 <span class="kw">use</span> <span class="ident">glib</span>::<span class="ident">Cast</span>;
 <span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">prelude</span>::<span class="ident">NotebookExtManual</span>;
 <span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">BoxExt</span>;
 <span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">ContainerExt</span>;
-<span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">GtkWindowExt</span>;
 <span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">IconSize</span>::<span class="ident">Button</span>;
 <span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">Inhibit</span>;
 <span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">LabelExt</span>;
@@ -429,10 +426,7 @@
     <span class="kw">let</span> <span class="ident">web_view</span> <span class="op">=</span> <span class="ident">web_kit</span>.<span class="ident">build</span>();
     <span class="ident">web_settings</span>.<span class="ident">set_user_agent_with_application_details</span>(<span class="prelude-val">Some</span>(<span class="string">&quot;Oku&quot;</span>), <span class="prelude-val">Some</span>(<span class="ident">VERSION</span>.<span class="ident">unwrap</span>()));
     <span class="ident">web_view</span>.<span class="ident">set_settings</span>(<span class="kw-2">&amp;</span><span class="ident">web_settings</span>);
-    <span class="kw">let</span> <span class="ident">extensions_path</span> <span class="op">=</span> <span class="macro">format</span><span class="macro">!</span>(
-        <span class="string">&quot;{}/web-extensions/&quot;</span>,
-        <span class="ident">PROJECT_DIRECTORIES</span>.<span class="ident">data_dir</span>().<span class="ident">to_str</span>().<span class="ident">unwrap</span>()
-    );
+    <span class="kw">let</span> <span class="ident">extensions_path</span> <span class="op">=</span> <span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;{}/web-extensions/&quot;</span>, <span class="ident">PROJECT_DIRECTORIES</span>.<span class="ident">data_dir</span>().<span class="ident">to_str</span>().<span class="ident">unwrap</span>());
     <span class="ident">web_view</span>
         .<span class="ident">get_context</span>()
         .<span class="ident">unwrap</span>()

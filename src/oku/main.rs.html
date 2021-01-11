@@ -319,6 +319,22 @@
 <span id="316">316</span>
 <span id="317">317</span>
 <span id="318">318</span>
+<span id="319">319</span>
+<span id="320">320</span>
+<span id="321">321</span>
+<span id="322">322</span>
+<span id="323">323</span>
+<span id="324">324</span>
+<span id="325">325</span>
+<span id="326">326</span>
+<span id="327">327</span>
+<span id="328">328</span>
+<span id="329">329</span>
+<span id="330">330</span>
+<span id="331">331</span>
+<span id="332">332</span>
+<span id="333">333</span>
+<span id="334">334</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">/*
     This file is part of Oku.
@@ -351,7 +367,8 @@
 <span class="kw">use</span> <span class="ident">percent_encoding</span>::<span class="ident">percent_decode_str</span>;
 <span class="kw">use</span> <span class="ident">webkit2gtk</span>::<span class="ident">SettingsExt</span>;
 <span class="kw">use</span> <span class="ident">webkit2gtk</span>::<span class="ident">WebContextExt</span>;
-
+<span class="kw">use</span> <span class="ident">gio</span>::<span class="ident">prelude</span>::<span class="kw-2">*</span>;
+<span class="kw">use</span> <span class="ident">std</span>::<span class="ident">env</span>::<span class="ident">args</span>;
 <span class="kw">use</span> <span class="ident">glib</span>::<span class="ident">clone</span>;
 <span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">prelude</span>::<span class="ident">BuilderExtManual</span>;
 <span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">ButtonExt</span>;
@@ -528,8 +545,21 @@
     }));
 }
 
-<span class="doccomment">/// The main function of Oku. Creates a new functional &amp; graphical browser window.</span>
+<span class="doccomment">/// The main function of Oku.</span>
 <span class="kw">fn</span> <span class="ident">main</span>() {
+    <span class="kw">let</span> <span class="ident">application</span> <span class="op">=</span>
+        <span class="ident">gtk</span>::<span class="ident">Application</span>::<span class="ident">new</span>(<span class="prelude-val">Some</span>(<span class="string">&quot;com.github.madebyemil.oku&quot;</span>), <span class="ident">Default</span>::<span class="ident">default</span>())
+            .<span class="ident">expect</span>(<span class="string">&quot;Initialization failed … &quot;</span>);
+
+    <span class="ident">application</span>.<span class="ident">connect_activate</span>(<span class="op">|</span><span class="ident">app</span><span class="op">|</span> {
+        <span class="ident">new_window</span>(<span class="ident">app</span>);
+    });
+
+    <span class="ident">application</span>.<span class="ident">run</span>(<span class="kw-2">&amp;</span><span class="ident">args</span>().<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span><span class="op">&gt;</span>());
+}
+
+<span class="doccomment">/// Creates a new functional &amp; graphical browser window.</span>
+<span class="kw">fn</span> <span class="ident">new_window</span>(<span class="ident">application</span>: <span class="kw-2">&amp;</span><span class="ident">gtk</span>::<span class="ident">Application</span>) {
     <span class="kw">if</span> <span class="ident">gtk</span>::<span class="ident">init</span>().<span class="ident">is_err</span>() {
         <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;Failed to initialize GTK.&quot;</span>);
         <span class="kw">return</span>;
@@ -538,7 +568,7 @@
     <span class="kw">let</span> <span class="ident">glade_src</span> <span class="op">=</span> <span class="macro">include_str</span><span class="macro">!</span>(<span class="string">&quot;window.glade&quot;</span>);
     <span class="kw">let</span> <span class="ident">builder</span> <span class="op">=</span> <span class="ident">gtk</span>::<span class="ident">Builder</span>::<span class="ident">from_string</span>(<span class="ident">glade_src</span>);
 
-    <span class="kw">let</span> <span class="ident">window</span>: <span class="ident">gtk</span>::<span class="ident">Window</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;window&quot;</span>).<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">window</span>: <span class="ident">gtk</span>::<span class="ident">ApplicationWindow</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;window&quot;</span>).<span class="ident">unwrap</span>();
     <span class="kw">let</span> <span class="ident">_downloads_button</span>: <span class="ident">gtk</span>::<span class="ident">Button</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;downloads_button&quot;</span>).<span class="ident">unwrap</span>();
     <span class="kw">let</span> <span class="ident">back_button</span>: <span class="ident">gtk</span>::<span class="ident">Button</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;back_button&quot;</span>).<span class="ident">unwrap</span>();
     <span class="kw">let</span> <span class="ident">forward_button</span>: <span class="ident">gtk</span>::<span class="ident">Button</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;forward_button&quot;</span>).<span class="ident">unwrap</span>();
@@ -546,6 +576,8 @@
     <span class="kw">let</span> <span class="ident">add_tab</span>: <span class="ident">gtk</span>::<span class="ident">Button</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;add_tab&quot;</span>).<span class="ident">unwrap</span>();
     <span class="kw">let</span> <span class="ident">tabs</span>: <span class="ident">gtk</span>::<span class="ident">Notebook</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;tabs&quot;</span>).<span class="ident">unwrap</span>();
     <span class="kw">let</span> <span class="ident">nav_entry</span>: <span class="ident">gtk</span>::<span class="ident">Entry</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;nav_entry&quot;</span>).<span class="ident">unwrap</span>();
+
+    <span class="ident">window</span>.<span class="ident">set_application</span>(<span class="prelude-val">Some</span>(<span class="ident">application</span>));
 
     <span class="kw">if</span> <span class="ident">tabs</span>.<span class="ident">get_n_pages</span>() <span class="op">=</span><span class="op">=</span> <span class="number">0</span> {
         <span class="ident">initial_tab</span>(<span class="kw-2">&amp;</span><span class="ident">builder</span>, <span class="kw-2">&amp;</span><span class="ident">tabs</span>)

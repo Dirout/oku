@@ -416,7 +416,6 @@
 <span id="413">413</span>
 <span id="414">414</span>
 <span id="415">415</span>
-<span id="416">416</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">/*
     This file is part of Oku.
@@ -435,9 +434,8 @@
     along with Oku.  If not, see &lt;https://www.gnu.org/licenses/&gt;.
 */</span>
 
-<span class="kw">use</span> <span class="ident">webkit2gtk</span>::<span class="ident">URISchemeRequestExt</span>;
-<span class="kw">use</span> <span class="ident">webkit2gtk</span>::<span class="ident">URISchemeRequest</span>;
 <span class="kw">use</span> <span class="ident">directories_next</span>::<span class="ident">ProjectDirs</span>;
+<span class="kw">use</span> <span class="ident">futures</span>::<span class="ident">TryStreamExt</span>;
 <span class="kw">use</span> <span class="ident">gio</span>::<span class="ident">prelude</span>::<span class="kw-2">*</span>;
 <span class="kw">use</span> <span class="ident">glib</span>::<span class="ident">clone</span>;
 <span class="kw">use</span> <span class="ident">glib</span>::<span class="ident">Cast</span>;
@@ -454,26 +452,30 @@
 <span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">NotebookExt</span>;
 <span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">Orientation</span>::<span class="ident">Horizontal</span>;
 <span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">WidgetExt</span>;
+<span class="kw">use</span> <span class="ident">ipfs_api</span>::<span class="ident">IpfsClient</span>;
 <span class="kw">use</span> <span class="ident">pango</span>::<span class="ident">EllipsizeMode</span>;
 <span class="kw">use</span> <span class="ident">percent_encoding</span>::<span class="ident">percent_decode_str</span>;
-<span class="kw">use</span> <span class="ident">std</span>::<span class="ident">env</span>::<span class="ident">args</span>;
-<span class="kw">use</span> <span class="ident">webkit2gtk</span>::<span class="ident">SettingsExt</span>;
-<span class="kw">use</span> <span class="ident">webkit2gtk</span>::<span class="ident">WebContextExt</span>;
-<span class="kw">use</span> <span class="ident">webkit2gtk</span>::<span class="ident">WebViewExt</span>;
-<span class="kw">use</span> <span class="ident">ipfs_api</span>::<span class="ident">IpfsClient</span>;
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">collections</span>::<span class="ident">HashMap</span>;
+<span class="kw">use</span> <span class="ident">std</span>::<span class="ident">env</span>::<span class="ident">args</span>;
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">fs</span>;
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">path</span>::<span class="ident">Path</span>;
-<span class="kw">use</span> <span class="ident">futures</span>::<span class="ident">TryStreamExt</span>;
+<span class="kw">use</span> <span class="ident">webkit2gtk</span>::<span class="ident">SettingsExt</span>;
+<span class="kw">use</span> <span class="ident">webkit2gtk</span>::<span class="ident">URISchemeRequest</span>;
+<span class="kw">use</span> <span class="ident">webkit2gtk</span>::<span class="ident">URISchemeRequestExt</span>;
+<span class="kw">use</span> <span class="ident">webkit2gtk</span>::<span class="ident">WebContextExt</span>;
+<span class="kw">use</span> <span class="ident">webkit2gtk</span>::<span class="ident">WebViewExt</span>;
 
 <span class="attribute">#[<span class="ident">macro_use</span>]</span>
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">lazy_static</span>;
 
 <span class="macro">lazy_static</span><span class="macro">!</span> {
+    <span class="doccomment">/// The platform-specific directories intended for Oku&#39;s use</span>
     <span class="kw">static</span> <span class="kw-2">ref</span> <span class="ident">PROJECT_DIRECTORIES</span>: <span class="ident">ProjectDirs</span> <span class="op">=</span>
         <span class="ident">ProjectDirs</span>::<span class="ident">from</span>(<span class="string">&quot;org&quot;</span>, <span class="string">&quot;Emil Sayahi&quot;</span>, <span class="string">&quot;Oku&quot;</span>).<span class="ident">unwrap</span>();
+    <span class="doccomment">/// The platform-specific directory where Oku caches data</span>
     <span class="kw">static</span> <span class="kw-2">ref</span> <span class="ident">CACHE_DIR</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span> <span class="op">=</span> <span class="ident">PROJECT_DIRECTORIES</span>.<span class="ident">cache_dir</span>().<span class="ident">to_str</span>().<span class="ident">unwrap</span>();
 }
+<span class="doccomment">/// The current release version number of Oku</span>
 <span class="kw">const</span> <span class="ident">VERSION</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span><span class="op">&gt;</span> <span class="op">=</span> <span class="macro">option_env</span><span class="macro">!</span>(<span class="string">&quot;CARGO_PKG_VERSION&quot;</span>);
 
 <span class="doccomment">/// Connect to a page using the current tab</span>
@@ -526,12 +528,11 @@
 }
 
 <span class="doccomment">/// Comply with a request using the IPFS scheme</span>
-<span class="doccomment">/// </span>
+<span class="doccomment">///</span>
 <span class="doccomment">/// # Arguments</span>
-<span class="doccomment">/// </span>
+<span class="doccomment">///</span>
 <span class="doccomment">/// `request` - The request from the browser for the IPFS resource</span>
-<span class="kw">fn</span> <span class="ident">handle_ipfs_request</span>(<span class="ident">request</span>: <span class="kw-2">&amp;</span><span class="ident">URISchemeRequest</span>)
-{
+<span class="kw">fn</span> <span class="ident">handle_ipfs_request</span>(<span class="ident">request</span>: <span class="kw-2">&amp;</span><span class="ident">URISchemeRequest</span>) {
     <span class="kw">let</span> <span class="ident">client</span> <span class="op">=</span> <span class="ident">IpfsClient</span>::<span class="ident">default</span>();
     <span class="kw">let</span> <span class="ident">request_url</span> <span class="op">=</span> <span class="ident">request</span>.<span class="ident">get_uri</span>().<span class="ident">unwrap</span>().<span class="ident">to_string</span>();
     <span class="kw">let</span> <span class="ident">ipfs_path</span> <span class="op">=</span> <span class="ident">request_url</span>.<span class="ident">replacen</span>(<span class="string">&quot;ipfs://&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="number">1</span>);
@@ -552,10 +553,7 @@
     <span class="kw">let</span> <span class="ident">web_settings</span>: <span class="ident">webkit2gtk</span>::<span class="ident">Settings</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;webkit_settings&quot;</span>).<span class="ident">unwrap</span>();
     <span class="kw">let</span> <span class="ident">web_view</span> <span class="op">=</span> <span class="ident">web_kit</span>.<span class="ident">build</span>();
     <span class="kw">let</span> <span class="ident">web_context</span> <span class="op">=</span> <span class="ident">web_view</span>.<span class="ident">get_context</span>().<span class="ident">unwrap</span>();
-    <span class="ident">web_context</span>.<span class="ident">register_uri_scheme</span>(<span class="string">&quot;ipfs&quot;</span>,
-    <span class="kw">move</span> <span class="op">|</span><span class="ident">request</span><span class="op">|</span> {
-        <span class="ident">handle_ipfs_request</span>(<span class="ident">request</span>)
-    });
+    <span class="ident">web_context</span>.<span class="ident">register_uri_scheme</span>(<span class="string">&quot;ipfs&quot;</span>, <span class="kw">move</span> <span class="op">|</span><span class="ident">request</span><span class="op">|</span> <span class="ident">handle_ipfs_request</span>(<span class="ident">request</span>));
     <span class="ident">web_settings</span>.<span class="ident">set_user_agent_with_application_details</span>(<span class="prelude-val">Some</span>(<span class="string">&quot;Oku&quot;</span>), <span class="prelude-val">Some</span>(<span class="ident">VERSION</span>.<span class="ident">unwrap</span>()));
     <span class="ident">web_view</span>.<span class="ident">set_settings</span>(<span class="kw-2">&amp;</span><span class="ident">web_settings</span>);
     <span class="kw">let</span> <span class="ident">extensions_path</span> <span class="op">=</span> <span class="macro">format</span><span class="macro">!</span>(
@@ -574,13 +572,13 @@
 }
 
 <span class="doccomment">/// Asynchronously obtain an IPFS file</span>
-<span class="doccomment">/// </span>
+<span class="doccomment">///</span>
 <span class="doccomment">/// # Arguments</span>
-<span class="doccomment">/// </span>
+<span class="doccomment">///</span>
 <span class="doccomment">/// `client` - The IPFS client running locally</span>
-<span class="doccomment">/// </span>
+<span class="doccomment">///</span>
 <span class="doccomment">/// `hash` - The IPFS identifier of the file</span>
-<span class="doccomment">/// </span>
+<span class="doccomment">///</span>
 <span class="doccomment">/// `local_directory` - Where to save the IPFS file locally</span>
 <span class="kw">fn</span> <span class="ident">get_from_hash</span>(<span class="ident">client</span>: <span class="ident">IpfsClient</span>, <span class="ident">hash</span>: <span class="ident">String</span>, <span class="ident">local_directory</span>: <span class="ident">String</span>) {
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">hierarchy</span> <span class="op">=</span> <span class="ident">HashMap</span>::<span class="ident">new</span>();
@@ -597,13 +595,13 @@
 }
 
 <span class="doccomment">/// Download an IPFS file to the local machine</span>
-<span class="doccomment">/// </span>
+<span class="doccomment">///</span>
 <span class="doccomment">/// # Arguments</span>
-<span class="doccomment">/// </span>
+<span class="doccomment">///</span>
 <span class="doccomment">/// `client` - The IPFS client running locally</span>
-<span class="doccomment">/// </span>
+<span class="doccomment">///</span>
 <span class="doccomment">/// `file_hash` - The CID of the folder the file is in</span>
-<span class="doccomment">/// </span>
+<span class="doccomment">///</span>
 <span class="doccomment">/// `file_path` - The path to the file from the root of the folder</span>
 <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">ipfs_download_file</span>(<span class="ident">client</span>: <span class="kw-2">&amp;</span><span class="ident">IpfsClient</span>, <span class="ident">file_hash</span>: <span class="ident">String</span>, <span class="ident">file_path</span>: <span class="ident">String</span>) {
     <span class="kw">match</span> <span class="ident">client</span>
@@ -708,7 +706,7 @@
     }));
 }
 
-<span class="doccomment">/// The main function of Oku.</span>
+<span class="doccomment">/// The main function of Oku</span>
 <span class="kw">fn</span> <span class="ident">main</span>() {
     <span class="kw">let</span> <span class="ident">application</span> <span class="op">=</span> <span class="ident">gtk</span>::<span class="ident">Application</span>::<span class="ident">new</span>(<span class="prelude-val">Some</span>(<span class="string">&quot;com.github.madebyemil.oku&quot;</span>), <span class="ident">Default</span>::<span class="ident">default</span>())
         .<span class="ident">expect</span>(<span class="string">&quot;Initialization failed … &quot;</span>);
@@ -720,7 +718,7 @@
     <span class="ident">application</span>.<span class="ident">run</span>(<span class="kw-2">&amp;</span><span class="ident">args</span>().<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span><span class="op">&gt;</span>());
 }
 
-<span class="doccomment">/// Creates a new functional &amp; graphical browser window.</span>
+<span class="doccomment">/// Creates a new functional &amp; graphical browser window</span>
 <span class="kw">fn</span> <span class="ident">new_window</span>(<span class="ident">application</span>: <span class="kw-2">&amp;</span><span class="ident">gtk</span>::<span class="ident">Application</span>) {
     <span class="kw">if</span> <span class="ident">gtk</span>::<span class="ident">init</span>().<span class="ident">is_err</span>() {
         <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;Failed to initialize GTK.&quot;</span>);

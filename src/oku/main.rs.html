@@ -466,7 +466,6 @@
 <span id="463">463</span>
 <span id="464">464</span>
 <span id="465">465</span>
-<span id="466">466</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">/*
     This file is part of Oku.
@@ -485,8 +484,6 @@
     along with Oku.  If not, see &lt;https://www.gnu.org/licenses/&gt;.
 */</span>
 
-<span class="kw">use</span> <span class="ident">urlencoding</span>::<span class="ident">encode</span>;
-<span class="kw">use</span> <span class="ident">urlencoding</span>::<span class="ident">decode</span>;
 <span class="kw">use</span> <span class="ident">directories_next</span>::<span class="ident">ProjectDirs</span>;
 <span class="kw">use</span> <span class="ident">futures</span>::<span class="ident">TryStreamExt</span>;
 <span class="kw">use</span> <span class="ident">gio</span>::<span class="ident">prelude</span>::<span class="kw-2">*</span>;
@@ -511,6 +508,7 @@
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">env</span>::<span class="ident">args</span>;
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">fs</span>;
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">path</span>::<span class="ident">Path</span>;
+<span class="kw">use</span> <span class="ident">urlencoding</span>::<span class="ident">decode</span>;
 <span class="kw">use</span> <span class="ident">webkit2gtk</span>::<span class="ident">SettingsExt</span>;
 <span class="kw">use</span> <span class="ident">webkit2gtk</span>::<span class="ident">URISchemeRequest</span>;
 <span class="kw">use</span> <span class="ident">webkit2gtk</span>::<span class="ident">URISchemeRequestExt</span>;

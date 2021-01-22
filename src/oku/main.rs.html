@@ -480,6 +480,15 @@
 <span id="477">477</span>
 <span id="478">478</span>
 <span id="479">479</span>
+<span id="480">480</span>
+<span id="481">481</span>
+<span id="482">482</span>
+<span id="483">483</span>
+<span id="484">484</span>
+<span id="485">485</span>
+<span id="486">486</span>
+<span id="487">487</span>
+<span id="488">488</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">/*
     This file is part of Oku.
@@ -498,7 +507,6 @@
     along with Oku.  If not, see &lt;https://www.gnu.org/licenses/&gt;.
 */</span>
 
-<span class="kw">use</span> <span class="ident">std</span>::<span class="ident">convert</span>::<span class="ident">TryFrom</span>;
 <span class="kw">use</span> <span class="ident">directories_next</span>::<span class="ident">ProjectDirs</span>;
 <span class="kw">use</span> <span class="ident">futures</span>::<span class="ident">TryStreamExt</span>;
 <span class="kw">use</span> <span class="ident">gio</span>::<span class="ident">prelude</span>::<span class="kw-2">*</span>;
@@ -511,7 +519,7 @@
 <span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">ContainerExt</span>;
 <span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">EntryExt</span>;
 <span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">GtkWindowExt</span>;
-<span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">IconSize</span>::<span class="ident">Button</span>;
+<span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">IconSize</span>;
 <span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">ImageExt</span>;
 <span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">Inhibit</span>;
 <span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">LabelExt</span>;
@@ -520,6 +528,7 @@
 <span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">WidgetExt</span>;
 <span class="kw">use</span> <span class="ident">ipfs_api</span>::<span class="ident">IpfsClient</span>;
 <span class="kw">use</span> <span class="ident">pango</span>::<span class="ident">EllipsizeMode</span>;
+<span class="kw">use</span> <span class="ident">std</span>::<span class="ident">convert</span>::<span class="ident">TryFrom</span>;
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">env</span>::<span class="ident">args</span>;
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">fs</span>;
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">path</span>::<span class="ident">Path</span>;
@@ -708,10 +717,11 @@
 <span class="doccomment">/// * `label` - The text to be displayed on a tab</span>
 <span class="kw">fn</span> <span class="ident">new_tab</span>(<span class="ident">label</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">gtk</span>::<span class="ident">Box</span> {
     <span class="kw">let</span> <span class="ident">tab_box</span> <span class="op">=</span> <span class="ident">gtk</span>::<span class="ident">Box</span>::<span class="ident">new</span>(<span class="ident">Horizontal</span>, <span class="number">5</span>);
-    <span class="kw">let</span> <span class="ident">favicon</span> <span class="op">=</span> <span class="ident">gtk</span>::<span class="ident">Image</span>::<span class="ident">new</span>();
+    <span class="kw">let</span> <span class="ident">favicon</span> <span class="op">=</span> <span class="ident">gtk</span>::<span class="ident">Image</span>::<span class="ident">from_icon_name</span>(<span class="prelude-val">Some</span>(<span class="string">&quot;applications-internet&quot;</span>), <span class="ident">IconSize</span>::<span class="ident">Dnd</span>);
     <span class="kw">let</span> <span class="ident">tab_label</span> <span class="op">=</span> <span class="ident">new_tab_label</span>(<span class="kw-2">&amp;</span><span class="ident">label</span>);
     <span class="kw">let</span> <span class="ident">close_button</span> <span class="op">=</span> <span class="ident">gtk</span>::<span class="ident">Button</span>::<span class="ident">new</span>();
-    <span class="kw">let</span> <span class="ident">close_icon</span> <span class="op">=</span> <span class="ident">gtk</span>::<span class="ident">Image</span>::<span class="ident">from_icon_name</span>(<span class="prelude-val">Some</span>(<span class="string">&quot;list-remove&quot;</span>), <span class="ident">Button</span>);
+    <span class="kw">let</span> <span class="ident">close_icon</span> <span class="op">=</span> <span class="ident">gtk</span>::<span class="ident">Image</span>::<span class="ident">from_icon_name</span>(<span class="prelude-val">Some</span>(<span class="string">&quot;list-remove&quot;</span>), <span class="ident">IconSize</span>::<span class="ident">Button</span>);
+    <span class="ident">favicon</span>.<span class="ident">set_visible</span>(<span class="bool-val">true</span>);
     <span class="ident">tab_box</span>.<span class="ident">set_hexpand</span>(<span class="bool-val">true</span>);
     <span class="ident">tab_box</span>.<span class="ident">set_vexpand</span>(<span class="bool-val">false</span>);
     <span class="ident">tab_box</span>.<span class="ident">set_visible</span>(<span class="bool-val">true</span>);
@@ -789,24 +799,32 @@
     <span class="kw">let</span> <span class="ident">web_favicon</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">web_view</span>.<span class="ident">get_favicon</span>();
     <span class="kw">match</span> <span class="kw-2">&amp;</span><span class="ident">web_favicon</span> {
         <span class="prelude-val">Some</span>(<span class="kw">_</span>) <span class="op">=</span><span class="op">&gt;</span> {
-            <span class="kw">let</span> <span class="ident">favicon_surface</span> <span class="op">=</span> <span class="ident">cairo</span>::<span class="ident">ImageSurface</span>::<span class="ident">try_from</span>(<span class="ident">web_favicon</span>.<span class="ident">to_owned</span>().<span class="ident">unwrap</span>()).<span class="ident">unwrap</span>();
+            <span class="kw">let</span> <span class="ident">favicon_surface</span> <span class="op">=</span>
+                <span class="ident">cairo</span>::<span class="ident">ImageSurface</span>::<span class="ident">try_from</span>(<span class="ident">web_favicon</span>.<span class="ident">to_owned</span>().<span class="ident">unwrap</span>()).<span class="ident">unwrap</span>();
             <span class="kw">let</span> <span class="ident">favicon_width</span> <span class="op">=</span> <span class="ident">favicon_surface</span>.<span class="ident">get_width</span>();
             <span class="kw">let</span> <span class="ident">favicon_height</span> <span class="op">=</span> <span class="ident">favicon_surface</span>.<span class="ident">get_height</span>();
-            <span class="kw">match</span> <span class="ident">favicon_width</span> <span class="op">&lt;</span> <span class="number">32</span> <span class="op">&amp;&amp;</span> <span class="ident">favicon_height</span> <span class="op">&lt;</span> <span class="number">32</span>
-            {
+            <span class="kw">match</span> <span class="ident">favicon_width</span> <span class="op">&lt;</span> <span class="number">32</span> <span class="op">&amp;&amp;</span> <span class="ident">favicon_height</span> <span class="op">&lt;</span> <span class="number">32</span> {
                 <span class="bool-val">true</span> <span class="op">=</span><span class="op">&gt;</span> {
                     <span class="ident">favicon</span>.<span class="ident">set_from_surface</span>(<span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="ident">favicon_surface</span>));
                 }
                 <span class="bool-val">false</span> <span class="op">=</span><span class="op">&gt;</span> {
-                    <span class="kw">let</span> <span class="ident">favicon_pixbuf</span> <span class="op">=</span> <span class="ident">gdk</span>::<span class="ident">pixbuf_get_from_surface</span>(<span class="kw-2">&amp;</span><span class="ident">favicon_surface</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="ident">favicon_width</span>, <span class="ident">favicon_height</span>).<span class="ident">unwrap</span>();
-                    <span class="kw">let</span> <span class="ident">scaled_pixbuf</span> <span class="op">=</span> <span class="ident">favicon_pixbuf</span>.<span class="ident">scale_simple</span>(<span class="number">32</span>, <span class="number">32</span>, <span class="ident">gdk_pixbuf</span>::<span class="ident">InterpType</span>::<span class="ident">Tiles</span>).<span class="ident">unwrap</span>();
+                    <span class="kw">let</span> <span class="ident">favicon_pixbuf</span> <span class="op">=</span> <span class="ident">gdk</span>::<span class="ident">pixbuf_get_from_surface</span>(
+                        <span class="kw-2">&amp;</span><span class="ident">favicon_surface</span>,
+                        <span class="number">0</span>,
+                        <span class="number">0</span>,
+                        <span class="ident">favicon_width</span>,
+                        <span class="ident">favicon_height</span>,
+                    )
+                    .<span class="ident">unwrap</span>();
+                    <span class="kw">let</span> <span class="ident">scaled_pixbuf</span> <span class="op">=</span> <span class="ident">favicon_pixbuf</span>
+                        .<span class="ident">scale_simple</span>(<span class="number">32</span>, <span class="number">32</span>, <span class="ident">gdk_pixbuf</span>::<span class="ident">InterpType</span>::<span class="ident">Tiles</span>)
+                        .<span class="ident">unwrap</span>();
                     <span class="ident">favicon</span>.<span class="ident">set_from_pixbuf</span>(<span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="ident">scaled_pixbuf</span>));
                 }
             }
-            <span class="ident">favicon</span>.<span class="ident">set_visible</span>(<span class="bool-val">true</span>);
         }
         <span class="prelude-val">None</span> <span class="op">=</span><span class="op">&gt;</span> {
-            <span class="ident">favicon</span>.<span class="ident">set_visible</span>(<span class="bool-val">false</span>);
+            <span class="ident">favicon</span>.<span class="ident">set_from_icon_name</span>(<span class="prelude-val">Some</span>(<span class="string">&quot;applications-internet&quot;</span>), <span class="ident">IconSize</span>::<span class="ident">Dnd</span>);
         }
     }
 }

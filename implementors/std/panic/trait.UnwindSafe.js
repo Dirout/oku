@@ -1,3 +1,3 @@
 (function() {var implementors = {};
-implementors["oku"] = [{"text":"impl UnwindSafe for PROJECT_DIRECTORIES","synthetic":true,"types":[]},{"text":"impl UnwindSafe for CACHE_DIR","synthetic":true,"types":[]}];
+implementors["oku"] = [{"text":"impl UnwindSafe for PROJECT_DIRECTORIES","synthetic":true,"types":[]},{"text":"impl UnwindSafe for CACHE_DIR","synthetic":true,"types":[]},{"text":"impl UnwindSafe for DATA_DIR","synthetic":true,"types":[]},{"text":"impl UnwindSafe for DownloadItem","synthetic":true,"types":[]}];
 if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

@@ -546,6 +546,11 @@
 <span id="543">543</span>
 <span id="544">544</span>
 <span id="545">545</span>
+<span id="546">546</span>
+<span id="547">547</span>
+<span id="548">548</span>
+<span id="549">549</span>
+<span id="550">550</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">/*
     This file is part of Oku.
@@ -564,9 +569,6 @@
     along with Oku.  If not, see &lt;https://www.gnu.org/licenses/&gt;.
 */</span>
 
-<span class="kw">use</span> <span class="ident">webkit2gtk</span>::<span class="ident">URIRequestExt</span>;
-<span class="kw">use</span> <span class="ident">webkit2gtk</span>::<span class="ident">DownloadExt</span>;
-<span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">PopoverExt</span>;
 <span class="kw">use</span> <span class="ident">directories_next</span>::<span class="ident">ProjectDirs</span>;
 <span class="kw">use</span> <span class="ident">futures</span>::<span class="ident">TryStreamExt</span>;
 <span class="kw">use</span> <span class="ident">gio</span>::<span class="ident">prelude</span>::<span class="kw-2">*</span>;
@@ -585,6 +587,7 @@
 <span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">LabelExt</span>;
 <span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">NotebookExt</span>;
 <span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">Orientation</span>::<span class="ident">Horizontal</span>;
+<span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">PopoverExt</span>;
 <span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">WidgetExt</span>;
 <span class="kw">use</span> <span class="ident">ipfs_api</span>::<span class="ident">IpfsClient</span>;
 <span class="kw">use</span> <span class="ident">pango</span>::<span class="ident">EllipsizeMode</span>;
@@ -593,7 +596,9 @@
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">fs</span>;
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">path</span>::<span class="ident">Path</span>;
 <span class="kw">use</span> <span class="ident">urlencoding</span>::<span class="ident">decode</span>;
+<span class="kw">use</span> <span class="ident">webkit2gtk</span>::<span class="ident">DownloadExt</span>;
 <span class="kw">use</span> <span class="ident">webkit2gtk</span>::<span class="ident">SettingsExt</span>;
+<span class="kw">use</span> <span class="ident">webkit2gtk</span>::<span class="ident">URIRequestExt</span>;
 <span class="kw">use</span> <span class="ident">webkit2gtk</span>::<span class="ident">URISchemeRequest</span>;
 <span class="kw">use</span> <span class="ident">webkit2gtk</span>::<span class="ident">URISchemeRequestExt</span>;
 <span class="kw">use</span> <span class="ident">webkit2gtk</span>::<span class="ident">WebContextExt</span>;
@@ -614,12 +619,11 @@
 <span class="doccomment">/// The current release version number of Oku</span>
 <span class="kw">const</span> <span class="ident">VERSION</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span><span class="op">&gt;</span> <span class="op">=</span> <span class="macro">option_env</span><span class="macro">!</span>(<span class="string">&quot;CARGO_PKG_VERSION&quot;</span>);
 
-<span class="kw">struct</span> <span class="ident">DownloadItem</span>
-{
+<span class="kw">struct</span> <span class="ident">DownloadItem</span> {
     <span class="ident">source</span>: <span class="ident">String</span>,
     <span class="ident">destination</span>: <span class="ident">String</span>,
     <span class="ident">requested_time</span>: <span class="ident">String</span>,
-    <span class="ident">successful</span>: <span class="ident">bool</span>
+    <span class="ident">successful</span>: <span class="ident">bool</span>,
 }
 
 <span class="doccomment">/// Connect to a page using the current tab</span>
@@ -692,21 +696,22 @@
 <span class="doccomment">/// # Arguments</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// * `builder` - The object that contains all graphical widgets of the window</span>
-<span class="doccomment">/// </span>
+<span class="doccomment">///</span>
 <span class="doccomment">/// * `download_dialog` - The dialog box shown when a download is requested</span>
-<span class="doccomment">/// </span>
+<span class="doccomment">///</span>
 <span class="doccomment">/// * `is_private` - Whether the window represents a private session</span>
-<span class="kw">fn</span> <span class="ident">new_view</span>(<span class="ident">builder</span>: <span class="kw-2">&amp;</span><span class="ident">gtk</span>::<span class="ident">Builder</span>, <span class="ident">download_dialog</span>: <span class="kw-2">&amp;</span><span class="ident">gtk</span>::<span class="ident">Dialog</span>, <span class="ident">is_private</span>: <span class="ident">bool</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">webkit2gtk</span>::<span class="ident">WebView</span> {
+<span class="kw">fn</span> <span class="ident">new_view</span>(
+    <span class="ident">builder</span>: <span class="kw-2">&amp;</span><span class="ident">gtk</span>::<span class="ident">Builder</span>,
+    <span class="ident">download_dialog</span>: <span class="kw-2">&amp;</span><span class="ident">gtk</span>::<span class="ident">Dialog</span>,
+    <span class="ident">is_private</span>: <span class="ident">bool</span>,
+) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">webkit2gtk</span>::<span class="ident">WebView</span> {
     <span class="kw">let</span> <span class="ident">web_kit</span> <span class="op">=</span> <span class="ident">webkit2gtk</span>::<span class="ident">WebViewBuilder</span>::<span class="ident">new</span>()
         .<span class="ident">is_ephemeral</span>(<span class="ident">is_private</span>)
         .<span class="ident">automation_presentation_type</span>(<span class="ident">webkit2gtk</span>::<span class="ident">AutomationBrowsingContextPresentation</span>::<span class="ident">Tab</span>);
     <span class="kw">let</span> <span class="ident">web_settings</span>: <span class="ident">webkit2gtk</span>::<span class="ident">Settings</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;webkit_settings&quot;</span>).<span class="ident">unwrap</span>();
     <span class="kw">let</span> <span class="ident">web_view</span> <span class="op">=</span> <span class="ident">web_kit</span>.<span class="ident">build</span>();
     <span class="kw">let</span> <span class="ident">web_context</span> <span class="op">=</span> <span class="ident">web_view</span>.<span class="ident">get_context</span>().<span class="ident">unwrap</span>();
-    <span class="kw">let</span> <span class="ident">extensions_path</span> <span class="op">=</span> <span class="macro">format</span><span class="macro">!</span>(
-        <span class="string">&quot;{}/web-extensions/&quot;</span>,
-        <span class="ident">DATA_DIR</span>.<span class="ident">to_string</span>()
-    );
+    <span class="kw">let</span> <span class="ident">extensions_path</span> <span class="op">=</span> <span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;{}/web-extensions/&quot;</span>, <span class="ident">DATA_DIR</span>.<span class="ident">to_string</span>());
     <span class="kw">let</span> <span class="ident">favicon_database_path</span> <span class="op">=</span> <span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;{}/favicon-database/&quot;</span>, <span class="ident">CACHE_DIR</span>.<span class="ident">to_string</span>());
     <span class="ident">web_context</span>.<span class="ident">register_uri_scheme</span>(<span class="string">&quot;ipfs&quot;</span>, <span class="kw">move</span> <span class="op">|</span><span class="ident">request</span><span class="op">|</span> <span class="ident">handle_ipfs_request</span>(<span class="ident">request</span>));
     <span class="ident">web_settings</span>.<span class="ident">set_user_agent_with_application_details</span>(<span class="prelude-val">Some</span>(<span class="string">&quot;Oku&quot;</span>), <span class="prelude-val">Some</span>(<span class="ident">VERSION</span>.<span class="ident">unwrap</span>()));
@@ -723,8 +728,8 @@
         <span class="kw">let</span> <span class="ident">inner_button_box</span>: <span class="ident">gtk</span>::<span class="ident">ButtonBox</span> <span class="op">=</span> <span class="ident">inner_button_box_widget</span>.<span class="ident">clone</span>().<span class="ident">downcast</span>().<span class="ident">unwrap</span>();
         <span class="kw">let</span> <span class="ident">cancel_button_widget</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">inner_button_box</span>.<span class="ident">get_children</span>()[<span class="number">0</span>];
         <span class="kw">let</span> <span class="ident">save_button_widget</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">inner_button_box</span>.<span class="ident">get_children</span>()[<span class="number">1</span>];
-        <span class="kw">let</span> <span class="ident">cancel_button</span>: <span class="ident">gtk</span>::<span class="ident">Button</span> <span class="op">=</span> <span class="ident">cancel_button_widget</span>.<span class="ident">clone</span>().<span class="ident">downcast</span>().<span class="ident">unwrap</span>();
-        <span class="kw">let</span> <span class="ident">save_button</span>: <span class="ident">gtk</span>::<span class="ident">Button</span> <span class="op">=</span> <span class="ident">save_button_widget</span>.<span class="ident">clone</span>().<span class="ident">downcast</span>().<span class="ident">unwrap</span>();
+        <span class="kw">let</span> <span class="ident">_cancel_button</span>: <span class="ident">gtk</span>::<span class="ident">Button</span> <span class="op">=</span> <span class="ident">cancel_button_widget</span>.<span class="ident">clone</span>().<span class="ident">downcast</span>().<span class="ident">unwrap</span>();
+        <span class="kw">let</span> <span class="ident">_save_button</span>: <span class="ident">gtk</span>::<span class="ident">Button</span> <span class="op">=</span> <span class="ident">save_button_widget</span>.<span class="ident">clone</span>().<span class="ident">downcast</span>().<span class="ident">unwrap</span>();
 
         <span class="kw">let</span> <span class="ident">message_box_widget</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">dialog_box</span>.<span class="ident">get_children</span>()[<span class="number">0</span>];
         <span class="kw">let</span> <span class="ident">message_box</span>: <span class="ident">gtk</span>::<span class="ident">Box</span> <span class="op">=</span> <span class="ident">message_box_widget</span>.<span class="ident">clone</span>().<span class="ident">downcast</span>().<span class="ident">unwrap</span>();
@@ -732,7 +737,7 @@
         <span class="kw">let</span> <span class="ident">message</span>: <span class="ident">gtk</span>::<span class="ident">Label</span> <span class="op">=</span> <span class="ident">message_widget</span>.<span class="ident">clone</span>().<span class="ident">downcast</span>().<span class="ident">unwrap</span>();
 
         <span class="ident">message</span>.<span class="ident">set_text</span>(<span class="kw-2">&amp;</span><span class="ident">download</span>.<span class="ident">get_request</span>().<span class="ident">unwrap</span>().<span class="ident">get_uri</span>().<span class="ident">unwrap</span>());
-        
+
         <span class="ident">download_dialog</span>.<span class="ident">show_all</span>();
     }));
     <span class="ident">web_view</span>.<span class="ident">set_visible</span>(<span class="bool-val">true</span>);
@@ -841,14 +846,14 @@
 <span class="doccomment">/// * `tabs` - The notebook containing the tabs &amp; pages of the current browser session</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// * `new_tab_number` - A number representing the position in the notebook where this new entry should</span>
-<span class="doccomment">/// </span>
+<span class="doccomment">///</span>
 <span class="doccomment">/// * `is_private` - Whether the window represents a private session</span>
 <span class="kw">fn</span> <span class="ident">new_tab_page</span>(
     <span class="ident">builder</span>: <span class="kw-2">&amp;</span><span class="ident">gtk</span>::<span class="ident">Builder</span>,
     <span class="ident">tabs</span>: <span class="kw-2">&amp;</span><span class="ident">gtk</span>::<span class="ident">Notebook</span>,
     <span class="ident">download_dialog</span>: <span class="kw-2">&amp;</span><span class="ident">gtk</span>::<span class="ident">Dialog</span>,
     <span class="ident">new_tab_number</span>: <span class="ident">u32</span>,
-    <span class="ident">is_private</span>: <span class="ident">bool</span>
+    <span class="ident">is_private</span>: <span class="ident">bool</span>,
 ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">webkit2gtk</span>::<span class="ident">WebView</span> {
     <span class="kw">let</span> <span class="ident">new_view</span> <span class="op">=</span> <span class="ident">new_view</span>(<span class="ident">builder</span>, <span class="ident">download_dialog</span>, <span class="ident">is_private</span>);
     <span class="ident">tabs</span>.<span class="ident">insert_page</span>(<span class="kw-2">&amp;</span><span class="ident">new_view</span>, <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="ident">new_tab</span>(<span class="string">&quot;New Tab&quot;</span>)), <span class="prelude-val">Some</span>(<span class="ident">new_tab_number</span>));
@@ -877,9 +882,14 @@
 <span class="doccomment">/// * `builder` - The object that contains all graphical widgets of the window</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// * `tabs` - The notebook containing the tabs &amp; pages of the current browser session</span>
-<span class="doccomment">/// </span>
+<span class="doccomment">///</span>
 <span class="doccomment">/// * `is_private` - Whether the window represents a private session</span>
-<span class="kw">fn</span> <span class="ident">create_initial_tab</span>(<span class="ident">builder</span>: <span class="kw-2">&amp;</span><span class="ident">gtk</span>::<span class="ident">Builder</span>, <span class="ident">tabs</span>: <span class="kw-2">&amp;</span><span class="ident">gtk</span>::<span class="ident">Notebook</span>, <span class="ident">download_dialog</span>: <span class="kw-2">&amp;</span><span class="ident">gtk</span>::<span class="ident">Dialog</span>, <span class="ident">is_private</span>: <span class="ident">bool</span>) {
+<span class="kw">fn</span> <span class="ident">create_initial_tab</span>(
+    <span class="ident">builder</span>: <span class="kw-2">&amp;</span><span class="ident">gtk</span>::<span class="ident">Builder</span>,
+    <span class="ident">tabs</span>: <span class="kw-2">&amp;</span><span class="ident">gtk</span>::<span class="ident">Notebook</span>,
+    <span class="ident">download_dialog</span>: <span class="kw-2">&amp;</span><span class="ident">gtk</span>::<span class="ident">Dialog</span>,
+    <span class="ident">is_private</span>: <span class="ident">bool</span>,
+) {
     <span class="kw">let</span> <span class="ident">web_view</span> <span class="op">=</span> <span class="ident">new_tab_page</span>(<span class="kw-2">&amp;</span><span class="ident">builder</span>, <span class="kw-2">&amp;</span><span class="ident">tabs</span>, <span class="kw-2">&amp;</span><span class="ident">download_dialog</span>, <span class="number">0</span>, <span class="ident">is_private</span>);
     <span class="kw">let</span> <span class="ident">current_tab_label</span>: <span class="ident">gtk</span>::<span class="ident">Box</span> <span class="op">=</span> <span class="ident">tabs</span>.<span class="ident">get_tab_label</span>(<span class="kw-2">&amp;</span><span class="ident">web_view</span>).<span class="ident">unwrap</span>().<span class="ident">downcast</span>().<span class="ident">unwrap</span>();
     <span class="kw">let</span> <span class="ident">close_button_widget</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">current_tab_label</span>.<span class="ident">get_children</span>()[<span class="number">2</span>];
@@ -977,11 +987,11 @@
 }
 
 <span class="doccomment">/// Create a new functional &amp; graphical browser window</span>
-<span class="doccomment">/// </span>
+<span class="doccomment">///</span>
 <span class="doccomment">/// # Arguments</span>
-<span class="doccomment">/// </span>
+<span class="doccomment">///</span>
 <span class="doccomment">/// * `application` - The application data representing Oku</span>
-<span class="doccomment">/// </span>
+<span class="doccomment">///</span>
 <span class="doccomment">/// * `is_private` - Whether the window represents a private session</span>
 <span class="kw">fn</span> <span class="ident">new_window</span>(<span class="ident">application</span>: <span class="kw-2">&amp;</span><span class="ident">gtk</span>::<span class="ident">Application</span>, <span class="ident">is_private</span>: <span class="ident">bool</span>) {
     <span class="kw">if</span> <span class="ident">gtk</span>::<span class="ident">init</span>().<span class="ident">is_err</span>() {

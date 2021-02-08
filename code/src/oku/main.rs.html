@@ -773,6 +773,54 @@
 <span id="770">770</span>
 <span id="771">771</span>
 <span id="772">772</span>
+<span id="773">773</span>
+<span id="774">774</span>
+<span id="775">775</span>
+<span id="776">776</span>
+<span id="777">777</span>
+<span id="778">778</span>
+<span id="779">779</span>
+<span id="780">780</span>
+<span id="781">781</span>
+<span id="782">782</span>
+<span id="783">783</span>
+<span id="784">784</span>
+<span id="785">785</span>
+<span id="786">786</span>
+<span id="787">787</span>
+<span id="788">788</span>
+<span id="789">789</span>
+<span id="790">790</span>
+<span id="791">791</span>
+<span id="792">792</span>
+<span id="793">793</span>
+<span id="794">794</span>
+<span id="795">795</span>
+<span id="796">796</span>
+<span id="797">797</span>
+<span id="798">798</span>
+<span id="799">799</span>
+<span id="800">800</span>
+<span id="801">801</span>
+<span id="802">802</span>
+<span id="803">803</span>
+<span id="804">804</span>
+<span id="805">805</span>
+<span id="806">806</span>
+<span id="807">807</span>
+<span id="808">808</span>
+<span id="809">809</span>
+<span id="810">810</span>
+<span id="811">811</span>
+<span id="812">812</span>
+<span id="813">813</span>
+<span id="814">814</span>
+<span id="815">815</span>
+<span id="816">816</span>
+<span id="817">817</span>
+<span id="818">818</span>
+<span id="819">819</span>
+<span id="820">820</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">/*
     This file is part of Oku.
@@ -793,6 +841,9 @@
 
 
 
+<span class="kw">use</span> <span class="ident">cid</span>::<span class="ident">Cid</span>;
+<span class="kw">use</span> <span class="ident">url</span>::<span class="ident">Url</span>;
+<span class="kw">use</span> <span class="ident">url</span>::<span class="ident">ParseError</span>;
 <span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">ToggleButtonExt</span>;
 <span class="kw">use</span> <span class="ident">webkit2gtk</span>::<span class="ident">FindControllerExt</span>;
 <span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">SearchEntryExt</span>;
@@ -869,11 +920,58 @@
 <span class="kw">fn</span> <span class="ident">connect</span>(<span class="ident">nav_entry</span>: <span class="kw-2">&amp;</span><span class="ident">gtk</span>::<span class="ident">Entry</span>, <span class="ident">web_view</span>: <span class="kw-2">&amp;</span><span class="ident">webkit2gtk</span>::<span class="ident">WebView</span>) {
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">nav_text</span> <span class="op">=</span> <span class="ident">nav_entry</span>.<span class="ident">get_text</span>().<span class="ident">to_string</span>();
 
-    <span class="kw">if</span> <span class="op">!</span><span class="ident">nav_text</span>.<span class="ident">contains</span>(<span class="string">&quot;://&quot;</span>) <span class="op">&amp;&amp;</span> <span class="op">!</span><span class="ident">nav_text</span>.<span class="ident">starts_with</span>(<span class="string">&quot;about:&quot;</span>) {
-        <span class="ident">nav_text</span> <span class="op">=</span> <span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;http://{}&quot;</span>, <span class="ident">nav_text</span>);
+    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">parsed_url</span> <span class="op">=</span> <span class="ident">Url</span>::<span class="ident">parse</span>(<span class="kw-2">&amp;</span><span class="ident">nav_text</span>);
+    <span class="kw">match</span> <span class="ident">parsed_url</span>
+    {
+        <span class="comment">// When URL is completely OK</span>
+        <span class="prelude-val">Ok</span>(<span class="kw">_</span>) <span class="op">=</span><span class="op">&gt;</span> {
+            <span class="ident">web_view</span>.<span class="ident">load_uri</span>(<span class="kw-2">&amp;</span><span class="ident">nav_text</span>);
+        }
+        <span class="comment">// When URL is missing a scheme</span>
+        <span class="prelude-val">Err</span>(<span class="ident">ParseError</span>::<span class="ident">RelativeUrlWithoutBase</span>) <span class="op">=</span><span class="op">&gt;</span> {
+            <span class="ident">parsed_url</span> <span class="op">=</span> <span class="ident">Url</span>::<span class="ident">parse</span>(<span class="kw-2">&amp;</span><span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;http://{}&quot;</span>, <span class="ident">nav_text</span>)); <span class="comment">// Try with HTTP first</span>
+            <span class="kw">match</span> <span class="ident">parsed_url</span>
+            {
+                <span class="comment">// If it&#39;s now valid with HTTP</span>
+                <span class="prelude-val">Ok</span>(<span class="kw">_</span>) <span class="op">=</span><span class="op">&gt;</span> {
+                    <span class="kw">let</span> <span class="ident">split_url</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">nav_text</span>.<span class="ident">split</span>(<span class="string">&#39;/&#39;</span>).<span class="ident">collect</span>();
+                    <span class="kw">let</span> <span class="ident">host</span> <span class="op">=</span> <span class="ident">split_url</span>[<span class="number">0</span>];
+                    <span class="kw">let</span> <span class="ident">cid</span> <span class="op">=</span> <span class="ident">Cid</span>::<span class="ident">try_from</span>(<span class="ident">host</span>);
+                    <span class="comment">// Try seeing if we can swap it with IPFS</span>
+                    <span class="kw">match</span> <span class="ident">cid</span>
+                    {
+                        <span class="comment">// It works as IPFS</span>
+                        <span class="prelude-val">Ok</span>(<span class="kw">_</span>) <span class="op">=</span><span class="op">&gt;</span> {
+                            <span class="kw">let</span> <span class="ident">unwrapped_cid</span> <span class="op">=</span> <span class="ident">cid</span>.<span class="ident">unwrap</span>();
+                            <span class="kw">let</span> <span class="ident">cid1</span> <span class="op">=</span> <span class="ident">Cid</span>::<span class="ident">new_v1</span>(<span class="ident">unwrapped_cid</span>.<span class="ident">codec</span>(), <span class="ident">unwrapped_cid</span>.<span class="ident">hash</span>().<span class="ident">to_owned</span>());
+                            <span class="ident">parsed_url</span> <span class="op">=</span> <span class="ident">Url</span>::<span class="ident">parse</span>(<span class="kw-2">&amp;</span><span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;ipfs://{}&quot;</span>, <span class="ident">nav_text</span>));
+                            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">unwrapped_url</span> <span class="op">=</span> <span class="ident">parsed_url</span>.<span class="ident">unwrap</span>();
+                            <span class="kw">let</span> <span class="ident">cid1_string</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">cid1</span>.<span class="ident">to_string_of_base</span>(<span class="ident">cid</span>::<span class="ident">multibase</span>::<span class="ident">Base</span>::<span class="ident">Base32Lower</span>).<span class="ident">unwrap</span>();
+                            <span class="ident">unwrapped_url</span>.<span class="ident">set_host</span>(<span class="prelude-val">Some</span>(<span class="ident">cid1_string</span>)).<span class="ident">unwrap</span>();
+                            <span class="ident">nav_text</span> <span class="op">=</span> <span class="ident">unwrapped_url</span>.<span class="ident">as_str</span>().<span class="ident">to_owned</span>();
+                            <span class="ident">web_view</span>.<span class="ident">load_uri</span>(<span class="kw-2">&amp;</span><span class="ident">nav_text</span>);
+                            <span class="ident">nav_entry</span>.<span class="ident">set_text</span>(<span class="kw-2">&amp;</span><span class="ident">nav_text</span>);
+                        }
+                        <span class="comment">// It doesn&#39;t work as IPFS</span>
+                        <span class="prelude-val">Err</span>(<span class="kw">_</span>) <span class="op">=</span><span class="op">&gt;</span> {
+                            <span class="ident">nav_text</span> <span class="op">=</span> <span class="ident">parsed_url</span>.<span class="ident">unwrap</span>().<span class="ident">as_str</span>().<span class="ident">to_owned</span>();
+                            <span class="ident">web_view</span>.<span class="ident">load_uri</span>(<span class="kw-2">&amp;</span><span class="ident">nav_text</span>);
+                            <span class="ident">nav_entry</span>.<span class="ident">set_text</span>(<span class="kw-2">&amp;</span><span class="ident">nav_text</span>)
+                        }
+                    }
+                }
+                <span class="comment">// Still not valid, even with HTTP</span>
+                <span class="prelude-val">Err</span>(<span class="ident">e</span>) <span class="op">=</span><span class="op">&gt;</span> {
+                    <span class="ident">web_view</span>.<span class="ident">load_plain_text</span>(<span class="kw-2">&amp;</span><span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;{:#?}&quot;</span>, <span class="ident">e</span>));
+                }
+            }
+        }
+        <span class="comment">// URL is malformed beyond missing a scheme</span>
+        <span class="prelude-val">Err</span>(<span class="ident">e</span>) <span class="op">=</span><span class="op">&gt;</span> {
+            <span class="ident">web_view</span>.<span class="ident">load_plain_text</span>(<span class="kw-2">&amp;</span><span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;{:#?}&quot;</span>, <span class="ident">e</span>));
+        }
     }
 
-    <span class="ident">web_view</span>.<span class="ident">load_uri</span>(<span class="kw-2">&amp;</span><span class="ident">nav_text</span>);
 }
 
 <span class="doccomment">/// Update the contents of the navigation bar</span>
@@ -890,9 +988,7 @@
         .<span class="ident">replacen</span>(<span class="string">&quot;.ipfs.localhost:8080&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="number">1</span>);
     <span class="kw">let</span> <span class="ident">split_cid</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">cid</span>.<span class="ident">split</span>(<span class="string">&#39;/&#39;</span>).<span class="ident">collect</span>();
     <span class="kw">if</span> <span class="ident">url</span>.<span class="ident">starts_with</span>(<span class="kw-2">&amp;</span><span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;http://{}.ipfs.localhost:8080/&quot;</span>, <span class="ident">split_cid</span>[<span class="number">0</span>])) {
-        <span class="ident">url</span> <span class="op">=</span> <span class="ident">url</span>
-            .<span class="ident">replacen</span>(<span class="string">&quot;http://&quot;</span>, <span class="string">&quot;ipfs://&quot;</span>, <span class="number">1</span>)
-            .<span class="ident">replacen</span>(<span class="string">&quot;.ipfs.localhost:8080&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="number">1</span>);
+        <span class="ident">url</span> <span class="op">=</span> <span class="ident">cid</span>;
     }
     <span class="ident">nav_entry</span>.<span class="ident">set_text</span>(<span class="kw-2">&amp;</span><span class="ident">url</span>);
 }

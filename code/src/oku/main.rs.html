@@ -773,33 +773,6 @@
 <span id="770">770</span>
 <span id="771">771</span>
 <span id="772">772</span>
-<span id="773">773</span>
-<span id="774">774</span>
-<span id="775">775</span>
-<span id="776">776</span>
-<span id="777">777</span>
-<span id="778">778</span>
-<span id="779">779</span>
-<span id="780">780</span>
-<span id="781">781</span>
-<span id="782">782</span>
-<span id="783">783</span>
-<span id="784">784</span>
-<span id="785">785</span>
-<span id="786">786</span>
-<span id="787">787</span>
-<span id="788">788</span>
-<span id="789">789</span>
-<span id="790">790</span>
-<span id="791">791</span>
-<span id="792">792</span>
-<span id="793">793</span>
-<span id="794">794</span>
-<span id="795">795</span>
-<span id="796">796</span>
-<span id="797">797</span>
-<span id="798">798</span>
-<span id="799">799</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">/*
     This file is part of Oku.
@@ -851,8 +824,6 @@
 <span class="kw">use</span> <span class="ident">pango</span>::<span class="ident">EllipsizeMode</span>;
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">convert</span>::<span class="ident">TryFrom</span>;
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">env</span>::<span class="ident">args</span>;
-<span class="kw">use</span> <span class="ident">std</span>::<span class="ident">fs</span>;
-<span class="kw">use</span> <span class="ident">std</span>::<span class="ident">path</span>::<span class="ident">Path</span>;
 <span class="kw">use</span> <span class="ident">urlencoding</span>::<span class="ident">decode</span>;
 <span class="kw">use</span> <span class="ident">webkit2gtk</span>::<span class="ident">SettingsExt</span>;
 <span class="kw">use</span> <span class="ident">webkit2gtk</span>::<span class="ident">URISchemeRequest</span>;
@@ -936,21 +907,9 @@
     <span class="kw">let</span> <span class="ident">request_url</span> <span class="op">=</span> <span class="ident">request</span>.<span class="ident">get_uri</span>().<span class="ident">unwrap</span>().<span class="ident">to_string</span>();
     <span class="kw">let</span> <span class="ident">decoded_url</span> <span class="op">=</span> <span class="ident">decode</span>(<span class="kw-2">&amp;</span><span class="ident">request_url</span>).<span class="ident">unwrap</span>();
     <span class="kw">let</span> <span class="ident">ipfs_path</span> <span class="op">=</span> <span class="ident">decoded_url</span>.<span class="ident">replacen</span>(<span class="string">&quot;ipfs://&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="number">1</span>);
-    <span class="kw">let</span> <span class="ident">local_path</span> <span class="op">=</span> <span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;{}/{}&quot;</span>, <span class="ident">CACHE_DIR</span>.<span class="ident">to_string</span>(), <span class="ident">ipfs_path</span>);
-    <span class="ident">get_from_hash</span>(<span class="ident">client</span>, <span class="ident">ipfs_path</span>, <span class="ident">local_path</span>.<span class="ident">to_owned</span>());
-    <span class="kw">let</span> <span class="ident">file</span> <span class="op">=</span> <span class="ident">gio</span>::<span class="ident">File</span>::<span class="ident">new_for_path</span>(<span class="kw-2">&amp;</span><span class="ident">local_path</span>);
-    <span class="kw">let</span> <span class="ident">stream</span> <span class="op">=</span> <span class="ident">file</span>.<span class="ident">read</span>(<span class="ident">gio</span>::<span class="ident">NONE_CANCELLABLE</span>);
-
-    <span class="kw">match</span> <span class="ident">stream</span> {
-        <span class="prelude-val">Ok</span>(<span class="kw">_</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="ident">request</span>.<span class="ident">finish</span>(<span class="kw-2">&amp;</span><span class="ident">stream</span>.<span class="ident">unwrap</span>(), <span class="op">-</span><span class="number">1</span>, <span class="prelude-val">None</span>),
-        <span class="prelude-val">Err</span>(<span class="ident">e</span>) <span class="op">=</span><span class="op">&gt;</span> {
-            <span class="macro">eprintln</span><span class="macro">!</span>(
-                <span class="string">&quot;\nFailed to obtain page: {}\nError: {:#?}\n&quot;</span>,
-                <span class="ident">decoded_url</span>, <span class="ident">e</span>
-            );
-            <span class="ident">request</span>.<span class="ident">finish</span>(<span class="kw-2">&amp;</span><span class="ident">gio</span>::<span class="ident">MemoryInputStream</span>::<span class="ident">new</span>(), <span class="op">-</span><span class="number">1</span>, <span class="prelude-val">None</span>);
-        }
-    }
+    <span class="kw">let</span> <span class="ident">ipfs_bytes</span> <span class="op">=</span> <span class="ident">get_from_hash</span>(<span class="ident">client</span>, <span class="ident">ipfs_path</span>);
+    <span class="kw">let</span> <span class="ident">stream</span> <span class="op">=</span> <span class="ident">gio</span>::<span class="ident">MemoryInputStream</span>::<span class="ident">from_bytes</span>(<span class="kw-2">&amp;</span><span class="ident">glib</span>::<span class="ident">Bytes</span>::<span class="ident">from</span>(<span class="kw-2">&amp;</span><span class="ident">ipfs_bytes</span>));
+    <span class="ident">request</span>.<span class="ident">finish</span>(<span class="kw-2">&amp;</span><span class="ident">stream</span>, <span class="op">-</span><span class="number">1</span>, <span class="prelude-val">None</span>);
 }
 
 <span class="doccomment">/// Create a new WebKit instance for the current tab</span>
@@ -1012,18 +971,9 @@
 <span class="doccomment">/// `client` - The IPFS client running locally</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// `hash` - The IPFS identifier of the file</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// `local_directory` - Where to save the IPFS file locally</span>
-<span class="kw">fn</span> <span class="ident">get_from_hash</span>(<span class="ident">client</span>: <span class="ident">IpfsClient</span>, <span class="ident">hash</span>: <span class="ident">String</span>, <span class="ident">local_directory</span>: <span class="ident">String</span>) {
+<span class="kw">fn</span> <span class="ident">get_from_hash</span>(<span class="ident">client</span>: <span class="ident">IpfsClient</span>, <span class="ident">hash</span>: <span class="ident">String</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span> {
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">sys</span> <span class="op">=</span> <span class="ident">actix_rt</span>::<span class="ident">System</span>::<span class="ident">new</span>(<span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;Oku IPFS System ({})&quot;</span>, <span class="ident">hash</span>));
-    <span class="ident">sys</span>.<span class="ident">block_on</span>(<span class="kw">async</span> <span class="kw">move</span> {
-        <span class="ident">download_ipfs_file</span>(<span class="kw-2">&amp;</span><span class="ident">client</span>, <span class="ident">hash</span>.<span class="ident">to_owned</span>(), <span class="ident">local_directory</span>.<span class="ident">to_owned</span>()).<span class="kw">await</span>;
-        <span class="comment">// println!(</span>
-        <span class="comment">//     &quot;Requesting: {} (local: {}) … \n&quot;,</span>
-        <span class="comment">//     hash.to_owned(),</span>
-        <span class="comment">//     local_directory.to_owned()</span>
-        <span class="comment">// );</span>
-    });
+    <span class="ident">sys</span>.<span class="ident">block_on</span>(<span class="ident">download_ipfs_file</span>(<span class="ident">client</span>, <span class="ident">hash</span>.<span class="ident">to_owned</span>()))
 }
 
 <span class="doccomment">/// Download an IPFS file to the local machine</span>
@@ -1033,9 +983,7 @@
 <span class="doccomment">/// `client` - The IPFS client running locally</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// `file_hash` - The CID of the folder the file is in</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// `file_path` - The path to the file from the root of the folder</span>
-<span class="kw">async</span> <span class="kw">fn</span> <span class="ident">download_ipfs_file</span>(<span class="ident">client</span>: <span class="kw-2">&amp;</span><span class="ident">IpfsClient</span>, <span class="ident">file_hash</span>: <span class="ident">String</span>, <span class="ident">file_path</span>: <span class="ident">String</span>) {
+<span class="kw">async</span> <span class="kw">fn</span> <span class="ident">download_ipfs_file</span>(<span class="ident">client</span>: <span class="ident">IpfsClient</span>, <span class="ident">file_hash</span>: <span class="ident">String</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span> {
     <span class="kw">match</span> <span class="ident">client</span>
         .<span class="ident">cat</span>(<span class="kw-2">&amp;</span><span class="ident">file_hash</span>)
         .<span class="ident">map_ok</span>(<span class="op">|</span><span class="ident">chunk</span><span class="op">|</span> <span class="ident">chunk</span>.<span class="ident">to_vec</span>())
@@ -1043,8 +991,7 @@
         .<span class="kw">await</span>
     {
         <span class="prelude-val">Ok</span>(<span class="ident">res</span>) <span class="op">=</span><span class="op">&gt;</span> {
-            <span class="ident">fs</span>::<span class="ident">create_dir_all</span>(<span class="ident">Path</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span><span class="ident">file_path</span>[..]).<span class="ident">parent</span>().<span class="ident">unwrap</span>()).<span class="ident">unwrap</span>();
-            <span class="ident">fs</span>::<span class="ident">write</span>(<span class="ident">file_path</span>, <span class="kw-2">&amp;</span><span class="ident">res</span>).<span class="ident">unwrap</span>();
+            <span class="ident">res</span>
         }
         <span class="prelude-val">Err</span>(<span class="kw">_</span>) <span class="op">=</span><span class="op">&gt;</span> {
             <span class="kw">let</span> <span class="ident">split_path</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">file_hash</span>.<span class="ident">split</span>(<span class="string">&#39;/&#39;</span>).<span class="ident">collect</span>();
@@ -1052,8 +999,7 @@
             <span class="kw">let</span> <span class="ident">public_url</span> <span class="op">=</span> <span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;https://{}.ipfs.dweb.link{}&quot;</span>, <span class="ident">split_path</span>[<span class="number">0</span>], <span class="ident">rest_of_path</span>);
             <span class="kw">let</span> <span class="ident">request</span> <span class="op">=</span> <span class="ident">reqwest</span>::<span class="ident">get</span>(<span class="kw-2">&amp;</span><span class="ident">public_url</span>).<span class="kw">await</span>;
             <span class="kw">let</span> <span class="ident">request_body</span> <span class="op">=</span> <span class="ident">request</span>.<span class="ident">unwrap</span>().<span class="ident">bytes</span>().<span class="kw">await</span>;
-            <span class="ident">fs</span>::<span class="ident">create_dir_all</span>(<span class="ident">Path</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span><span class="ident">file_path</span>[..]).<span class="ident">parent</span>().<span class="ident">unwrap</span>()).<span class="ident">unwrap</span>();
-            <span class="ident">fs</span>::<span class="ident">write</span>(<span class="ident">file_path</span>, <span class="ident">request_body</span>.<span class="ident">unwrap</span>()).<span class="ident">unwrap</span>();
+            <span class="ident">request_body</span>.<span class="ident">unwrap</span>().<span class="ident">to_vec</span>()
         }
     }
 }

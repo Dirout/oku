@@ -908,20 +908,6 @@
 <span id="905">905</span>
 <span id="906">906</span>
 <span id="907">907</span>
-<span id="908">908</span>
-<span id="909">909</span>
-<span id="910">910</span>
-<span id="911">911</span>
-<span id="912">912</span>
-<span id="913">913</span>
-<span id="914">914</span>
-<span id="915">915</span>
-<span id="916">916</span>
-<span id="917">917</span>
-<span id="918">918</span>
-<span id="919">919</span>
-<span id="920">920</span>
-<span id="921">921</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">/*
     This file is part of Oku.
@@ -1155,20 +1141,6 @@
     <span class="kw">let</span> <span class="ident">web_context</span> <span class="op">=</span> <span class="ident">web_view</span>.<span class="ident">get_context</span>().<span class="ident">unwrap</span>();
     <span class="kw">let</span> <span class="ident">extensions_path</span> <span class="op">=</span> <span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;{}/web-extensions/&quot;</span>, <span class="ident">DATA_DIR</span>.<span class="ident">to_string</span>());
     <span class="kw">let</span> <span class="ident">favicon_database_path</span> <span class="op">=</span> <span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;{}/favicon-database/&quot;</span>, <span class="ident">CACHE_DIR</span>.<span class="ident">to_string</span>());
-    <span class="comment">// let allowed_notification_origins: Vec&lt;String&gt; = bincode::deserialize(&amp;fs::read(format!(&quot;{}/settings/allowed_notification_origins.bin&quot;, DATA_DIR.to_owned())).unwrap()).unwrap();</span>
-    <span class="comment">// let disallowed_notification_origins: Vec&lt;String&gt; = bincode::deserialize(&amp;fs::read(format!(&quot;{}/settings/disallowed_notification_origins.bin&quot;, DATA_DIR.to_owned())).unwrap()).unwrap();</span>
-    
-    <span class="comment">// let mut allowed_notification_security_origins: Vec&lt;&amp;webkit2gtk::SecurityOrigin&gt; = vec!();</span>
-    <span class="comment">// for url in allowed_notification_origins {</span>
-    <span class="comment">//     let new_origin = webkit2gtk::SecurityOrigin::new_for_uri(&amp;url);</span>
-    <span class="comment">//     allowed_notification_security_origins.push(&amp;new_origin);</span>
-    <span class="comment">// }</span>
-
-    <span class="comment">// let mut disallowed_notification_security_origins: Vec&lt;&amp;webkit2gtk::SecurityOrigin&gt; = vec!();</span>
-    <span class="comment">// for url in disallowed_notification_origins {</span>
-    <span class="comment">//     let new_origin = webkit2gtk::SecurityOrigin::new_for_uri(&amp;url);</span>
-    <span class="comment">//     disallowed_notification_security_origins.push(&amp;new_origin);</span>
-    <span class="comment">// }</span>
 
     <span class="kw">match</span> <span class="ident">native</span>
     {
@@ -1179,7 +1151,6 @@
             <span class="ident">web_context</span>.<span class="ident">register_uri_scheme</span>(<span class="string">&quot;ipfs&quot;</span>, <span class="kw">move</span> <span class="op">|</span><span class="ident">request</span><span class="op">|</span> <span class="ident">handle_ipfs_request_using_api</span>(<span class="ident">request</span>));
         }
     };
-    <span class="comment">// web_context.initialize_notification_permissions(&amp;allowed_notification_security_origins, &amp;disallowed_notification_security_origins);</span>
     <span class="ident">web_settings</span>.<span class="ident">set_user_agent_with_application_details</span>(<span class="prelude-val">Some</span>(<span class="string">&quot;Oku&quot;</span>), <span class="prelude-val">Some</span>(<span class="ident">VERSION</span>.<span class="ident">unwrap</span>()));
     <span class="ident">web_settings</span>.<span class="ident">set_enable_write_console_messages_to_stdout</span>(<span class="ident">verbose</span>);
     <span class="ident">web_view</span>.<span class="ident">set_settings</span>(<span class="kw-2">&amp;</span><span class="ident">web_settings</span>);
@@ -1197,7 +1168,7 @@
 <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">setup_native_ipfs</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Ipfs</span><span class="op">&lt;</span><span class="ident">Types</span><span class="op">&gt;</span>
 {
     <span class="comment">// Initialize an in-memory repo and start a daemon.</span>
-    <span class="kw">let</span> <span class="ident">opts</span> <span class="op">=</span> <span class="ident">new_ipfs_node</span>();
+    <span class="kw">let</span> <span class="ident">opts</span> <span class="op">=</span> <span class="ident">get_ipfs_options</span>();
     <span class="kw">let</span> (<span class="ident">ipfs</span>, <span class="ident">fut</span>): (<span class="ident">Ipfs</span><span class="op">&lt;</span><span class="ident">Types</span><span class="op">&gt;</span>, <span class="kw">_</span>) <span class="op">=</span> <span class="ident">UninitializedIpfs</span>::<span class="ident">new</span>(<span class="ident">opts</span>).<span class="ident">start</span>().<span class="kw">await</span>.<span class="ident">unwrap</span>();
 
     <span class="comment">// Spawn the background task</span>
@@ -1242,6 +1213,7 @@
 <span class="doccomment">/// `file_hash` - The CID of the file</span>
 <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">download_ipfs_file_from_api</span>(<span class="ident">file_hash</span>: <span class="ident">String</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span> {
     <span class="kw">let</span> <span class="ident">client</span> <span class="op">=</span> <span class="ident">IpfsClient</span>::<span class="ident">default</span>();
+
     <span class="kw">match</span> <span class="ident">client</span>
         .<span class="ident">cat</span>(<span class="kw-2">&amp;</span><span class="ident">file_hash</span>)
         .<span class="ident">map_ok</span>(<span class="op">|</span><span class="ident">chunk</span><span class="op">|</span> <span class="ident">chunk</span>.<span class="ident">to_vec</span>())
@@ -1269,6 +1241,7 @@
 <span class="doccomment">/// `file_hash` - The CID of the file</span>
 <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">download_ipfs_file_natively</span>(<span class="ident">file_hash</span>: <span class="ident">String</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span> {
     <span class="kw">let</span> <span class="ident">ipfs</span> <span class="op">=</span> <span class="ident">setup_native_ipfs</span>().<span class="kw">await</span>;
+
     <span class="comment">// Get the IPFS file</span>
     <span class="kw">let</span> <span class="ident">path</span> <span class="op">=</span> <span class="ident">file_hash</span>
         .<span class="ident">parse</span>::<span class="op">&lt;</span><span class="ident">IpfsPath</span><span class="op">&gt;</span>()
@@ -1290,16 +1263,15 @@
     <span class="ident">file_vec</span>
 }
 
-<span class="kw">fn</span> <span class="ident">new_ipfs_node</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">ipfs</span>::<span class="ident">IpfsOptions</span>
+<span class="kw">fn</span> <span class="ident">get_ipfs_options</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">ipfs</span>::<span class="ident">IpfsOptions</span>
 {
     <span class="ident">IpfsOptions</span>
     {
         <span class="ident">ipfs_path</span>: <span class="ident">PathBuf</span>::<span class="ident">from</span>(<span class="ident">CACHE_DIR</span>.<span class="ident">to_owned</span>()),
         <span class="ident">keypair</span>: <span class="ident">Keypair</span>::<span class="ident">generate_ed25519</span>(),
-        <span class="ident">mdns</span>: <span class="ident">Default</span>::<span class="ident">default</span>(),
+        <span class="ident">mdns</span>: <span class="bool-val">true</span>,
         <span class="ident">bootstrap</span>: <span class="ident">Default</span>::<span class="ident">default</span>(),
-        <span class="comment">// default to lan kad for go-ipfs use in tests</span>
-        <span class="ident">kad_protocol</span>: <span class="prelude-val">Some</span>(<span class="string">&quot;/ipfs/lan/kad/1.0.0&quot;</span>.<span class="ident">to_owned</span>()),
+        <span class="ident">kad_protocol</span>: <span class="prelude-val">None</span>,
         <span class="ident">listening_addrs</span>: <span class="macro">vec</span><span class="macro">!</span>[<span class="string">&quot;/ip4/127.0.0.1/tcp/0&quot;</span>.<span class="ident">parse</span>().<span class="ident">unwrap</span>()],
         <span class="ident">span</span>: <span class="prelude-val">None</span>,
     }

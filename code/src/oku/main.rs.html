@@ -821,6 +821,107 @@
 <span id="818">818</span>
 <span id="819">819</span>
 <span id="820">820</span>
+<span id="821">821</span>
+<span id="822">822</span>
+<span id="823">823</span>
+<span id="824">824</span>
+<span id="825">825</span>
+<span id="826">826</span>
+<span id="827">827</span>
+<span id="828">828</span>
+<span id="829">829</span>
+<span id="830">830</span>
+<span id="831">831</span>
+<span id="832">832</span>
+<span id="833">833</span>
+<span id="834">834</span>
+<span id="835">835</span>
+<span id="836">836</span>
+<span id="837">837</span>
+<span id="838">838</span>
+<span id="839">839</span>
+<span id="840">840</span>
+<span id="841">841</span>
+<span id="842">842</span>
+<span id="843">843</span>
+<span id="844">844</span>
+<span id="845">845</span>
+<span id="846">846</span>
+<span id="847">847</span>
+<span id="848">848</span>
+<span id="849">849</span>
+<span id="850">850</span>
+<span id="851">851</span>
+<span id="852">852</span>
+<span id="853">853</span>
+<span id="854">854</span>
+<span id="855">855</span>
+<span id="856">856</span>
+<span id="857">857</span>
+<span id="858">858</span>
+<span id="859">859</span>
+<span id="860">860</span>
+<span id="861">861</span>
+<span id="862">862</span>
+<span id="863">863</span>
+<span id="864">864</span>
+<span id="865">865</span>
+<span id="866">866</span>
+<span id="867">867</span>
+<span id="868">868</span>
+<span id="869">869</span>
+<span id="870">870</span>
+<span id="871">871</span>
+<span id="872">872</span>
+<span id="873">873</span>
+<span id="874">874</span>
+<span id="875">875</span>
+<span id="876">876</span>
+<span id="877">877</span>
+<span id="878">878</span>
+<span id="879">879</span>
+<span id="880">880</span>
+<span id="881">881</span>
+<span id="882">882</span>
+<span id="883">883</span>
+<span id="884">884</span>
+<span id="885">885</span>
+<span id="886">886</span>
+<span id="887">887</span>
+<span id="888">888</span>
+<span id="889">889</span>
+<span id="890">890</span>
+<span id="891">891</span>
+<span id="892">892</span>
+<span id="893">893</span>
+<span id="894">894</span>
+<span id="895">895</span>
+<span id="896">896</span>
+<span id="897">897</span>
+<span id="898">898</span>
+<span id="899">899</span>
+<span id="900">900</span>
+<span id="901">901</span>
+<span id="902">902</span>
+<span id="903">903</span>
+<span id="904">904</span>
+<span id="905">905</span>
+<span id="906">906</span>
+<span id="907">907</span>
+<span id="908">908</span>
+<span id="909">909</span>
+<span id="910">910</span>
+<span id="911">911</span>
+<span id="912">912</span>
+<span id="913">913</span>
+<span id="914">914</span>
+<span id="915">915</span>
+<span id="916">916</span>
+<span id="917">917</span>
+<span id="918">918</span>
+<span id="919">919</span>
+<span id="920">920</span>
+<span id="921">921</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">/*
     This file is part of Oku.
@@ -841,6 +942,16 @@
 
 
 
+<span class="kw">use</span> <span class="ident">ipfs</span>::<span class="ident">Types</span>;
+<span class="kw">use</span> <span class="ident">std</span>::<span class="ident">path</span>::<span class="ident">PathBuf</span>;
+<span class="kw">use</span> <span class="ident">ipfs</span>::<span class="ident">Keypair</span>;
+<span class="kw">use</span> <span class="ident">std</span>::<span class="ident">path</span>::<span class="ident">Path</span>;
+<span class="kw">use</span> <span class="ident">tokio</span>::<span class="ident">stream</span>::<span class="ident">StreamExt</span>;
+<span class="kw">use</span> <span class="ident">ipfs</span>::<span class="ident">IpfsPath</span>;
+<span class="kw">use</span> <span class="ident">ipfs</span>::<span class="ident">UninitializedIpfs</span>;
+<span class="kw">use</span> <span class="ident">ipfs</span>::<span class="ident">TestTypes</span>;
+<span class="kw">use</span> <span class="ident">ipfs</span>::<span class="ident">Ipfs</span>;
+<span class="kw">use</span> <span class="ident">ipfs</span>::<span class="ident">IpfsOptions</span>;
 <span class="kw">use</span> <span class="ident">cid</span>::<span class="ident">Cid</span>;
 <span class="kw">use</span> <span class="ident">url</span>::<span class="ident">Url</span>;
 <span class="kw">use</span> <span class="ident">url</span>::<span class="ident">ParseError</span>;
@@ -998,12 +1109,25 @@
 <span class="doccomment">/// # Arguments</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// `request` - The request from the browser for the IPFS resource</span>
-<span class="kw">fn</span> <span class="ident">handle_ipfs_request</span>(<span class="ident">request</span>: <span class="kw-2">&amp;</span><span class="ident">URISchemeRequest</span>) {
-    <span class="kw">let</span> <span class="ident">client</span> <span class="op">=</span> <span class="ident">IpfsClient</span>::<span class="ident">default</span>();
+<span class="kw">fn</span> <span class="ident">handle_ipfs_request_using_api</span>(<span class="ident">request</span>: <span class="kw-2">&amp;</span><span class="ident">URISchemeRequest</span>) {
     <span class="kw">let</span> <span class="ident">request_url</span> <span class="op">=</span> <span class="ident">request</span>.<span class="ident">get_uri</span>().<span class="ident">unwrap</span>().<span class="ident">to_string</span>();
     <span class="kw">let</span> <span class="ident">decoded_url</span> <span class="op">=</span> <span class="ident">decode</span>(<span class="kw-2">&amp;</span><span class="ident">request_url</span>).<span class="ident">unwrap</span>();
     <span class="kw">let</span> <span class="ident">ipfs_path</span> <span class="op">=</span> <span class="ident">decoded_url</span>.<span class="ident">replacen</span>(<span class="string">&quot;ipfs://&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="number">1</span>);
-    <span class="kw">let</span> <span class="ident">ipfs_bytes</span> <span class="op">=</span> <span class="ident">get_from_hash</span>(<span class="ident">client</span>, <span class="ident">ipfs_path</span>);
+    <span class="kw">let</span> <span class="ident">ipfs_bytes</span> <span class="op">=</span> <span class="ident">get_from_hash_using_api</span>(<span class="ident">ipfs_path</span>);
+    <span class="kw">let</span> <span class="ident">stream</span> <span class="op">=</span> <span class="ident">gio</span>::<span class="ident">MemoryInputStream</span>::<span class="ident">from_bytes</span>(<span class="kw-2">&amp;</span><span class="ident">glib</span>::<span class="ident">Bytes</span>::<span class="ident">from</span>(<span class="kw-2">&amp;</span><span class="ident">ipfs_bytes</span>));
+    <span class="ident">request</span>.<span class="ident">finish</span>(<span class="kw-2">&amp;</span><span class="ident">stream</span>, <span class="op">-</span><span class="number">1</span>, <span class="prelude-val">None</span>);
+}
+
+<span class="doccomment">/// Comply with a request using the IPFS scheme natively</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// # Arguments</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// `request` - The request from the browser for the IPFS resource</span>
+<span class="kw">fn</span> <span class="ident">handle_ipfs_request_natively</span>(<span class="ident">request</span>: <span class="kw-2">&amp;</span><span class="ident">URISchemeRequest</span>) {
+    <span class="kw">let</span> <span class="ident">request_url</span> <span class="op">=</span> <span class="ident">request</span>.<span class="ident">get_uri</span>().<span class="ident">unwrap</span>().<span class="ident">to_string</span>();
+    <span class="kw">let</span> <span class="ident">decoded_url</span> <span class="op">=</span> <span class="ident">decode</span>(<span class="kw-2">&amp;</span><span class="ident">request_url</span>).<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">ipfs_path</span> <span class="op">=</span> <span class="ident">decoded_url</span>.<span class="ident">replacen</span>(<span class="string">&quot;ipfs://&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="number">1</span>);
+    <span class="kw">let</span> <span class="ident">ipfs_bytes</span> <span class="op">=</span> <span class="ident">get_from_hash_natively</span>(<span class="ident">ipfs_path</span>);
     <span class="kw">let</span> <span class="ident">stream</span> <span class="op">=</span> <span class="ident">gio</span>::<span class="ident">MemoryInputStream</span>::<span class="ident">from_bytes</span>(<span class="kw-2">&amp;</span><span class="ident">glib</span>::<span class="ident">Bytes</span>::<span class="ident">from</span>(<span class="kw-2">&amp;</span><span class="ident">ipfs_bytes</span>));
     <span class="ident">request</span>.<span class="ident">finish</span>(<span class="kw-2">&amp;</span><span class="ident">stream</span>, <span class="op">-</span><span class="number">1</span>, <span class="prelude-val">None</span>);
 }
@@ -1021,6 +1145,7 @@
     <span class="ident">builder</span>: <span class="kw-2">&amp;</span><span class="ident">gtk</span>::<span class="ident">Builder</span>,
     <span class="ident">verbose</span>: <span class="ident">bool</span>,
     <span class="ident">is_private</span>: <span class="ident">bool</span>,
+    <span class="ident">native</span>: <span class="ident">bool</span>,
 ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">webkit2gtk</span>::<span class="ident">WebView</span> {
     <span class="kw">let</span> <span class="ident">web_kit</span> <span class="op">=</span> <span class="ident">webkit2gtk</span>::<span class="ident">WebViewBuilder</span>::<span class="ident">new</span>()
         .<span class="ident">is_ephemeral</span>(<span class="ident">is_private</span>)
@@ -1045,7 +1170,15 @@
     <span class="comment">//     disallowed_notification_security_origins.push(&amp;new_origin);</span>
     <span class="comment">// }</span>
 
-    <span class="ident">web_context</span>.<span class="ident">register_uri_scheme</span>(<span class="string">&quot;ipfs&quot;</span>, <span class="kw">move</span> <span class="op">|</span><span class="ident">request</span><span class="op">|</span> <span class="ident">handle_ipfs_request</span>(<span class="ident">request</span>));
+    <span class="kw">match</span> <span class="ident">native</span>
+    {
+        <span class="bool-val">true</span> <span class="op">=</span><span class="op">&gt;</span> {
+            <span class="ident">web_context</span>.<span class="ident">register_uri_scheme</span>(<span class="string">&quot;ipfs&quot;</span>, <span class="kw">move</span> <span class="op">|</span><span class="ident">request</span><span class="op">|</span> <span class="ident">handle_ipfs_request_natively</span>(<span class="ident">request</span>));
+        }
+        <span class="bool-val">false</span> <span class="op">=</span><span class="op">&gt;</span> {
+            <span class="ident">web_context</span>.<span class="ident">register_uri_scheme</span>(<span class="string">&quot;ipfs&quot;</span>, <span class="kw">move</span> <span class="op">|</span><span class="ident">request</span><span class="op">|</span> <span class="ident">handle_ipfs_request_using_api</span>(<span class="ident">request</span>));
+        }
+    };
     <span class="comment">// web_context.initialize_notification_permissions(&amp;allowed_notification_security_origins, &amp;disallowed_notification_security_origins);</span>
     <span class="ident">web_settings</span>.<span class="ident">set_user_agent_with_application_details</span>(<span class="prelude-val">Some</span>(<span class="string">&quot;Oku&quot;</span>), <span class="prelude-val">Some</span>(<span class="ident">VERSION</span>.<span class="ident">unwrap</span>()));
     <span class="ident">web_settings</span>.<span class="ident">set_enable_write_console_messages_to_stdout</span>(<span class="ident">verbose</span>);
@@ -1060,26 +1193,55 @@
     <span class="ident">web_view</span>
 }
 
-<span class="doccomment">/// Get an IPFS file asynchronously</span>
+<span class="doccomment">/// Setup an IPFS node</span>
+<span class="kw">async</span> <span class="kw">fn</span> <span class="ident">setup_native_ipfs</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Ipfs</span><span class="op">&lt;</span><span class="ident">Types</span><span class="op">&gt;</span>
+{
+    <span class="comment">// Initialize an in-memory repo and start a daemon.</span>
+    <span class="kw">let</span> <span class="ident">opts</span> <span class="op">=</span> <span class="ident">new_ipfs_node</span>();
+    <span class="kw">let</span> (<span class="ident">ipfs</span>, <span class="ident">fut</span>): (<span class="ident">Ipfs</span><span class="op">&lt;</span><span class="ident">Types</span><span class="op">&gt;</span>, <span class="kw">_</span>) <span class="op">=</span> <span class="ident">UninitializedIpfs</span>::<span class="ident">new</span>(<span class="ident">opts</span>).<span class="ident">start</span>().<span class="kw">await</span>.<span class="ident">unwrap</span>();
+
+    <span class="comment">// Spawn the background task</span>
+    <span class="ident">tokio</span>::<span class="ident">task</span>::<span class="ident">spawn</span>(<span class="ident">fut</span>);
+
+    <span class="comment">// Restore the default bootstrappers to enable content discovery</span>
+    <span class="ident">ipfs</span>.<span class="ident">restore_bootstrappers</span>().<span class="kw">await</span>.<span class="ident">unwrap</span>();
+
+    <span class="ident">ipfs</span>
+}
+
+<span class="doccomment">/// Get an IPFS file asynchronously using an existing IPFS node</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// # Arguments</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// `client` - The IPFS client running locally</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// `hash` - The IPFS identifier of the file</span>
-<span class="kw">fn</span> <span class="ident">get_from_hash</span>(<span class="ident">client</span>: <span class="ident">IpfsClient</span>, <span class="ident">hash</span>: <span class="ident">String</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span> {
+<span class="kw">fn</span> <span class="ident">get_from_hash_using_api</span>(<span class="ident">hash</span>: <span class="ident">String</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span> {
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">sys</span> <span class="op">=</span> <span class="ident">actix_rt</span>::<span class="ident">System</span>::<span class="ident">new</span>(<span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;Oku IPFS System ({})&quot;</span>, <span class="ident">hash</span>));
-    <span class="ident">sys</span>.<span class="ident">block_on</span>(<span class="ident">download_ipfs_file</span>(<span class="ident">client</span>, <span class="ident">hash</span>))
+    <span class="ident">sys</span>.<span class="ident">block_on</span>(<span class="ident">download_ipfs_file_from_api</span>(<span class="ident">hash</span>))
 }
 
-<span class="doccomment">/// Download an IPFS file to the local machine</span>
+<span class="doccomment">/// Get an IPFS file asynchronously using an in-memory IPFS node</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// # Arguments</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// `client` - The IPFS client running locally</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// `file_hash` - The CID of the folder the file is in</span>
-<span class="kw">async</span> <span class="kw">fn</span> <span class="ident">download_ipfs_file</span>(<span class="ident">client</span>: <span class="ident">IpfsClient</span>, <span class="ident">file_hash</span>: <span class="ident">String</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span> {
+<span class="doccomment">/// `hash` - The IPFS identifier of the file</span>
+<span class="kw">fn</span> <span class="ident">get_from_hash_natively</span>(<span class="ident">hash</span>: <span class="ident">String</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span> {
+    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">sys</span> <span class="op">=</span> <span class="ident">actix_rt</span>::<span class="ident">System</span>::<span class="ident">new</span>(<span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;Oku IPFS System ({})&quot;</span>, <span class="ident">hash</span>));
+    <span class="ident">sys</span>.<span class="ident">block_on</span>(<span class="ident">download_ipfs_file_natively</span>(<span class="ident">hash</span>))
+}
+
+<span class="doccomment">/// Download an IPFS file to the local machine using an existing IPFS node</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// # Arguments</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// `client` - The IPFS client running locally</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// `file_hash` - The CID of the file</span>
+<span class="kw">async</span> <span class="kw">fn</span> <span class="ident">download_ipfs_file_from_api</span>(<span class="ident">file_hash</span>: <span class="ident">String</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span> {
+    <span class="kw">let</span> <span class="ident">client</span> <span class="op">=</span> <span class="ident">IpfsClient</span>::<span class="ident">default</span>();
     <span class="kw">match</span> <span class="ident">client</span>
         .<span class="ident">cat</span>(<span class="kw-2">&amp;</span><span class="ident">file_hash</span>)
         .<span class="ident">map_ok</span>(<span class="op">|</span><span class="ident">chunk</span><span class="op">|</span> <span class="ident">chunk</span>.<span class="ident">to_vec</span>())
@@ -1097,6 +1259,49 @@
             <span class="kw">let</span> <span class="ident">request_body</span> <span class="op">=</span> <span class="ident">request</span>.<span class="ident">unwrap</span>().<span class="ident">bytes</span>().<span class="kw">await</span>;
             <span class="ident">request_body</span>.<span class="ident">unwrap</span>().<span class="ident">to_vec</span>()
         }
+    }
+}
+
+<span class="doccomment">/// Download an IPFS file to the local machine using an in-memory IPFS node</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// # Arguments</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// `file_hash` - The CID of the file</span>
+<span class="kw">async</span> <span class="kw">fn</span> <span class="ident">download_ipfs_file_natively</span>(<span class="ident">file_hash</span>: <span class="ident">String</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span> {
+    <span class="kw">let</span> <span class="ident">ipfs</span> <span class="op">=</span> <span class="ident">setup_native_ipfs</span>().<span class="kw">await</span>;
+    <span class="comment">// Get the IPFS file</span>
+    <span class="kw">let</span> <span class="ident">path</span> <span class="op">=</span> <span class="ident">file_hash</span>
+        .<span class="ident">parse</span>::<span class="op">&lt;</span><span class="ident">IpfsPath</span><span class="op">&gt;</span>()
+        .<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">stream</span> <span class="op">=</span> <span class="ident">ipfs</span>.<span class="ident">cat_unixfs</span>(<span class="ident">path</span>, <span class="prelude-val">None</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>();
+    <span class="ident">tokio</span>::<span class="macro">pin</span><span class="macro">!</span>(<span class="ident">stream</span>);
+    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">file_vec</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span> <span class="op">=</span> <span class="macro">vec</span><span class="macro">!</span>();
+    <span class="kw">loop</span> {
+        <span class="kw">match</span> <span class="ident">stream</span>.<span class="ident">next</span>().<span class="kw">await</span> {
+            <span class="prelude-val">Some</span>(<span class="prelude-val">Ok</span>(<span class="ident">bytes</span>)) <span class="op">=</span><span class="op">&gt;</span> {
+                <span class="ident">file_vec</span>.<span class="ident">extend</span>(<span class="ident">bytes</span>);
+            }
+            <span class="prelude-val">Some</span>(<span class="prelude-val">Err</span>(<span class="ident">e</span>)) <span class="op">=</span><span class="op">&gt;</span> {
+                <span class="macro">eprintln</span><span class="macro">!</span>(<span class="string">&quot;Error: {}&quot;</span>, <span class="ident">e</span>);
+            }
+            <span class="prelude-val">None</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">break</span>,
+        }
+    }
+    <span class="ident">file_vec</span>
+}
+
+<span class="kw">fn</span> <span class="ident">new_ipfs_node</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">ipfs</span>::<span class="ident">IpfsOptions</span>
+{
+    <span class="ident">IpfsOptions</span>
+    {
+        <span class="ident">ipfs_path</span>: <span class="ident">PathBuf</span>::<span class="ident">from</span>(<span class="ident">CACHE_DIR</span>.<span class="ident">to_owned</span>()),
+        <span class="ident">keypair</span>: <span class="ident">Keypair</span>::<span class="ident">generate_ed25519</span>(),
+        <span class="ident">mdns</span>: <span class="ident">Default</span>::<span class="ident">default</span>(),
+        <span class="ident">bootstrap</span>: <span class="ident">Default</span>::<span class="ident">default</span>(),
+        <span class="comment">// default to lan kad for go-ipfs use in tests</span>
+        <span class="ident">kad_protocol</span>: <span class="prelude-val">Some</span>(<span class="string">&quot;/ipfs/lan/kad/1.0.0&quot;</span>.<span class="ident">to_owned</span>()),
+        <span class="ident">listening_addrs</span>: <span class="macro">vec</span><span class="macro">!</span>[<span class="string">&quot;/ip4/127.0.0.1/tcp/0&quot;</span>.<span class="ident">parse</span>().<span class="ident">unwrap</span>()],
+        <span class="ident">span</span>: <span class="prelude-val">None</span>,
     }
 }
 
@@ -1156,8 +1361,9 @@
     <span class="ident">new_tab_number</span>: <span class="ident">u32</span>,
     <span class="ident">verbose</span>: <span class="ident">bool</span>,
     <span class="ident">is_private</span>: <span class="ident">bool</span>,
+    <span class="ident">native</span>: <span class="ident">bool</span>,
 ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">webkit2gtk</span>::<span class="ident">WebView</span> {
-    <span class="kw">let</span> <span class="ident">new_view</span> <span class="op">=</span> <span class="ident">new_view</span>(<span class="ident">builder</span>, <span class="ident">verbose</span>, <span class="ident">is_private</span>);
+    <span class="kw">let</span> <span class="ident">new_view</span> <span class="op">=</span> <span class="ident">new_view</span>(<span class="ident">builder</span>, <span class="ident">verbose</span>, <span class="ident">is_private</span>, <span class="ident">native</span>);
     <span class="ident">tabs</span>.<span class="ident">insert_page</span>(<span class="kw-2">&amp;</span><span class="ident">new_view</span>, <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="ident">new_tab</span>(<span class="string">&quot;New Tab&quot;</span>)), <span class="prelude-val">Some</span>(<span class="ident">new_tab_number</span>));
     <span class="ident">tabs</span>.<span class="ident">set_tab_reorderable</span>(<span class="kw-2">&amp;</span><span class="ident">new_view</span>, <span class="bool-val">true</span>);
     <span class="ident">tabs</span>.<span class="ident">set_tab_detachable</span>(<span class="kw-2">&amp;</span><span class="ident">new_view</span>, <span class="bool-val">true</span>);
@@ -1194,8 +1400,9 @@
     <span class="ident">initial_url</span>: <span class="ident">String</span>,
     <span class="ident">verbose</span>: <span class="ident">bool</span>,
     <span class="ident">is_private</span>: <span class="ident">bool</span>,
+    <span class="ident">native</span>: <span class="ident">bool</span>,
 ) {
-    <span class="kw">let</span> <span class="ident">web_view</span> <span class="op">=</span> <span class="ident">new_tab_page</span>(<span class="kw-2">&amp;</span><span class="ident">builder</span>, <span class="kw-2">&amp;</span><span class="ident">tabs</span>, <span class="number">0</span>, <span class="ident">verbose</span>, <span class="ident">is_private</span>);
+    <span class="kw">let</span> <span class="ident">web_view</span> <span class="op">=</span> <span class="ident">new_tab_page</span>(<span class="kw-2">&amp;</span><span class="ident">builder</span>, <span class="kw-2">&amp;</span><span class="ident">tabs</span>, <span class="number">0</span>, <span class="ident">verbose</span>, <span class="ident">is_private</span>, <span class="ident">native</span>);
     <span class="ident">web_view</span>.<span class="ident">load_uri</span>(<span class="kw-2">&amp;</span><span class="ident">initial_url</span>);
     <span class="kw">let</span> <span class="ident">current_tab_label</span>: <span class="ident">gtk</span>::<span class="ident">Box</span> <span class="op">=</span> <span class="ident">tabs</span>.<span class="ident">get_tab_label</span>(<span class="kw-2">&amp;</span><span class="ident">web_view</span>).<span class="ident">unwrap</span>().<span class="ident">downcast</span>().<span class="ident">unwrap</span>();
     <span class="kw">let</span> <span class="ident">close_button_widget</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">current_tab_label</span>.<span class="ident">get_children</span>()[<span class="number">2</span>];
@@ -1343,6 +1550,7 @@
 
     <span class="kw">let</span> <span class="ident">is_private</span> <span class="op">=</span> <span class="ident">matches</span>.<span class="ident">is_present</span>(<span class="string">&quot;private&quot;</span>);
     <span class="kw">let</span> <span class="ident">verbose</span> <span class="op">=</span> <span class="ident">matches</span>.<span class="ident">is_present</span>(<span class="string">&quot;verbose&quot;</span>);
+    <span class="kw">let</span> <span class="ident">native</span> <span class="op">=</span> <span class="bool-val">true</span>;
 
     <span class="kw">let</span> <span class="ident">glade_src</span> <span class="op">=</span> <span class="macro">include_str</span><span class="macro">!</span>(<span class="string">&quot;oku.glade&quot;</span>);
     <span class="kw">let</span> <span class="ident">builder</span> <span class="op">=</span> <span class="ident">gtk</span>::<span class="ident">Builder</span>::<span class="ident">from_string</span>(<span class="ident">glade_src</span>);
@@ -1389,7 +1597,7 @@
     <span class="ident">window</span>.<span class="ident">set_application</span>(<span class="prelude-val">Some</span>(<span class="ident">application</span>));
 
     <span class="kw">if</span> <span class="ident">tabs</span>.<span class="ident">get_n_pages</span>() <span class="op">=</span><span class="op">=</span> <span class="number">0</span> {
-        <span class="ident">create_initial_tab</span>(<span class="kw-2">&amp;</span><span class="ident">builder</span>, <span class="kw-2">&amp;</span><span class="ident">tabs</span>, <span class="ident">initial_url</span>.<span class="ident">to_owned</span>(), <span class="ident">verbose</span>, <span class="ident">is_private</span>)
+        <span class="ident">create_initial_tab</span>(<span class="kw-2">&amp;</span><span class="ident">builder</span>, <span class="kw-2">&amp;</span><span class="ident">tabs</span>, <span class="ident">initial_url</span>.<span class="ident">to_owned</span>(), <span class="ident">verbose</span>, <span class="ident">is_private</span>, <span class="ident">native</span>)
     }
 
     <span class="ident">tabs</span>.<span class="ident">connect_property_page_notify</span>(
@@ -1423,7 +1631,7 @@
             {
                 <span class="number">0</span> <span class="op">=</span><span class="op">&gt;</span> {
                     <span class="ident">nav_entry</span>.<span class="ident">set_text</span>(<span class="string">&quot;&quot;</span>);
-                    <span class="ident">create_initial_tab</span>(<span class="kw-2">&amp;</span><span class="ident">builder</span>, <span class="kw-2">&amp;</span><span class="ident">tabs</span>, <span class="ident">initial_url</span>.<span class="ident">to_owned</span>(), <span class="ident">verbose</span>, <span class="ident">is_private</span>)
+                    <span class="ident">create_initial_tab</span>(<span class="kw-2">&amp;</span><span class="ident">builder</span>, <span class="kw-2">&amp;</span><span class="ident">tabs</span>, <span class="ident">initial_url</span>.<span class="ident">to_owned</span>(), <span class="ident">verbose</span>, <span class="ident">is_private</span>, <span class="ident">native</span>)
                 }
                 <span class="number">1</span> <span class="op">=</span><span class="op">&gt;</span> {
                     <span class="ident">tabs</span>.<span class="ident">set_show_tabs</span>(<span class="bool-val">false</span>);
@@ -1459,7 +1667,7 @@
     }));
 
     <span class="ident">add_tab</span>.<span class="ident">connect_clicked</span>(<span class="macro">clone</span><span class="macro">!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
-        <span class="kw">let</span> <span class="ident">web_view</span> <span class="op">=</span> <span class="ident">new_tab_page</span>(<span class="kw-2">&amp;</span><span class="ident">builder</span>, <span class="kw-2">&amp;</span><span class="ident">tabs</span>, <span class="ident">tabs</span>.<span class="ident">get_n_pages</span>(), <span class="ident">verbose</span>, <span class="ident">is_private</span>);
+        <span class="kw">let</span> <span class="ident">web_view</span> <span class="op">=</span> <span class="ident">new_tab_page</span>(<span class="kw-2">&amp;</span><span class="ident">builder</span>, <span class="kw-2">&amp;</span><span class="ident">tabs</span>, <span class="ident">tabs</span>.<span class="ident">get_n_pages</span>(), <span class="ident">verbose</span>, <span class="ident">is_private</span>, <span class="ident">native</span>);
         <span class="kw">let</span> <span class="ident">current_tab_label</span>: <span class="ident">gtk</span>::<span class="ident">Box</span> <span class="op">=</span> <span class="ident">tabs</span>.<span class="ident">get_tab_label</span>(<span class="kw-2">&amp;</span><span class="ident">web_view</span>).<span class="ident">unwrap</span>().<span class="ident">downcast</span>().<span class="ident">unwrap</span>();
         <span class="kw">let</span> <span class="ident">close_button_widget</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">current_tab_label</span>.<span class="ident">get_children</span>()[<span class="number">2</span>];
         <span class="kw">let</span> <span class="ident">close_button</span>: <span class="ident">gtk</span>::<span class="ident">Button</span> <span class="op">=</span> <span class="ident">close_button_widget</span>.<span class="ident">clone</span>().<span class="ident">downcast</span>().<span class="ident">unwrap</span>();
@@ -1511,12 +1719,9 @@
             <span class="ident">find_options</span>.<span class="ident">set</span>(<span class="ident">webkit2gtk</span>::<span class="ident">FindOptions</span>::<span class="ident">BACKWARDS</span>, <span class="ident">find_backwards</span>.<span class="ident">get_active</span>());
             <span class="ident">find_options</span>.<span class="ident">set</span>(<span class="ident">webkit2gtk</span>::<span class="ident">FindOptions</span>::<span class="ident">WRAP_AROUND</span>, <span class="ident">find_wrap_around</span>.<span class="ident">get_active</span>());
             <span class="kw">let</span> <span class="ident">max_match_count</span> <span class="op">=</span> <span class="ident">find_controller</span>.<span class="ident">get_max_match_count</span>();
-            <span class="comment">// let current_match = Rc::new(RefCell::new(0));</span>
-            <span class="comment">// let all_matches = Rc::new(RefCell::new(0));</span>
             <span class="ident">find_controller</span>.<span class="ident">count_matches</span>(<span class="kw-2">&amp;</span><span class="ident">find_search_entry</span>.<span class="ident">get_text</span>(), <span class="ident">find_options</span>.<span class="ident">bits</span>(), <span class="ident">max_match_count</span>);
             <span class="ident">find_controller</span>.<span class="ident">search</span>(<span class="kw-2">&amp;</span><span class="ident">find_search_entry</span>.<span class="ident">get_text</span>(), <span class="ident">find_options</span>.<span class="ident">bits</span>(), <span class="ident">max_match_count</span>);
             <span class="ident">find_controller</span>.<span class="ident">connect_counted_matches</span>(<span class="macro">clone</span><span class="macro">!</span>(@<span class="ident">weak</span> <span class="ident">web_view</span>, @<span class="ident">weak</span> <span class="ident">find_controller</span>, @<span class="ident">weak</span> <span class="ident">find_search_entry</span>, @<span class="ident">weak</span> <span class="ident">total_matches_label</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span>, <span class="ident">total_matches</span><span class="op">|</span> {
-                <span class="comment">// *all_matches.borrow_mut() = total_matches;</span>
                 <span class="kw">if</span> <span class="ident">total_matches</span> <span class="op">&lt;</span> <span class="ident">u32</span>::<span class="ident">MAX</span>
                 {
                     <span class="ident">total_matches_label</span>.<span class="ident">set_text</span>(<span class="kw-2">&amp;</span><span class="ident">total_matches</span>.<span class="ident">to_string</span>());
@@ -1534,7 +1739,6 @@
                 <span class="ident">current_match_label</span>.<span class="ident">set_text</span>(<span class="kw-2">&amp;</span><span class="ident">current_match</span>.<span class="ident">to_string</span>());
                 <span class="ident">find_search_entry</span>.<span class="ident">set_progress_fraction</span>(<span class="ident">current_match</span> <span class="kw">as</span> <span class="ident">f64</span> <span class="op">/</span> <span class="ident">total_matches</span> <span class="kw">as</span> <span class="ident">f64</span>);
                 <span class="ident">find_search_entry</span>.<span class="ident">set_tooltip_text</span>(<span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;{} / {} matches&quot;</span>, <span class="ident">current_match</span>, <span class="ident">total_matches</span>)));
-                <span class="comment">// println!(&quot;{} / {} matches&quot;, *current_match.borrow_mut(), *all_matches.borrow_mut());</span>
             }));
             <span class="ident">next_find_button</span>.<span class="ident">connect_clicked</span>(<span class="macro">clone</span><span class="macro">!</span>(@<span class="ident">weak</span> <span class="ident">web_view</span>, @<span class="ident">weak</span> <span class="ident">find_controller</span>, @<span class="ident">weak</span> <span class="ident">find_search_entry</span>, @<span class="ident">weak</span> <span class="ident">current_match_label</span>, @<span class="ident">weak</span> <span class="ident">total_matches_label</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
                 <span class="ident">find_controller</span>.<span class="ident">search_next</span>();
@@ -1548,7 +1752,6 @@
                 <span class="ident">current_match_label</span>.<span class="ident">set_text</span>(<span class="kw-2">&amp;</span><span class="ident">current_match</span>.<span class="ident">to_string</span>());
                 <span class="ident">find_search_entry</span>.<span class="ident">set_progress_fraction</span>(<span class="ident">current_match</span> <span class="kw">as</span> <span class="ident">f64</span> <span class="op">/</span> <span class="ident">total_matches</span> <span class="kw">as</span> <span class="ident">f64</span>);
                 <span class="ident">find_search_entry</span>.<span class="ident">set_tooltip_text</span>(<span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;{} / {} matches&quot;</span>, <span class="ident">current_match</span>, <span class="ident">total_matches</span>)));
-                <span class="comment">// println!(&quot;{} / {} matches&quot;, *current_match.borrow_mut(), *all_matches.borrow_mut());</span>
             }));
             <span class="ident">previous_find_button</span>.<span class="ident">connect_clicked</span>(<span class="macro">clone</span><span class="macro">!</span>(@<span class="ident">weak</span> <span class="ident">web_view</span>, @<span class="ident">weak</span> <span class="ident">find_controller</span>, @<span class="ident">weak</span> <span class="ident">find_search_entry</span>, @<span class="ident">weak</span> <span class="ident">current_match_label</span>, @<span class="ident">weak</span> <span class="ident">total_matches_label</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
                 <span class="ident">find_controller</span>.<span class="ident">search_previous</span>();
@@ -1562,7 +1765,6 @@
                 <span class="ident">current_match_label</span>.<span class="ident">set_text</span>(<span class="kw-2">&amp;</span><span class="ident">current_match</span>.<span class="ident">to_string</span>());
                 <span class="ident">find_search_entry</span>.<span class="ident">set_progress_fraction</span>(<span class="ident">current_match</span> <span class="kw">as</span> <span class="ident">f64</span> <span class="op">/</span> <span class="ident">total_matches</span> <span class="kw">as</span> <span class="ident">f64</span>);
                 <span class="ident">find_search_entry</span>.<span class="ident">set_tooltip_text</span>(<span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;{} / {} matches&quot;</span>, <span class="ident">current_match</span>, <span class="ident">total_matches</span>)));
-                <span class="comment">// println!(&quot;{} / {} matches&quot;, *current_match.borrow_mut(), *all_matches.borrow_mut());</span>
             }));
             <span class="ident">find_popover</span>.<span class="ident">connect_closed</span>(
                 <span class="macro">clone</span><span class="macro">!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span>, @<span class="ident">weak</span> <span class="ident">current_match_label</span>, @<span class="ident">weak</span> <span class="ident">total_matches_label</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {

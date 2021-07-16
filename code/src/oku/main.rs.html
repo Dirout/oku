@@ -1,7 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/main.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>main.rs - source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled ><script id="default-settings"></script><script src="../../storage.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../favicon.svg">
-<link rel="alternate icon" type="image/png" href="../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../../oku/index.html'><div class='logo-container rust-logo'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
-                <a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">  1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src&#x2F;main.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>main.rs - source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled ><script id="default-settings" ></script><script src="../../storage.js"></script><script src="../../crates.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../favicon.svg"><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../oku/index.html'><div class='logo-container rust-logo'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input"name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../wheel.svg"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -908,7 +905,67 @@
 <span id="905">905</span>
 <span id="906">906</span>
 <span id="907">907</span>
-</pre><div class="example-wrap"><pre class="rust ">
+<span id="908">908</span>
+<span id="909">909</span>
+<span id="910">910</span>
+<span id="911">911</span>
+<span id="912">912</span>
+<span id="913">913</span>
+<span id="914">914</span>
+<span id="915">915</span>
+<span id="916">916</span>
+<span id="917">917</span>
+<span id="918">918</span>
+<span id="919">919</span>
+<span id="920">920</span>
+<span id="921">921</span>
+<span id="922">922</span>
+<span id="923">923</span>
+<span id="924">924</span>
+<span id="925">925</span>
+<span id="926">926</span>
+<span id="927">927</span>
+<span id="928">928</span>
+<span id="929">929</span>
+<span id="930">930</span>
+<span id="931">931</span>
+<span id="932">932</span>
+<span id="933">933</span>
+<span id="934">934</span>
+<span id="935">935</span>
+<span id="936">936</span>
+<span id="937">937</span>
+<span id="938">938</span>
+<span id="939">939</span>
+<span id="940">940</span>
+<span id="941">941</span>
+<span id="942">942</span>
+<span id="943">943</span>
+<span id="944">944</span>
+<span id="945">945</span>
+<span id="946">946</span>
+<span id="947">947</span>
+<span id="948">948</span>
+<span id="949">949</span>
+<span id="950">950</span>
+<span id="951">951</span>
+<span id="952">952</span>
+<span id="953">953</span>
+<span id="954">954</span>
+<span id="955">955</span>
+<span id="956">956</span>
+<span id="957">957</span>
+<span id="958">958</span>
+<span id="959">959</span>
+<span id="960">960</span>
+<span id="961">961</span>
+<span id="962">962</span>
+<span id="963">963</span>
+<span id="964">964</span>
+<span id="965">965</span>
+<span id="966">966</span>
+<span id="967">967</span>
+</pre><pre class="rust">
 <span class="comment">/*
     This file is part of Oku.
 
@@ -928,83 +985,141 @@
 
 
 
-<span class="kw">use</span> <span class="ident">ipfs</span>::<span class="ident">Types</span>;
-<span class="kw">use</span> <span class="ident">std</span>::<span class="ident">path</span>::<span class="ident">PathBuf</span>;
-<span class="kw">use</span> <span class="ident">ipfs</span>::<span class="ident">Keypair</span>;
+<span class="kw">use</span> <span class="ident">glib::OptionArg</span>;
+<span class="kw">use</span> <span class="ident">glib::OptionFlags</span>;
+<span class="kw">use</span> <span class="ident">glib::VariantDict</span>;
+<span class="kw">use</span> <span class="ident">glib::VariantTy</span>;
+<span class="kw">use</span> <span class="ident">ipfs::Types</span>;
+<span class="kw">use</span> <span class="ident">std::path::PathBuf</span>;
+<span class="kw">use</span> <span class="ident">ipfs::Keypair</span>;
 
-<span class="kw">use</span> <span class="ident">tokio</span>::<span class="ident">stream</span>::<span class="ident">StreamExt</span>;
-<span class="kw">use</span> <span class="ident">ipfs</span>::<span class="ident">IpfsPath</span>;
-<span class="kw">use</span> <span class="ident">ipfs</span>::<span class="ident">UninitializedIpfs</span>;
+<span class="kw">use</span> <span class="ident">tokio::stream::StreamExt</span>;
+<span class="kw">use</span> <span class="ident">ipfs::IpfsPath</span>;
+<span class="kw">use</span> <span class="ident">ipfs::UninitializedIpfs</span>;
 
-<span class="kw">use</span> <span class="ident">ipfs</span>::<span class="ident">Ipfs</span>;
-<span class="kw">use</span> <span class="ident">ipfs</span>::<span class="ident">IpfsOptions</span>;
-<span class="kw">use</span> <span class="ident">cid</span>::<span class="ident">Cid</span>;
-<span class="kw">use</span> <span class="ident">url</span>::<span class="ident">Url</span>;
-<span class="kw">use</span> <span class="ident">url</span>::<span class="ident">ParseError</span>;
-<span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">ToggleButtonExt</span>;
-<span class="kw">use</span> <span class="ident">webkit2gtk</span>::<span class="ident">FindControllerExt</span>;
-<span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">SearchEntryExt</span>;
-<span class="kw">use</span> <span class="ident">chrono</span>::<span class="ident">Utc</span>;
-<span class="kw">use</span> <span class="ident">directories_next</span>::<span class="ident">UserDirs</span>;
-<span class="kw">use</span> <span class="ident">std</span>::<span class="ident">fs</span>::<span class="ident">File</span>;
-<span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">AboutDialogExt</span>;
-<span class="kw">use</span> <span class="ident">directories_next</span>::<span class="ident">ProjectDirs</span>;
-<span class="kw">use</span> <span class="ident">futures</span>::<span class="ident">TryStreamExt</span>;
-<span class="kw">use</span> <span class="ident">gio</span>::<span class="ident">prelude</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="ident">glib</span>::<span class="ident">clone</span>;
-<span class="kw">use</span> <span class="ident">glib</span>::<span class="ident">Cast</span>;
-<span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">prelude</span>::<span class="ident">BuilderExtManual</span>;
-<span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">prelude</span>::<span class="ident">NotebookExtManual</span>;
-<span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">BoxExt</span>;
-<span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">ButtonExt</span>;
-<span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">ContainerExt</span>;
-<span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">EntryExt</span>;
-<span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">GtkWindowExt</span>;
-<span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">IconSize</span>;
-<span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">ImageExt</span>;
-<span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">Inhibit</span>;
-<span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">LabelExt</span>;
-<span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">NotebookExt</span>;
-<span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">Orientation</span>::<span class="ident">Horizontal</span>;
-<span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">PopoverExt</span>;
-<span class="kw">use</span> <span class="ident">gtk</span>::<span class="ident">WidgetExt</span>;
-<span class="kw">use</span> <span class="ident">ipfs_api</span>::<span class="ident">IpfsClient</span>;
-<span class="kw">use</span> <span class="ident">pango</span>::<span class="ident">EllipsizeMode</span>;
-<span class="kw">use</span> <span class="ident">std</span>::<span class="ident">convert</span>::<span class="ident">TryFrom</span>;
-<span class="kw">use</span> <span class="ident">std</span>::<span class="ident">env</span>::<span class="ident">args</span>;
-<span class="kw">use</span> <span class="ident">urlencoding</span>::<span class="ident">decode</span>;
-<span class="kw">use</span> <span class="ident">webkit2gtk</span>::<span class="ident">SettingsExt</span>;
-<span class="kw">use</span> <span class="ident">webkit2gtk</span>::<span class="ident">URISchemeRequest</span>;
-<span class="kw">use</span> <span class="ident">webkit2gtk</span>::<span class="ident">URISchemeRequestExt</span>;
-<span class="kw">use</span> <span class="ident">webkit2gtk</span>::<span class="ident">WebContextExt</span>;
-<span class="kw">use</span> <span class="ident">webkit2gtk</span>::<span class="ident">WebViewExt</span>;
-<span class="kw">use</span> <span class="ident">clap</span>::<span class="ident">clap_app</span>;
+<span class="kw">use</span> <span class="ident">ipfs::Ipfs</span>;
+<span class="kw">use</span> <span class="ident">ipfs::IpfsOptions</span>;
+<span class="kw">use</span> <span class="ident">cid::Cid</span>;
+<span class="kw">use</span> <span class="ident">url::Url</span>;
+<span class="kw">use</span> <span class="ident">url::ParseError</span>;
+<span class="kw">use</span> <span class="ident">gtk::prelude::ToggleButtonExt</span>;
+<span class="kw">use</span> <span class="ident">webkit2gtk::FindControllerExt</span>;
+<span class="kw">use</span> <span class="ident">gtk::prelude::SearchEntryExt</span>;
+<span class="kw">use</span> <span class="ident">chrono::Utc</span>;
+<span class="kw">use</span> <span class="ident">directories_next::UserDirs</span>;
+<span class="kw">use</span> <span class="ident">std::fs::File</span>;
+<span class="kw">use</span> <span class="ident">gtk::prelude::AboutDialogExt</span>;
+<span class="kw">use</span> <span class="ident">directories_next::ProjectDirs</span>;
+<span class="kw">use</span> <span class="ident">futures::TryStreamExt</span>;
+<span class="kw">use</span> <span class="ident">gio::prelude</span>::<span class="kw-2">*</span>;
+<span class="kw">use</span> <span class="ident">glib::clone</span>;
+<span class="kw">use</span> <span class="ident">glib::Cast</span>;
+<span class="kw">use</span> <span class="ident">gtk::prelude::BuilderExtManual</span>;
+<span class="kw">use</span> <span class="ident">gtk::prelude::NotebookExtManual</span>;
+<span class="kw">use</span> <span class="ident">gtk::prelude::BoxExt</span>;
+<span class="kw">use</span> <span class="ident">gtk::prelude::ButtonExt</span>;
+<span class="kw">use</span> <span class="ident">gtk::prelude::ContainerExt</span>;
+<span class="kw">use</span> <span class="ident">gtk::prelude::EntryExt</span>;
+<span class="kw">use</span> <span class="ident">gtk::prelude::GtkWindowExt</span>;
+<span class="kw">use</span> <span class="ident">gtk::IconSize</span>;
+<span class="kw">use</span> <span class="ident">gtk::prelude::ImageExt</span>;
+<span class="kw">use</span> <span class="ident">gtk::Inhibit</span>;
+<span class="kw">use</span> <span class="ident">gtk::prelude::LabelExt</span>;
+<span class="kw">use</span> <span class="ident">gtk::prelude::NotebookExt</span>;
+<span class="kw">use</span> <span class="ident">gtk::Orientation::Horizontal</span>;
+<span class="kw">use</span> <span class="ident">gtk::prelude::PopoverExt</span>;
+<span class="kw">use</span> <span class="ident">gtk::prelude::WidgetExt</span>;
+<span class="kw">use</span> <span class="ident">ipfs_api::IpfsClient</span>;
+<span class="kw">use</span> <span class="ident">pango::EllipsizeMode</span>;
+<span class="kw">use</span> <span class="ident">std::convert::TryFrom</span>;
+<span class="kw">use</span> <span class="ident">std::env::args</span>;
+<span class="kw">use</span> <span class="ident">urlencoding::decode</span>;
+<span class="kw">use</span> <span class="ident">webkit2gtk::traits</span>::<span class="kw-2">*</span>;
+<span class="kw">use</span> <span class="ident">webkit2gtk</span>::{<span class="ident">SettingsExt</span>, <span class="ident">URISchemeRequest</span>, <span class="ident">URISchemeRequestExt</span>, <span class="ident">WebContextExt</span>, <span class="ident">WebViewExt</span>};
 
 <span class="attribute">#[<span class="ident">macro_use</span>]</span>
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">lazy_static</span>;
 
-<span class="macro">lazy_static</span><span class="macro">!</span> {
+<span class="macro">lazy_static!</span> {
     <span class="doccomment">/// The platform-specific directories intended for Oku&#39;s use</span>
     <span class="kw">static</span> <span class="kw-2">ref</span> <span class="ident">PROJECT_DIRECTORIES</span>: <span class="ident">ProjectDirs</span> <span class="op">=</span>
-        <span class="ident">ProjectDirs</span>::<span class="ident">from</span>(<span class="string">&quot;org&quot;</span>, <span class="string">&quot;Emil Sayahi&quot;</span>, <span class="string">&quot;Oku&quot;</span>).<span class="ident">unwrap</span>();
+        <span class="ident">ProjectDirs::from</span>(<span class="string">&quot;org&quot;</span>, <span class="string">&quot;Emil Sayahi&quot;</span>, <span class="string">&quot;Oku&quot;</span>).<span class="ident">unwrap</span>();
     <span class="doccomment">/// The platform-specific directory where Oku caches data</span>
     <span class="kw">static</span> <span class="kw-2">ref</span> <span class="ident">CACHE_DIR</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span> <span class="op">=</span> <span class="ident">PROJECT_DIRECTORIES</span>.<span class="ident">cache_dir</span>().<span class="ident">to_str</span>().<span class="ident">unwrap</span>();
     <span class="doccomment">/// The platform-specific directory where Oku stores user data</span>
     <span class="kw">static</span> <span class="kw-2">ref</span> <span class="ident">DATA_DIR</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span> <span class="op">=</span> <span class="ident">PROJECT_DIRECTORIES</span>.<span class="ident">data_dir</span>().<span class="ident">to_str</span>().<span class="ident">unwrap</span>();
     <span class="doccomment">/// The platform-specific directories containing user files</span>
-    <span class="kw">static</span> <span class="kw-2">ref</span> <span class="ident">USER_DIRECTORIES</span>: <span class="ident">UserDirs</span> <span class="op">=</span> <span class="ident">UserDirs</span>::<span class="ident">new</span>().<span class="ident">unwrap</span>();
+    <span class="kw">static</span> <span class="kw-2">ref</span> <span class="ident">USER_DIRECTORIES</span>: <span class="ident">UserDirs</span> <span class="op">=</span> <span class="ident">UserDirs::new</span>().<span class="ident">unwrap</span>();
     <span class="doccomment">/// The platform-specific directory where users store pictures</span>
     <span class="kw">static</span> <span class="kw-2">ref</span> <span class="ident">PICTURES_DIR</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span> <span class="op">=</span> <span class="ident">USER_DIRECTORIES</span>.<span class="ident">picture_dir</span>().<span class="ident">unwrap</span>().<span class="ident">to_str</span>().<span class="ident">unwrap</span>();
 }
 
 <span class="doccomment">/// The current release version number of Oku</span>
-<span class="kw">const</span> <span class="ident">VERSION</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span><span class="op">&gt;</span> <span class="op">=</span> <span class="macro">option_env</span><span class="macro">!</span>(<span class="string">&quot;CARGO_PKG_VERSION&quot;</span>);
+<span class="kw">const</span> <span class="ident">VERSION</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span><span class="op">&gt;</span> <span class="op">=</span> <span class="macro">option_env!</span>(<span class="string">&quot;CARGO_PKG_VERSION&quot;</span>);
 
 <span class="kw">struct</span> <span class="ident">DownloadItem</span> {
     <span class="ident">source</span>: <span class="ident">String</span>,
     <span class="ident">destination</span>: <span class="ident">String</span>,
     <span class="ident">requested_time</span>: <span class="ident">String</span>,
     <span class="ident">successful</span>: <span class="ident">bool</span>,
+}
+
+<span class="doccomment">/// Perform the initial connection at startup when passed a URL as a launch argument</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// * `initial_url` - The URL passed as a launch argument</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// * `web_view` - The WebKit instance for the current tab</span>
+<span class="kw">fn</span> <span class="ident">initial_connect</span>(<span class="kw-2">mut</span> <span class="ident">initial_url</span>: <span class="ident">String</span>, <span class="ident">web_view</span>: <span class="kw-2">&amp;</span><span class="ident">webkit2gtk::WebView</span>)
+{
+    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">parsed_url</span> <span class="op">=</span> <span class="ident">Url::parse</span>(<span class="kw-2">&amp;</span><span class="ident">initial_url</span>);
+    <span class="kw">match</span> <span class="ident">parsed_url</span>
+    {
+        <span class="comment">// When URL is completely OK</span>
+        <span class="prelude-val">Ok</span>(<span class="kw">_</span>) <span class="op">=</span><span class="op">&gt;</span> {
+            <span class="ident">web_view</span>.<span class="ident">load_uri</span>(<span class="kw-2">&amp;</span><span class="ident">initial_url</span>);
+        }
+        <span class="comment">// When URL is missing a scheme</span>
+        <span class="prelude-val">Err</span>(<span class="ident">ParseError::RelativeUrlWithoutBase</span>) <span class="op">=</span><span class="op">&gt;</span> {
+            <span class="ident">parsed_url</span> <span class="op">=</span> <span class="ident">Url::parse</span>(<span class="kw-2">&amp;</span><span class="macro">format!</span>(<span class="string">&quot;http://{}&quot;</span>, <span class="ident">initial_url</span>)); <span class="comment">// Try with HTTP first</span>
+            <span class="kw">match</span> <span class="ident">parsed_url</span>
+            {
+                <span class="comment">// If it&#39;s now valid with HTTP</span>
+                <span class="prelude-val">Ok</span>(<span class="kw">_</span>) <span class="op">=</span><span class="op">&gt;</span> {
+                    <span class="kw">let</span> <span class="ident">split_url</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">initial_url</span>.<span class="ident">split</span>(<span class="string">&#39;/&#39;</span>).<span class="ident">collect</span>();
+                    <span class="kw">let</span> <span class="ident">host</span> <span class="op">=</span> <span class="ident">split_url</span>[<span class="number">0</span>];
+                    <span class="kw">let</span> <span class="ident">cid</span> <span class="op">=</span> <span class="ident">Cid::try_from</span>(<span class="ident">host</span>);
+                    <span class="comment">// Try seeing if we can swap it with IPFS</span>
+                    <span class="kw">match</span> <span class="ident">cid</span>
+                    {
+                        <span class="comment">// It works as IPFS</span>
+                        <span class="prelude-val">Ok</span>(<span class="kw">_</span>) <span class="op">=</span><span class="op">&gt;</span> {
+                            <span class="kw">let</span> <span class="ident">unwrapped_cid</span> <span class="op">=</span> <span class="ident">cid</span>.<span class="ident">unwrap</span>();
+                            <span class="kw">let</span> <span class="ident">cid1</span> <span class="op">=</span> <span class="ident">Cid::new_v1</span>(<span class="ident">unwrapped_cid</span>.<span class="ident">codec</span>(), <span class="ident">unwrapped_cid</span>.<span class="ident">hash</span>().<span class="ident">to_owned</span>());
+                            <span class="ident">parsed_url</span> <span class="op">=</span> <span class="ident">Url::parse</span>(<span class="kw-2">&amp;</span><span class="macro">format!</span>(<span class="string">&quot;ipfs://{}&quot;</span>, <span class="ident">initial_url</span>));
+                            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">unwrapped_url</span> <span class="op">=</span> <span class="ident">parsed_url</span>.<span class="ident">unwrap</span>();
+                            <span class="kw">let</span> <span class="ident">cid1_string</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">cid1</span>.<span class="ident">to_string_of_base</span>(<span class="ident">cid::multibase::Base::Base32Lower</span>).<span class="ident">unwrap</span>();
+                            <span class="ident">unwrapped_url</span>.<span class="ident">set_host</span>(<span class="prelude-val">Some</span>(<span class="ident">cid1_string</span>)).<span class="ident">unwrap</span>();
+                            <span class="ident">initial_url</span> <span class="op">=</span> <span class="ident">unwrapped_url</span>.<span class="ident">as_str</span>().<span class="ident">to_owned</span>();
+                            <span class="ident">web_view</span>.<span class="ident">load_uri</span>(<span class="kw-2">&amp;</span><span class="ident">initial_url</span>);
+                        }
+                        <span class="comment">// It doesn&#39;t work as IPFS</span>
+                        <span class="prelude-val">Err</span>(<span class="kw">_</span>) <span class="op">=</span><span class="op">&gt;</span> {
+                            <span class="ident">initial_url</span> <span class="op">=</span> <span class="ident">parsed_url</span>.<span class="ident">unwrap</span>().<span class="ident">as_str</span>().<span class="ident">to_owned</span>();
+                            <span class="ident">web_view</span>.<span class="ident">load_uri</span>(<span class="kw-2">&amp;</span><span class="ident">initial_url</span>);
+                        }
+                    }
+                }
+                <span class="comment">// Still not valid, even with HTTP</span>
+                <span class="prelude-val">Err</span>(<span class="ident">e</span>) <span class="op">=</span><span class="op">&gt;</span> {
+                    <span class="ident">web_view</span>.<span class="ident">load_plain_text</span>(<span class="kw-2">&amp;</span><span class="macro">format!</span>(<span class="string">&quot;{:#?}&quot;</span>, <span class="ident">e</span>));
+                }
+            }
+        }
+        <span class="comment">// URL is malformed beyond missing a scheme</span>
+        <span class="prelude-val">Err</span>(<span class="ident">e</span>) <span class="op">=</span><span class="op">&gt;</span> {
+            <span class="ident">web_view</span>.<span class="ident">load_plain_text</span>(<span class="kw-2">&amp;</span><span class="macro">format!</span>(<span class="string">&quot;{:#?}&quot;</span>, <span class="ident">e</span>));
+        }
+    }
 }
 
 <span class="doccomment">/// Connect to a page using the current tab</span>
@@ -1014,10 +1129,10 @@
 <span class="doccomment">/// * `nav_entry` - The navigation bar of the browser</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// * `web_view` - The WebKit instance for the current tab</span>
-<span class="kw">fn</span> <span class="ident">connect</span>(<span class="ident">nav_entry</span>: <span class="kw-2">&amp;</span><span class="ident">gtk</span>::<span class="ident">Entry</span>, <span class="ident">web_view</span>: <span class="kw-2">&amp;</span><span class="ident">webkit2gtk</span>::<span class="ident">WebView</span>) {
-    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">nav_text</span> <span class="op">=</span> <span class="ident">nav_entry</span>.<span class="ident">get_text</span>().<span class="ident">to_string</span>();
+<span class="kw">fn</span> <span class="ident">connect</span>(<span class="ident">nav_entry</span>: <span class="kw-2">&amp;</span><span class="ident">gtk::Entry</span>, <span class="ident">web_view</span>: <span class="kw-2">&amp;</span><span class="ident">webkit2gtk::WebView</span>) {
+    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">nav_text</span> <span class="op">=</span> <span class="ident">nav_entry</span>.<span class="ident">text</span>().<span class="ident">to_string</span>();
 
-    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">parsed_url</span> <span class="op">=</span> <span class="ident">Url</span>::<span class="ident">parse</span>(<span class="kw-2">&amp;</span><span class="ident">nav_text</span>);
+    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">parsed_url</span> <span class="op">=</span> <span class="ident">Url::parse</span>(<span class="kw-2">&amp;</span><span class="ident">nav_text</span>);
     <span class="kw">match</span> <span class="ident">parsed_url</span>
     {
         <span class="comment">// When URL is completely OK</span>
@@ -1025,25 +1140,25 @@
             <span class="ident">web_view</span>.<span class="ident">load_uri</span>(<span class="kw-2">&amp;</span><span class="ident">nav_text</span>);
         }
         <span class="comment">// When URL is missing a scheme</span>
-        <span class="prelude-val">Err</span>(<span class="ident">ParseError</span>::<span class="ident">RelativeUrlWithoutBase</span>) <span class="op">=</span><span class="op">&gt;</span> {
-            <span class="ident">parsed_url</span> <span class="op">=</span> <span class="ident">Url</span>::<span class="ident">parse</span>(<span class="kw-2">&amp;</span><span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;http://{}&quot;</span>, <span class="ident">nav_text</span>)); <span class="comment">// Try with HTTP first</span>
+        <span class="prelude-val">Err</span>(<span class="ident">ParseError::RelativeUrlWithoutBase</span>) <span class="op">=</span><span class="op">&gt;</span> {
+            <span class="ident">parsed_url</span> <span class="op">=</span> <span class="ident">Url::parse</span>(<span class="kw-2">&amp;</span><span class="macro">format!</span>(<span class="string">&quot;http://{}&quot;</span>, <span class="ident">nav_text</span>)); <span class="comment">// Try with HTTP first</span>
             <span class="kw">match</span> <span class="ident">parsed_url</span>
             {
                 <span class="comment">// If it&#39;s now valid with HTTP</span>
                 <span class="prelude-val">Ok</span>(<span class="kw">_</span>) <span class="op">=</span><span class="op">&gt;</span> {
                     <span class="kw">let</span> <span class="ident">split_url</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">nav_text</span>.<span class="ident">split</span>(<span class="string">&#39;/&#39;</span>).<span class="ident">collect</span>();
                     <span class="kw">let</span> <span class="ident">host</span> <span class="op">=</span> <span class="ident">split_url</span>[<span class="number">0</span>];
-                    <span class="kw">let</span> <span class="ident">cid</span> <span class="op">=</span> <span class="ident">Cid</span>::<span class="ident">try_from</span>(<span class="ident">host</span>);
+                    <span class="kw">let</span> <span class="ident">cid</span> <span class="op">=</span> <span class="ident">Cid::try_from</span>(<span class="ident">host</span>);
                     <span class="comment">// Try seeing if we can swap it with IPFS</span>
                     <span class="kw">match</span> <span class="ident">cid</span>
                     {
                         <span class="comment">// It works as IPFS</span>
                         <span class="prelude-val">Ok</span>(<span class="kw">_</span>) <span class="op">=</span><span class="op">&gt;</span> {
                             <span class="kw">let</span> <span class="ident">unwrapped_cid</span> <span class="op">=</span> <span class="ident">cid</span>.<span class="ident">unwrap</span>();
-                            <span class="kw">let</span> <span class="ident">cid1</span> <span class="op">=</span> <span class="ident">Cid</span>::<span class="ident">new_v1</span>(<span class="ident">unwrapped_cid</span>.<span class="ident">codec</span>(), <span class="ident">unwrapped_cid</span>.<span class="ident">hash</span>().<span class="ident">to_owned</span>());
-                            <span class="ident">parsed_url</span> <span class="op">=</span> <span class="ident">Url</span>::<span class="ident">parse</span>(<span class="kw-2">&amp;</span><span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;ipfs://{}&quot;</span>, <span class="ident">nav_text</span>));
+                            <span class="kw">let</span> <span class="ident">cid1</span> <span class="op">=</span> <span class="ident">Cid::new_v1</span>(<span class="ident">unwrapped_cid</span>.<span class="ident">codec</span>(), <span class="ident">unwrapped_cid</span>.<span class="ident">hash</span>().<span class="ident">to_owned</span>());
+                            <span class="ident">parsed_url</span> <span class="op">=</span> <span class="ident">Url::parse</span>(<span class="kw-2">&amp;</span><span class="macro">format!</span>(<span class="string">&quot;ipfs://{}&quot;</span>, <span class="ident">nav_text</span>));
                             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">unwrapped_url</span> <span class="op">=</span> <span class="ident">parsed_url</span>.<span class="ident">unwrap</span>();
-                            <span class="kw">let</span> <span class="ident">cid1_string</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">cid1</span>.<span class="ident">to_string_of_base</span>(<span class="ident">cid</span>::<span class="ident">multibase</span>::<span class="ident">Base</span>::<span class="ident">Base32Lower</span>).<span class="ident">unwrap</span>();
+                            <span class="kw">let</span> <span class="ident">cid1_string</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">cid1</span>.<span class="ident">to_string_of_base</span>(<span class="ident">cid::multibase::Base::Base32Lower</span>).<span class="ident">unwrap</span>();
                             <span class="ident">unwrapped_url</span>.<span class="ident">set_host</span>(<span class="prelude-val">Some</span>(<span class="ident">cid1_string</span>)).<span class="ident">unwrap</span>();
                             <span class="ident">nav_text</span> <span class="op">=</span> <span class="ident">unwrapped_url</span>.<span class="ident">as_str</span>().<span class="ident">to_owned</span>();
                             <span class="ident">web_view</span>.<span class="ident">load_uri</span>(<span class="kw-2">&amp;</span><span class="ident">nav_text</span>);
@@ -1059,13 +1174,13 @@
                 }
                 <span class="comment">// Still not valid, even with HTTP</span>
                 <span class="prelude-val">Err</span>(<span class="ident">e</span>) <span class="op">=</span><span class="op">&gt;</span> {
-                    <span class="ident">web_view</span>.<span class="ident">load_plain_text</span>(<span class="kw-2">&amp;</span><span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;{:#?}&quot;</span>, <span class="ident">e</span>));
+                    <span class="ident">web_view</span>.<span class="ident">load_plain_text</span>(<span class="kw-2">&amp;</span><span class="macro">format!</span>(<span class="string">&quot;{:#?}&quot;</span>, <span class="ident">e</span>));
                 }
             }
         }
         <span class="comment">// URL is malformed beyond missing a scheme</span>
         <span class="prelude-val">Err</span>(<span class="ident">e</span>) <span class="op">=</span><span class="op">&gt;</span> {
-            <span class="ident">web_view</span>.<span class="ident">load_plain_text</span>(<span class="kw-2">&amp;</span><span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;{:#?}&quot;</span>, <span class="ident">e</span>));
+            <span class="ident">web_view</span>.<span class="ident">load_plain_text</span>(<span class="kw-2">&amp;</span><span class="macro">format!</span>(<span class="string">&quot;{:#?}&quot;</span>, <span class="ident">e</span>));
         }
     }
 
@@ -1078,13 +1193,13 @@
 <span class="doccomment">/// * `nav_entry` - The navigation bar of the browser</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// * `web_view` - The WebKit instance for the current tab</span>
-<span class="kw">fn</span> <span class="ident">update_nav_bar</span>(<span class="ident">nav_entry</span>: <span class="kw-2">&amp;</span><span class="ident">gtk</span>::<span class="ident">Entry</span>, <span class="ident">web_view</span>: <span class="kw-2">&amp;</span><span class="ident">webkit2gtk</span>::<span class="ident">WebView</span>) {
-    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">url</span> <span class="op">=</span> <span class="ident">web_view</span>.<span class="ident">get_uri</span>().<span class="ident">unwrap</span>().<span class="ident">to_string</span>();
+<span class="kw">fn</span> <span class="ident">update_nav_bar</span>(<span class="ident">nav_entry</span>: <span class="kw-2">&amp;</span><span class="ident">gtk::Entry</span>, <span class="ident">web_view</span>: <span class="kw-2">&amp;</span><span class="ident">webkit2gtk::WebView</span>) {
+    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">url</span> <span class="op">=</span> <span class="ident">web_view</span>.<span class="ident">uri</span>().<span class="ident">unwrap</span>().<span class="ident">to_string</span>();
     <span class="kw">let</span> <span class="ident">cid</span> <span class="op">=</span> <span class="ident">url</span>
         .<span class="ident">replacen</span>(<span class="string">&quot;http://&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="number">1</span>)
         .<span class="ident">replacen</span>(<span class="string">&quot;.ipfs.localhost:8080&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="number">1</span>);
     <span class="kw">let</span> <span class="ident">split_cid</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">cid</span>.<span class="ident">split</span>(<span class="string">&#39;/&#39;</span>).<span class="ident">collect</span>();
-    <span class="kw">if</span> <span class="ident">url</span>.<span class="ident">starts_with</span>(<span class="kw-2">&amp;</span><span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;http://{}.ipfs.localhost:8080/&quot;</span>, <span class="ident">split_cid</span>[<span class="number">0</span>])) {
+    <span class="kw">if</span> <span class="ident">url</span>.<span class="ident">starts_with</span>(<span class="kw-2">&amp;</span><span class="macro">format!</span>(<span class="string">&quot;http://{}.ipfs.localhost:8080/&quot;</span>, <span class="ident">split_cid</span>[<span class="number">0</span>])) {
         <span class="ident">url</span> <span class="op">=</span> <span class="ident">cid</span>;
     }
     <span class="ident">nav_entry</span>.<span class="ident">set_text</span>(<span class="kw-2">&amp;</span><span class="ident">url</span>);
@@ -1096,11 +1211,11 @@
 <span class="doccomment">///</span>
 <span class="doccomment">/// `request` - The request from the browser for the IPFS resource</span>
 <span class="kw">fn</span> <span class="ident">handle_ipfs_request_using_api</span>(<span class="ident">request</span>: <span class="kw-2">&amp;</span><span class="ident">URISchemeRequest</span>) {
-    <span class="kw">let</span> <span class="ident">request_url</span> <span class="op">=</span> <span class="ident">request</span>.<span class="ident">get_uri</span>().<span class="ident">unwrap</span>().<span class="ident">to_string</span>();
+    <span class="kw">let</span> <span class="ident">request_url</span> <span class="op">=</span> <span class="ident">request</span>.<span class="ident">uri</span>().<span class="ident">unwrap</span>().<span class="ident">to_string</span>();
     <span class="kw">let</span> <span class="ident">decoded_url</span> <span class="op">=</span> <span class="ident">decode</span>(<span class="kw-2">&amp;</span><span class="ident">request_url</span>).<span class="ident">unwrap</span>();
     <span class="kw">let</span> <span class="ident">ipfs_path</span> <span class="op">=</span> <span class="ident">decoded_url</span>.<span class="ident">replacen</span>(<span class="string">&quot;ipfs://&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="number">1</span>);
-    <span class="kw">let</span> <span class="ident">ipfs_bytes</span> <span class="op">=</span> <span class="ident">get_from_hash_using_api</span>(<span class="ident">ipfs_path</span>);
-    <span class="kw">let</span> <span class="ident">stream</span> <span class="op">=</span> <span class="ident">gio</span>::<span class="ident">MemoryInputStream</span>::<span class="ident">from_bytes</span>(<span class="kw-2">&amp;</span><span class="ident">glib</span>::<span class="ident">Bytes</span>::<span class="ident">from</span>(<span class="kw-2">&amp;</span><span class="ident">ipfs_bytes</span>));
+    <span class="kw">let</span> <span class="ident">ipfs_bytes</span> <span class="op">=</span> <span class="ident">from_hash_using_api</span>(<span class="ident">ipfs_path</span>);
+    <span class="kw">let</span> <span class="ident">stream</span> <span class="op">=</span> <span class="ident">gio::MemoryInputStream::from_bytes</span>(<span class="kw-2">&amp;</span><span class="ident">glib::Bytes::from</span>(<span class="kw-2">&amp;</span><span class="ident">ipfs_bytes</span>));
     <span class="ident">request</span>.<span class="ident">finish</span>(<span class="kw-2">&amp;</span><span class="ident">stream</span>, <span class="op">-</span><span class="number">1</span>, <span class="prelude-val">None</span>);
 }
 
@@ -1110,11 +1225,11 @@
 <span class="doccomment">///</span>
 <span class="doccomment">/// `request` - The request from the browser for the IPFS resource</span>
 <span class="kw">fn</span> <span class="ident">handle_ipfs_request_natively</span>(<span class="ident">request</span>: <span class="kw-2">&amp;</span><span class="ident">URISchemeRequest</span>) {
-    <span class="kw">let</span> <span class="ident">request_url</span> <span class="op">=</span> <span class="ident">request</span>.<span class="ident">get_uri</span>().<span class="ident">unwrap</span>().<span class="ident">to_string</span>();
+    <span class="kw">let</span> <span class="ident">request_url</span> <span class="op">=</span> <span class="ident">request</span>.<span class="ident">uri</span>().<span class="ident">unwrap</span>().<span class="ident">to_string</span>();
     <span class="kw">let</span> <span class="ident">decoded_url</span> <span class="op">=</span> <span class="ident">decode</span>(<span class="kw-2">&amp;</span><span class="ident">request_url</span>).<span class="ident">unwrap</span>();
     <span class="kw">let</span> <span class="ident">ipfs_path</span> <span class="op">=</span> <span class="ident">decoded_url</span>.<span class="ident">replacen</span>(<span class="string">&quot;ipfs://&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="number">1</span>);
-    <span class="kw">let</span> <span class="ident">ipfs_bytes</span> <span class="op">=</span> <span class="ident">get_from_hash_natively</span>(<span class="ident">ipfs_path</span>);
-    <span class="kw">let</span> <span class="ident">stream</span> <span class="op">=</span> <span class="ident">gio</span>::<span class="ident">MemoryInputStream</span>::<span class="ident">from_bytes</span>(<span class="kw-2">&amp;</span><span class="ident">glib</span>::<span class="ident">Bytes</span>::<span class="ident">from</span>(<span class="kw-2">&amp;</span><span class="ident">ipfs_bytes</span>));
+    <span class="kw">let</span> <span class="ident">ipfs_bytes</span> <span class="op">=</span> <span class="ident">from_hash_natively</span>(<span class="ident">ipfs_path</span>);
+    <span class="kw">let</span> <span class="ident">stream</span> <span class="op">=</span> <span class="ident">gio::MemoryInputStream::from_bytes</span>(<span class="kw-2">&amp;</span><span class="ident">glib::Bytes::from</span>(<span class="kw-2">&amp;</span><span class="ident">ipfs_bytes</span>));
     <span class="ident">request</span>.<span class="ident">finish</span>(<span class="kw-2">&amp;</span><span class="ident">stream</span>, <span class="op">-</span><span class="number">1</span>, <span class="prelude-val">None</span>);
 }
 
@@ -1128,19 +1243,19 @@
 <span class="doccomment">///</span>
 <span class="doccomment">/// * `is_private` - Whether the window represents a private session</span>
 <span class="kw">fn</span> <span class="ident">new_view</span>(
-    <span class="ident">builder</span>: <span class="kw-2">&amp;</span><span class="ident">gtk</span>::<span class="ident">Builder</span>,
+    <span class="ident">builder</span>: <span class="kw-2">&amp;</span><span class="ident">gtk::Builder</span>,
     <span class="ident">verbose</span>: <span class="ident">bool</span>,
     <span class="ident">is_private</span>: <span class="ident">bool</span>,
     <span class="ident">native</span>: <span class="ident">bool</span>,
-) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">webkit2gtk</span>::<span class="ident">WebView</span> {
-    <span class="kw">let</span> <span class="ident">web_kit</span> <span class="op">=</span> <span class="ident">webkit2gtk</span>::<span class="ident">WebViewBuilder</span>::<span class="ident">new</span>()
+) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">webkit2gtk::WebView</span> {
+    <span class="kw">let</span> <span class="ident">web_kit</span> <span class="op">=</span> <span class="ident">webkit2gtk::WebViewBuilder::new</span>()
         .<span class="ident">is_ephemeral</span>(<span class="ident">is_private</span>)
-        .<span class="ident">automation_presentation_type</span>(<span class="ident">webkit2gtk</span>::<span class="ident">AutomationBrowsingContextPresentation</span>::<span class="ident">Tab</span>);
-    <span class="kw">let</span> <span class="ident">web_settings</span>: <span class="ident">webkit2gtk</span>::<span class="ident">Settings</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;webkit_settings&quot;</span>).<span class="ident">unwrap</span>();
+        .<span class="ident">automation_presentation_type</span>(<span class="ident">webkit2gtk::AutomationBrowsingContextPresentation::Tab</span>);
+    <span class="kw">let</span> <span class="ident">web_settings</span>: <span class="ident">webkit2gtk::Settings</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">object</span>(<span class="string">&quot;webkit_settings&quot;</span>).<span class="ident">unwrap</span>();
     <span class="kw">let</span> <span class="ident">web_view</span> <span class="op">=</span> <span class="ident">web_kit</span>.<span class="ident">build</span>();
-    <span class="kw">let</span> <span class="ident">web_context</span> <span class="op">=</span> <span class="ident">web_view</span>.<span class="ident">get_context</span>().<span class="ident">unwrap</span>();
-    <span class="kw">let</span> <span class="ident">extensions_path</span> <span class="op">=</span> <span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;{}/web-extensions/&quot;</span>, <span class="ident">DATA_DIR</span>.<span class="ident">to_string</span>());
-    <span class="kw">let</span> <span class="ident">favicon_database_path</span> <span class="op">=</span> <span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;{}/favicon-database/&quot;</span>, <span class="ident">CACHE_DIR</span>.<span class="ident">to_string</span>());
+    <span class="kw">let</span> <span class="ident">web_context</span> <span class="op">=</span> <span class="ident">web_view</span>.<span class="ident">context</span>().<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">extensions_path</span> <span class="op">=</span> <span class="macro">format!</span>(<span class="string">&quot;{}/web-extensions/&quot;</span>, <span class="ident">DATA_DIR</span>.<span class="ident">to_string</span>());
+    <span class="kw">let</span> <span class="ident">favicon_database_path</span> <span class="op">=</span> <span class="macro">format!</span>(<span class="string">&quot;{}/favicon-database/&quot;</span>, <span class="ident">CACHE_DIR</span>.<span class="ident">to_string</span>());
 
     <span class="kw">match</span> <span class="ident">native</span>
     {
@@ -1157,8 +1272,8 @@
     <span class="ident">web_context</span>.<span class="ident">set_web_extensions_directory</span>(<span class="kw-2">&amp;</span><span class="ident">extensions_path</span>);
     <span class="ident">web_context</span>.<span class="ident">set_favicon_database_directory</span>(<span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="ident">favicon_database_path</span>));
     <span class="ident">web_view</span>.<span class="ident">set_visible</span>(<span class="bool-val">true</span>);
-    <span class="ident">web_view</span>.<span class="ident">set_property_width_request</span>(<span class="number">1024</span>);
-    <span class="ident">web_view</span>.<span class="ident">set_property_height_request</span>(<span class="number">640</span>);
+    <span class="ident">web_view</span>.<span class="ident">set_width_request</span>(<span class="number">1024</span>);
+    <span class="ident">web_view</span>.<span class="ident">set_height_request</span>(<span class="number">640</span>);
     <span class="ident">web_view</span>.<span class="ident">load_uri</span>(<span class="string">&quot;about:blank&quot;</span>);
 
     <span class="ident">web_view</span>
@@ -1168,11 +1283,11 @@
 <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">setup_native_ipfs</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Ipfs</span><span class="op">&lt;</span><span class="ident">Types</span><span class="op">&gt;</span>
 {
     <span class="comment">// Initialize an in-memory repo and start a daemon.</span>
-    <span class="kw">let</span> <span class="ident">opts</span> <span class="op">=</span> <span class="ident">get_ipfs_options</span>();
-    <span class="kw">let</span> (<span class="ident">ipfs</span>, <span class="ident">fut</span>): (<span class="ident">Ipfs</span><span class="op">&lt;</span><span class="ident">Types</span><span class="op">&gt;</span>, <span class="kw">_</span>) <span class="op">=</span> <span class="ident">UninitializedIpfs</span>::<span class="ident">new</span>(<span class="ident">opts</span>).<span class="ident">start</span>().<span class="kw">await</span>.<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">opts</span> <span class="op">=</span> <span class="ident">ipfs_options</span>();
+    <span class="kw">let</span> (<span class="ident">ipfs</span>, <span class="ident">fut</span>): (<span class="ident">Ipfs</span><span class="op">&lt;</span><span class="ident">Types</span><span class="op">&gt;</span>, <span class="kw">_</span>) <span class="op">=</span> <span class="ident">UninitializedIpfs::new</span>(<span class="ident">opts</span>).<span class="ident">start</span>().<span class="kw">await</span>.<span class="ident">unwrap</span>();
 
     <span class="comment">// Spawn the background task</span>
-    <span class="ident">tokio</span>::<span class="ident">task</span>::<span class="ident">spawn</span>(<span class="ident">fut</span>);
+    <span class="ident">tokio::task::spawn</span>(<span class="ident">fut</span>);
 
     <span class="comment">// Restore the default bootstrappers to enable content discovery</span>
     <span class="ident">ipfs</span>.<span class="ident">restore_bootstrappers</span>().<span class="kw">await</span>.<span class="ident">unwrap</span>();
@@ -1187,8 +1302,8 @@
 <span class="doccomment">/// `client` - The IPFS client running locally</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// `hash` - The IPFS identifier of the file</span>
-<span class="kw">fn</span> <span class="ident">get_from_hash_using_api</span>(<span class="ident">hash</span>: <span class="ident">String</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span> {
-    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">sys</span> <span class="op">=</span> <span class="ident">actix_rt</span>::<span class="ident">System</span>::<span class="ident">new</span>(<span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;Oku IPFS System ({})&quot;</span>, <span class="ident">hash</span>));
+<span class="kw">fn</span> <span class="ident">from_hash_using_api</span>(<span class="ident">hash</span>: <span class="ident">String</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span> {
+    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">sys</span> <span class="op">=</span> <span class="ident">actix_rt::System::new</span>(<span class="macro">format!</span>(<span class="string">&quot;Oku IPFS System ({})&quot;</span>, <span class="ident">hash</span>));
     <span class="ident">sys</span>.<span class="ident">block_on</span>(<span class="ident">download_ipfs_file_from_api</span>(<span class="ident">hash</span>))
 }
 
@@ -1199,8 +1314,8 @@
 <span class="doccomment">/// `client` - The IPFS client running locally</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// `hash` - The IPFS identifier of the file</span>
-<span class="kw">fn</span> <span class="ident">get_from_hash_natively</span>(<span class="ident">hash</span>: <span class="ident">String</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span> {
-    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">sys</span> <span class="op">=</span> <span class="ident">actix_rt</span>::<span class="ident">System</span>::<span class="ident">new</span>(<span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;Oku IPFS System ({})&quot;</span>, <span class="ident">hash</span>));
+<span class="kw">fn</span> <span class="ident">from_hash_natively</span>(<span class="ident">hash</span>: <span class="ident">String</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span> {
+    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">sys</span> <span class="op">=</span> <span class="ident">actix_rt::System::new</span>(<span class="macro">format!</span>(<span class="string">&quot;Oku IPFS System ({})&quot;</span>, <span class="ident">hash</span>));
     <span class="ident">sys</span>.<span class="ident">block_on</span>(<span class="ident">download_ipfs_file_natively</span>(<span class="ident">hash</span>))
 }
 
@@ -1212,7 +1327,7 @@
 <span class="doccomment">///</span>
 <span class="doccomment">/// `file_hash` - The CID of the file</span>
 <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">download_ipfs_file_from_api</span>(<span class="ident">file_hash</span>: <span class="ident">String</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span> {
-    <span class="kw">let</span> <span class="ident">client</span> <span class="op">=</span> <span class="ident">IpfsClient</span>::<span class="ident">default</span>();
+    <span class="kw">let</span> <span class="ident">client</span> <span class="op">=</span> <span class="ident">IpfsClient::default</span>();
 
     <span class="kw">match</span> <span class="ident">client</span>
         .<span class="ident">cat</span>(<span class="kw-2">&amp;</span><span class="ident">file_hash</span>)
@@ -1226,8 +1341,8 @@
         <span class="prelude-val">Err</span>(<span class="kw">_</span>) <span class="op">=</span><span class="op">&gt;</span> {
             <span class="kw">let</span> <span class="ident">split_path</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">file_hash</span>.<span class="ident">split</span>(<span class="string">&#39;/&#39;</span>).<span class="ident">collect</span>();
             <span class="kw">let</span> <span class="ident">rest_of_path</span> <span class="op">=</span> <span class="ident">file_hash</span>.<span class="ident">replacen</span>(<span class="ident">split_path</span>[<span class="number">0</span>], <span class="string">&quot;&quot;</span>, <span class="number">1</span>);
-            <span class="kw">let</span> <span class="ident">public_url</span> <span class="op">=</span> <span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;https://{}.ipfs.dweb.link{}&quot;</span>, <span class="ident">split_path</span>[<span class="number">0</span>], <span class="ident">rest_of_path</span>);
-            <span class="kw">let</span> <span class="ident">request</span> <span class="op">=</span> <span class="ident">reqwest</span>::<span class="ident">get</span>(<span class="kw-2">&amp;</span><span class="ident">public_url</span>).<span class="kw">await</span>;
+            <span class="kw">let</span> <span class="ident">public_url</span> <span class="op">=</span> <span class="macro">format!</span>(<span class="string">&quot;https://{}.ipfs.dweb.link{}&quot;</span>, <span class="ident">split_path</span>[<span class="number">0</span>], <span class="ident">rest_of_path</span>);
+            <span class="kw">let</span> <span class="ident">request</span> <span class="op">=</span> <span class="ident">reqwest::get</span>(<span class="kw-2">&amp;</span><span class="ident">public_url</span>).<span class="kw">await</span>;
             <span class="kw">let</span> <span class="ident">request_body</span> <span class="op">=</span> <span class="ident">request</span>.<span class="ident">unwrap</span>().<span class="ident">bytes</span>().<span class="kw">await</span>;
             <span class="ident">request_body</span>.<span class="ident">unwrap</span>().<span class="ident">to_vec</span>()
         }
@@ -1247,15 +1362,15 @@
         .<span class="ident">parse</span>::<span class="op">&lt;</span><span class="ident">IpfsPath</span><span class="op">&gt;</span>()
         .<span class="ident">unwrap</span>();
     <span class="kw">let</span> <span class="ident">stream</span> <span class="op">=</span> <span class="ident">ipfs</span>.<span class="ident">cat_unixfs</span>(<span class="ident">path</span>, <span class="prelude-val">None</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>();
-    <span class="ident">tokio</span>::<span class="macro">pin</span><span class="macro">!</span>(<span class="ident">stream</span>);
-    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">file_vec</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span> <span class="op">=</span> <span class="macro">vec</span><span class="macro">!</span>();
+    <span class="macro">tokio::pin!</span>(<span class="ident">stream</span>);
+    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">file_vec</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span> <span class="op">=</span> <span class="macro">vec!</span>();
     <span class="kw">loop</span> {
         <span class="kw">match</span> <span class="ident">stream</span>.<span class="ident">next</span>().<span class="kw">await</span> {
             <span class="prelude-val">Some</span>(<span class="prelude-val">Ok</span>(<span class="ident">bytes</span>)) <span class="op">=</span><span class="op">&gt;</span> {
                 <span class="ident">file_vec</span>.<span class="ident">extend</span>(<span class="ident">bytes</span>);
             }
             <span class="prelude-val">Some</span>(<span class="prelude-val">Err</span>(<span class="ident">e</span>)) <span class="op">=</span><span class="op">&gt;</span> {
-                <span class="macro">eprintln</span><span class="macro">!</span>(<span class="string">&quot;Error: {}&quot;</span>, <span class="ident">e</span>);
+                <span class="macro">eprintln!</span>(<span class="string">&quot;Error: {}&quot;</span>, <span class="ident">e</span>);
             }
             <span class="prelude-val">None</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">break</span>,
         }
@@ -1263,16 +1378,16 @@
     <span class="ident">file_vec</span>
 }
 
-<span class="kw">fn</span> <span class="ident">get_ipfs_options</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">ipfs</span>::<span class="ident">IpfsOptions</span>
+<span class="kw">fn</span> <span class="ident">ipfs_options</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">ipfs::IpfsOptions</span>
 {
     <span class="ident">IpfsOptions</span>
     {
-        <span class="ident">ipfs_path</span>: <span class="ident">PathBuf</span>::<span class="ident">from</span>(<span class="ident">CACHE_DIR</span>.<span class="ident">to_owned</span>()),
-        <span class="ident">keypair</span>: <span class="ident">Keypair</span>::<span class="ident">generate_ed25519</span>(),
+        <span class="ident">ipfs_path</span>: <span class="ident">PathBuf::from</span>(<span class="ident">CACHE_DIR</span>.<span class="ident">to_owned</span>()),
+        <span class="ident">keypair</span>: <span class="ident">Keypair::generate_ed25519</span>(),
         <span class="ident">mdns</span>: <span class="bool-val">true</span>,
-        <span class="ident">bootstrap</span>: <span class="ident">Default</span>::<span class="ident">default</span>(),
+        <span class="ident">bootstrap</span>: <span class="ident">Default::default</span>(),
         <span class="ident">kad_protocol</span>: <span class="prelude-val">None</span>,
-        <span class="ident">listening_addrs</span>: <span class="macro">vec</span><span class="macro">!</span>[<span class="string">&quot;/ip4/127.0.0.1/tcp/0&quot;</span>.<span class="ident">parse</span>().<span class="ident">unwrap</span>()],
+        <span class="ident">listening_addrs</span>: <span class="macro">vec!</span>[<span class="string">&quot;/ip4/127.0.0.1/tcp/0&quot;</span>.<span class="ident">parse</span>().<span class="ident">unwrap</span>()],
         <span class="ident">span</span>: <span class="prelude-val">None</span>,
     }
 }
@@ -1282,10 +1397,10 @@
 <span class="doccomment">/// # Arguments</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// * `label` - The text to be displayed on a tab</span>
-<span class="kw">fn</span> <span class="ident">new_tab_label</span>(<span class="ident">label</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">gtk</span>::<span class="ident">Label</span> {
-    <span class="kw">let</span> <span class="ident">tab_label</span> <span class="op">=</span> <span class="ident">gtk</span>::<span class="ident">Label</span>::<span class="ident">new</span>(<span class="prelude-val">Some</span>(<span class="ident">label</span>));
+<span class="kw">fn</span> <span class="ident">new_tab_label</span>(<span class="ident">label</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">gtk::Label</span> {
+    <span class="kw">let</span> <span class="ident">tab_label</span> <span class="op">=</span> <span class="ident">gtk::Label::new</span>(<span class="prelude-val">Some</span>(<span class="ident">label</span>));
     <span class="ident">tab_label</span>.<span class="ident">set_hexpand</span>(<span class="bool-val">true</span>);
-    <span class="ident">tab_label</span>.<span class="ident">set_ellipsize</span>(<span class="ident">EllipsizeMode</span>::<span class="ident">End</span>);
+    <span class="ident">tab_label</span>.<span class="ident">set_ellipsize</span>(<span class="ident">EllipsizeMode::End</span>);
     <span class="ident">tab_label</span>.<span class="ident">set_visible</span>(<span class="bool-val">true</span>);
     <span class="ident">tab_label</span>
 }
@@ -1295,12 +1410,12 @@
 <span class="doccomment">/// # Arguments</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// * `label` - The text to be displayed on a tab</span>
-<span class="kw">fn</span> <span class="ident">new_tab</span>(<span class="ident">label</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">gtk</span>::<span class="ident">Box</span> {
-    <span class="kw">let</span> <span class="ident">tab_box</span> <span class="op">=</span> <span class="ident">gtk</span>::<span class="ident">Box</span>::<span class="ident">new</span>(<span class="ident">Horizontal</span>, <span class="number">5</span>);
-    <span class="kw">let</span> <span class="ident">favicon</span> <span class="op">=</span> <span class="ident">gtk</span>::<span class="ident">Image</span>::<span class="ident">from_icon_name</span>(<span class="prelude-val">Some</span>(<span class="string">&quot;applications-internet&quot;</span>), <span class="ident">IconSize</span>::<span class="ident">Dnd</span>);
+<span class="kw">fn</span> <span class="ident">new_tab</span>(<span class="ident">label</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">gtk::Box</span> {
+    <span class="kw">let</span> <span class="ident">tab_box</span> <span class="op">=</span> <span class="ident">gtk::Box::new</span>(<span class="ident">Horizontal</span>, <span class="number">5</span>);
+    <span class="kw">let</span> <span class="ident">favicon</span> <span class="op">=</span> <span class="ident">gtk::Image::from_icon_name</span>(<span class="prelude-val">Some</span>(<span class="string">&quot;applications-internet&quot;</span>), <span class="ident">IconSize::Dnd</span>);
     <span class="kw">let</span> <span class="ident">tab_label</span> <span class="op">=</span> <span class="ident">new_tab_label</span>(<span class="kw-2">&amp;</span><span class="ident">label</span>);
-    <span class="kw">let</span> <span class="ident">close_button</span> <span class="op">=</span> <span class="ident">gtk</span>::<span class="ident">Button</span>::<span class="ident">new</span>();
-    <span class="kw">let</span> <span class="ident">close_icon</span> <span class="op">=</span> <span class="ident">gtk</span>::<span class="ident">Image</span>::<span class="ident">from_icon_name</span>(<span class="prelude-val">Some</span>(<span class="string">&quot;list-remove&quot;</span>), <span class="ident">IconSize</span>::<span class="ident">Button</span>);
+    <span class="kw">let</span> <span class="ident">close_button</span> <span class="op">=</span> <span class="ident">gtk::Button::new</span>();
+    <span class="kw">let</span> <span class="ident">close_icon</span> <span class="op">=</span> <span class="ident">gtk::Image::from_icon_name</span>(<span class="prelude-val">Some</span>(<span class="string">&quot;list-remove&quot;</span>), <span class="ident">IconSize::Button</span>);
     <span class="ident">favicon</span>.<span class="ident">set_visible</span>(<span class="bool-val">true</span>);
     <span class="ident">tab_box</span>.<span class="ident">set_hexpand</span>(<span class="bool-val">true</span>);
     <span class="ident">tab_box</span>.<span class="ident">set_vexpand</span>(<span class="bool-val">false</span>);
@@ -1328,13 +1443,13 @@
 <span class="doccomment">///</span>
 <span class="doccomment">/// * `is_private` - Whether the window represents a private session</span>
 <span class="kw">fn</span> <span class="ident">new_tab_page</span>(
-    <span class="ident">builder</span>: <span class="kw-2">&amp;</span><span class="ident">gtk</span>::<span class="ident">Builder</span>,
-    <span class="ident">tabs</span>: <span class="kw-2">&amp;</span><span class="ident">gtk</span>::<span class="ident">Notebook</span>,
+    <span class="ident">builder</span>: <span class="kw-2">&amp;</span><span class="ident">gtk::Builder</span>,
+    <span class="ident">tabs</span>: <span class="kw-2">&amp;</span><span class="ident">gtk::Notebook</span>,
     <span class="ident">new_tab_number</span>: <span class="ident">u32</span>,
     <span class="ident">verbose</span>: <span class="ident">bool</span>,
     <span class="ident">is_private</span>: <span class="ident">bool</span>,
     <span class="ident">native</span>: <span class="ident">bool</span>,
-) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">webkit2gtk</span>::<span class="ident">WebView</span> {
+) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">webkit2gtk::WebView</span> {
     <span class="kw">let</span> <span class="ident">new_view</span> <span class="op">=</span> <span class="ident">new_view</span>(<span class="ident">builder</span>, <span class="ident">verbose</span>, <span class="ident">is_private</span>, <span class="ident">native</span>);
     <span class="ident">tabs</span>.<span class="ident">insert_page</span>(<span class="kw-2">&amp;</span><span class="ident">new_view</span>, <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="ident">new_tab</span>(<span class="string">&quot;New Tab&quot;</span>)), <span class="prelude-val">Some</span>(<span class="ident">new_tab_number</span>));
     <span class="ident">tabs</span>.<span class="ident">set_tab_reorderable</span>(<span class="kw-2">&amp;</span><span class="ident">new_view</span>, <span class="bool-val">true</span>);
@@ -1348,8 +1463,8 @@
 <span class="doccomment">/// # Arguments</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// * `tabs` - The notebook containing the tabs &amp; pages of the current browser session</span>
-<span class="kw">fn</span> <span class="ident">get_view</span>(<span class="ident">tabs</span>: <span class="kw-2">&amp;</span><span class="ident">gtk</span>::<span class="ident">Notebook</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">webkit2gtk</span>::<span class="ident">WebView</span> {
-    <span class="ident">tabs</span>.<span class="ident">get_nth_page</span>(<span class="prelude-val">Some</span>(<span class="ident">tabs</span>.<span class="ident">get_current_page</span>().<span class="ident">unwrap</span>()))
+<span class="kw">fn</span> <span class="ident">view</span>(<span class="ident">tabs</span>: <span class="kw-2">&amp;</span><span class="ident">gtk::Notebook</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">webkit2gtk::WebView</span> {
+    <span class="ident">tabs</span>.<span class="ident">nth_page</span>(<span class="prelude-val">Some</span>(<span class="ident">tabs</span>.<span class="ident">current_page</span>().<span class="ident">unwrap</span>()))
         .<span class="ident">unwrap</span>()
         .<span class="ident">downcast</span>()
         .<span class="ident">unwrap</span>()
@@ -1367,19 +1482,19 @@
 <span class="doccomment">///</span>
 <span class="doccomment">/// * `is_private` - Whether the window represents a private session</span>
 <span class="kw">fn</span> <span class="ident">create_initial_tab</span>(
-    <span class="ident">builder</span>: <span class="kw-2">&amp;</span><span class="ident">gtk</span>::<span class="ident">Builder</span>,
-    <span class="ident">tabs</span>: <span class="kw-2">&amp;</span><span class="ident">gtk</span>::<span class="ident">Notebook</span>,
+    <span class="ident">builder</span>: <span class="kw-2">&amp;</span><span class="ident">gtk::Builder</span>,
+    <span class="ident">tabs</span>: <span class="kw-2">&amp;</span><span class="ident">gtk::Notebook</span>,
     <span class="ident">initial_url</span>: <span class="ident">String</span>,
     <span class="ident">verbose</span>: <span class="ident">bool</span>,
     <span class="ident">is_private</span>: <span class="ident">bool</span>,
     <span class="ident">native</span>: <span class="ident">bool</span>,
 ) {
     <span class="kw">let</span> <span class="ident">web_view</span> <span class="op">=</span> <span class="ident">new_tab_page</span>(<span class="kw-2">&amp;</span><span class="ident">builder</span>, <span class="kw-2">&amp;</span><span class="ident">tabs</span>, <span class="number">0</span>, <span class="ident">verbose</span>, <span class="ident">is_private</span>, <span class="ident">native</span>);
-    <span class="ident">web_view</span>.<span class="ident">load_uri</span>(<span class="kw-2">&amp;</span><span class="ident">initial_url</span>);
-    <span class="kw">let</span> <span class="ident">current_tab_label</span>: <span class="ident">gtk</span>::<span class="ident">Box</span> <span class="op">=</span> <span class="ident">tabs</span>.<span class="ident">get_tab_label</span>(<span class="kw-2">&amp;</span><span class="ident">web_view</span>).<span class="ident">unwrap</span>().<span class="ident">downcast</span>().<span class="ident">unwrap</span>();
-    <span class="kw">let</span> <span class="ident">close_button_widget</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">current_tab_label</span>.<span class="ident">get_children</span>()[<span class="number">2</span>];
-    <span class="kw">let</span> <span class="ident">close_button</span>: <span class="ident">gtk</span>::<span class="ident">Button</span> <span class="op">=</span> <span class="ident">close_button_widget</span>.<span class="ident">clone</span>().<span class="ident">downcast</span>().<span class="ident">unwrap</span>();
-    <span class="ident">close_button</span>.<span class="ident">connect_clicked</span>(<span class="macro">clone</span><span class="macro">!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">web_view</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
+    <span class="ident">initial_connect</span>(<span class="ident">initial_url</span>.<span class="ident">to_owned</span>(), <span class="kw-2">&amp;</span><span class="ident">web_view</span>);
+    <span class="kw">let</span> <span class="ident">current_tab_label</span>: <span class="ident">gtk::Box</span> <span class="op">=</span> <span class="ident">tabs</span>.<span class="ident">tab_label</span>(<span class="kw-2">&amp;</span><span class="ident">web_view</span>).<span class="ident">unwrap</span>().<span class="ident">downcast</span>().<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">close_button_widget</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">current_tab_label</span>.<span class="ident">children</span>()[<span class="number">2</span>];
+    <span class="kw">let</span> <span class="ident">close_button</span>: <span class="ident">gtk::Button</span> <span class="op">=</span> <span class="ident">close_button_widget</span>.<span class="ident">clone</span>().<span class="ident">downcast</span>().<span class="ident">unwrap</span>();
+    <span class="ident">close_button</span>.<span class="ident">connect_clicked</span>(<span class="macro">clone!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">web_view</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
         <span class="ident">tabs</span>.<span class="ident">remove_page</span>(<span class="ident">tabs</span>.<span class="ident">page_num</span>(<span class="kw-2">&amp;</span><span class="ident">web_view</span>));
     }));
     <span class="ident">tabs</span>.<span class="ident">set_show_tabs</span>(<span class="bool-val">false</span>)
@@ -1392,23 +1507,23 @@
 <span class="doccomment">/// * `web_view` - The WebKit instance for the tab</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// * `tabs` - The notebook containing the tabs &amp; pages of the current browser session</span>
-<span class="kw">fn</span> <span class="ident">update_favicon</span>(<span class="ident">web_view</span>: <span class="kw-2">&amp;</span><span class="ident">webkit2gtk</span>::<span class="ident">WebView</span>, <span class="ident">tabs</span>: <span class="kw-2">&amp;</span><span class="ident">gtk</span>::<span class="ident">Notebook</span>) {
-    <span class="kw">let</span> <span class="ident">current_tab_label</span>: <span class="ident">gtk</span>::<span class="ident">Box</span> <span class="op">=</span> <span class="ident">tabs</span>.<span class="ident">get_tab_label</span>(<span class="ident">web_view</span>).<span class="ident">unwrap</span>().<span class="ident">downcast</span>().<span class="ident">unwrap</span>();
-    <span class="kw">let</span> <span class="ident">favicon_widget</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">current_tab_label</span>.<span class="ident">get_children</span>()[<span class="number">0</span>];
-    <span class="kw">let</span> <span class="ident">favicon</span>: <span class="ident">gtk</span>::<span class="ident">Image</span> <span class="op">=</span> <span class="ident">favicon_widget</span>.<span class="ident">clone</span>().<span class="ident">downcast</span>().<span class="ident">unwrap</span>();
-    <span class="kw">let</span> <span class="ident">web_favicon</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">web_view</span>.<span class="ident">get_favicon</span>();
+<span class="kw">fn</span> <span class="ident">update_favicon</span>(<span class="ident">web_view</span>: <span class="kw-2">&amp;</span><span class="ident">webkit2gtk::WebView</span>, <span class="ident">tabs</span>: <span class="kw-2">&amp;</span><span class="ident">gtk::Notebook</span>) {
+    <span class="kw">let</span> <span class="ident">current_tab_label</span>: <span class="ident">gtk::Box</span> <span class="op">=</span> <span class="ident">tabs</span>.<span class="ident">tab_label</span>(<span class="ident">web_view</span>).<span class="ident">unwrap</span>().<span class="ident">downcast</span>().<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">favicon_widget</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">current_tab_label</span>.<span class="ident">children</span>()[<span class="number">0</span>];
+    <span class="kw">let</span> <span class="ident">favicon</span>: <span class="ident">gtk::Image</span> <span class="op">=</span> <span class="ident">favicon_widget</span>.<span class="ident">clone</span>().<span class="ident">downcast</span>().<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">web_favicon</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">web_view</span>.<span class="ident">favicon</span>();
     <span class="kw">match</span> <span class="kw-2">&amp;</span><span class="ident">web_favicon</span> {
         <span class="prelude-val">Some</span>(<span class="kw">_</span>) <span class="op">=</span><span class="op">&gt;</span> {
             <span class="kw">let</span> <span class="ident">favicon_surface</span> <span class="op">=</span>
-                <span class="ident">cairo</span>::<span class="ident">ImageSurface</span>::<span class="ident">try_from</span>(<span class="ident">web_favicon</span>.<span class="ident">to_owned</span>().<span class="ident">unwrap</span>()).<span class="ident">unwrap</span>();
-            <span class="kw">let</span> <span class="ident">favicon_width</span> <span class="op">=</span> <span class="ident">favicon_surface</span>.<span class="ident">get_width</span>();
-            <span class="kw">let</span> <span class="ident">favicon_height</span> <span class="op">=</span> <span class="ident">favicon_surface</span>.<span class="ident">get_height</span>();
+                <span class="ident">cairo::ImageSurface::try_from</span>(<span class="ident">web_favicon</span>.<span class="ident">to_owned</span>().<span class="ident">unwrap</span>()).<span class="ident">unwrap</span>();
+            <span class="kw">let</span> <span class="ident">favicon_width</span> <span class="op">=</span> <span class="ident">favicon_surface</span>.<span class="ident">width</span>();
+            <span class="kw">let</span> <span class="ident">favicon_height</span> <span class="op">=</span> <span class="ident">favicon_surface</span>.<span class="ident">height</span>();
             <span class="kw">match</span> <span class="ident">favicon_width</span> <span class="op">&lt;</span> <span class="number">32</span> <span class="op">&amp;&amp;</span> <span class="ident">favicon_height</span> <span class="op">&lt;</span> <span class="number">32</span> {
                 <span class="bool-val">true</span> <span class="op">=</span><span class="op">&gt;</span> {
                     <span class="ident">favicon</span>.<span class="ident">set_from_surface</span>(<span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="ident">favicon_surface</span>));
                 }
                 <span class="bool-val">false</span> <span class="op">=</span><span class="op">&gt;</span> {
-                    <span class="kw">let</span> <span class="ident">favicon_pixbuf</span> <span class="op">=</span> <span class="ident">gdk</span>::<span class="ident">pixbuf_get_from_surface</span>(
+                    <span class="kw">let</span> <span class="ident">favicon_pixbuf</span> <span class="op">=</span> <span class="ident">gdk::pixbuf_get_from_surface</span>(
                         <span class="kw-2">&amp;</span><span class="ident">favicon_surface</span>,
                         <span class="number">0</span>,
                         <span class="number">0</span>,
@@ -1417,14 +1532,14 @@
                     )
                     .<span class="ident">unwrap</span>();
                     <span class="kw">let</span> <span class="ident">scaled_pixbuf</span> <span class="op">=</span> <span class="ident">favicon_pixbuf</span>
-                        .<span class="ident">scale_simple</span>(<span class="number">32</span>, <span class="number">32</span>, <span class="ident">gdk_pixbuf</span>::<span class="ident">InterpType</span>::<span class="ident">Tiles</span>)
+                        .<span class="ident">scale_simple</span>(<span class="number">32</span>, <span class="number">32</span>, <span class="ident">gdk_pixbuf::InterpType::Tiles</span>)
                         .<span class="ident">unwrap</span>();
                     <span class="ident">favicon</span>.<span class="ident">set_from_pixbuf</span>(<span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="ident">scaled_pixbuf</span>));
                 }
             }
         }
         <span class="prelude-val">None</span> <span class="op">=</span><span class="op">&gt;</span> {
-            <span class="ident">favicon</span>.<span class="ident">set_from_icon_name</span>(<span class="prelude-val">Some</span>(<span class="string">&quot;applications-internet&quot;</span>), <span class="ident">IconSize</span>::<span class="ident">Dnd</span>);
+            <span class="ident">favicon</span>.<span class="ident">set_from_icon_name</span>(<span class="prelude-val">Some</span>(<span class="string">&quot;applications-internet&quot;</span>), <span class="ident">IconSize::Dnd</span>);
         }
     }
 }
@@ -1436,10 +1551,10 @@
 <span class="doccomment">/// * `web_view` - The WebKit instance for the tab</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// * `tabs` - The notebook containing the tabs &amp; pages of the current browser session</span>
-<span class="kw">fn</span> <span class="ident">update_title</span>(<span class="ident">web_view</span>: <span class="kw-2">&amp;</span><span class="ident">webkit2gtk</span>::<span class="ident">WebView</span>, <span class="ident">tabs</span>: <span class="kw-2">&amp;</span><span class="ident">gtk</span>::<span class="ident">Notebook</span>) {
-    <span class="kw">let</span> <span class="ident">current_tab_label</span>: <span class="ident">gtk</span>::<span class="ident">Box</span> <span class="op">=</span> <span class="ident">tabs</span>.<span class="ident">get_tab_label</span>(<span class="ident">web_view</span>).<span class="ident">unwrap</span>().<span class="ident">downcast</span>().<span class="ident">unwrap</span>();
-    <span class="kw">let</span> <span class="ident">new_label_text</span> <span class="op">=</span> <span class="ident">new_tab_label</span>(<span class="kw-2">&amp;</span><span class="ident">web_view</span>.<span class="ident">get_title</span>().<span class="ident">unwrap</span>());
-    <span class="ident">current_tab_label</span>.<span class="ident">remove</span>(<span class="kw-2">&amp;</span><span class="ident">current_tab_label</span>.<span class="ident">get_children</span>()[<span class="number">1</span>]);
+<span class="kw">fn</span> <span class="ident">update_title</span>(<span class="ident">web_view</span>: <span class="kw-2">&amp;</span><span class="ident">webkit2gtk::WebView</span>, <span class="ident">tabs</span>: <span class="kw-2">&amp;</span><span class="ident">gtk::Notebook</span>) {
+    <span class="kw">let</span> <span class="ident">current_tab_label</span>: <span class="ident">gtk::Box</span> <span class="op">=</span> <span class="ident">tabs</span>.<span class="ident">tab_label</span>(<span class="ident">web_view</span>).<span class="ident">unwrap</span>().<span class="ident">downcast</span>().<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">new_label_text</span> <span class="op">=</span> <span class="ident">new_tab_label</span>(<span class="kw-2">&amp;</span><span class="ident">web_view</span>.<span class="ident">title</span>().<span class="ident">unwrap</span>());
+    <span class="ident">current_tab_label</span>.<span class="ident">remove</span>(<span class="kw-2">&amp;</span><span class="ident">current_tab_label</span>.<span class="ident">children</span>()[<span class="number">1</span>]);
     <span class="ident">current_tab_label</span>.<span class="ident">add</span>(<span class="kw-2">&amp;</span><span class="ident">new_label_text</span>);
     <span class="ident">current_tab_label</span>.<span class="ident">reorder_child</span>(<span class="kw-2">&amp;</span><span class="ident">new_label_text</span>, <span class="number">1</span>);
 }
@@ -1451,8 +1566,8 @@
 <span class="doccomment">/// * `nav_entry` - The navigation bar of the browser</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// * `web_view` - The WebKit instance for the current tab</span>
-<span class="kw">fn</span> <span class="ident">update_load_progress</span>(<span class="ident">nav_entry</span>: <span class="kw-2">&amp;</span><span class="ident">gtk</span>::<span class="ident">Entry</span>, <span class="ident">web_view</span>: <span class="kw-2">&amp;</span><span class="ident">webkit2gtk</span>::<span class="ident">WebView</span>) {
-    <span class="kw">let</span> <span class="ident">load_progress</span> <span class="op">=</span> <span class="ident">web_view</span>.<span class="ident">get_estimated_load_progress</span>();
+<span class="kw">fn</span> <span class="ident">update_load_progress</span>(<span class="ident">nav_entry</span>: <span class="kw-2">&amp;</span><span class="ident">gtk::Entry</span>, <span class="ident">web_view</span>: <span class="kw-2">&amp;</span><span class="ident">webkit2gtk::WebView</span>) {
+    <span class="kw">let</span> <span class="ident">load_progress</span> <span class="op">=</span> <span class="ident">web_view</span>.<span class="ident">estimated_load_progress</span>();
     <span class="kw">if</span> <span class="ident">load_progress</span> <span class="kw">as</span> <span class="ident">i64</span> <span class="op">=</span><span class="op">=</span> <span class="number">1</span> {
         <span class="ident">nav_entry</span>.<span class="ident">set_progress_fraction</span>(<span class="number">0.00</span>)
     } <span class="kw">else</span> {
@@ -1463,12 +1578,12 @@
 <span class="doccomment">/// Create a dialog box showing information about Oku</span>
 <span class="kw">fn</span> <span class="ident">new_about_dialog</span>()
 {
-    <span class="kw">let</span> <span class="ident">about_dialog</span> <span class="op">=</span> <span class="ident">gtk</span>::<span class="ident">AboutDialog</span>::<span class="ident">new</span>();
+    <span class="kw">let</span> <span class="ident">about_dialog</span> <span class="op">=</span> <span class="ident">gtk::AboutDialog::new</span>();
     <span class="ident">about_dialog</span>.<span class="ident">set_version</span>(<span class="ident">VERSION</span>);
     <span class="ident">about_dialog</span>.<span class="ident">set_program_name</span>(<span class="string">&quot;Oku&quot;</span>);
     <span class="ident">about_dialog</span>.<span class="ident">set_logo_icon_name</span>(<span class="prelude-val">Some</span>(<span class="string">&quot;oku&quot;</span>));
     <span class="ident">about_dialog</span>.<span class="ident">set_icon_name</span>(<span class="prelude-val">Some</span>(<span class="string">&quot;oku&quot;</span>));
-    <span class="ident">about_dialog</span>.<span class="ident">set_license_type</span>(<span class="ident">gtk</span>::<span class="ident">License</span>::<span class="ident">Agpl30</span>);
+    <span class="ident">about_dialog</span>.<span class="ident">set_license_type</span>(<span class="ident">gtk::License::Agpl30</span>);
     <span class="ident">about_dialog</span>.<span class="ident">set_destroy_with_parent</span>(<span class="bool-val">true</span>);
     <span class="ident">about_dialog</span>.<span class="ident">set_modal</span>(<span class="bool-val">true</span>);
     <span class="ident">about_dialog</span>.<span class="ident">set_urgency_hint</span>(<span class="bool-val">true</span>);
@@ -1477,23 +1592,24 @@
 
 <span class="doccomment">/// The main function of Oku</span>
 <span class="kw">fn</span> <span class="ident">main</span>() {
-    <span class="kw">let</span> <span class="ident">matches</span> <span class="op">=</span> <span class="macro">clap_app</span><span class="macro">!</span>(<span class="ident">myapp</span> <span class="op">=</span><span class="op">&gt;</span>
-        (<span class="ident">version</span>: <span class="ident">VERSION</span>.<span class="ident">unwrap</span>())
-        (<span class="ident">author</span>: <span class="string">&quot;Emil Sayahi &lt;limesayahi@gmail.com&gt;&quot;</span>)
-        (<span class="ident">about</span>: <span class="string">&quot;A hive browser written in Rust&quot;</span>)
-        (@<span class="ident">arg</span> <span class="ident">INPUT</span>: <span class="string">&quot;An optional URL to open in the browser&quot;</span>)
-        (@<span class="ident">arg</span> <span class="ident">verbose</span>: <span class="op">-</span><span class="ident">v</span> <span class="op">-</span><span class="op">-</span><span class="ident">verbose</span> <span class="string">&quot;Output browser messages to standard output&quot;</span>)
-        (@<span class="ident">arg</span> <span class="ident">private</span>: <span class="op">-</span><span class="ident">p</span> <span class="op">-</span><span class="op">-</span><span class="ident">private</span> <span class="string">&quot;Open a private session&quot;</span>)
-    ).<span class="ident">get_matches</span>();
+    <span class="kw">let</span> <span class="ident">application</span> <span class="op">=</span> <span class="ident">gtk::Application::new</span>(<span class="prelude-val">Some</span>(<span class="string">&quot;com.github.dirout.oku&quot;</span>), <span class="ident">Default::default</span>());
 
-    <span class="kw">let</span> <span class="ident">application</span> <span class="op">=</span> <span class="ident">gtk</span>::<span class="ident">Application</span>::<span class="ident">new</span>(<span class="prelude-val">Some</span>(<span class="string">&quot;com.github.madebyemil.oku&quot;</span>), <span class="ident">Default</span>::<span class="ident">default</span>())
-        .<span class="ident">expect</span>(<span class="string">&quot;Initialization failed … &quot;</span>);
+    <span class="ident">application</span>.<span class="ident">add_main_option</span>(<span class="string">&quot;url&quot;</span>, <span class="ident">glib::Char</span>(<span class="string">&#39;u&#39;</span> <span class="kw">as</span> <span class="ident">i8</span>), <span class="ident">OptionFlags::NONE</span>, <span class="ident">OptionArg::String</span>, <span class="string">&quot;An optional URL to open in the browser&quot;</span>, <span class="prelude-val">Some</span>(<span class="string">&quot;An optional URL to open in the browser&quot;</span>));
+    <span class="ident">application</span>.<span class="ident">add_main_option</span>(<span class="string">&quot;verbose&quot;</span>, <span class="ident">glib::Char</span>(<span class="string">&#39;v&#39;</span> <span class="kw">as</span> <span class="ident">i8</span>), <span class="ident">OptionFlags::NONE</span>, <span class="ident">OptionArg::None</span>, <span class="string">&quot;Output browser messages to standard output&quot;</span>, <span class="prelude-val">None</span>);
+    <span class="ident">application</span>.<span class="ident">add_main_option</span>(<span class="string">&quot;private&quot;</span>, <span class="ident">glib::Char</span>(<span class="string">&#39;p&#39;</span> <span class="kw">as</span> <span class="ident">i8</span>), <span class="ident">OptionFlags::NONE</span>, <span class="ident">OptionArg::None</span>, <span class="string">&quot;Open a private session&quot;</span>, <span class="prelude-val">None</span>);
 
     <span class="ident">application</span>.<span class="ident">connect_activate</span>(<span class="kw">move</span> <span class="op">|</span><span class="ident">app</span><span class="op">|</span> {
+        <span class="kw">let</span> <span class="ident">matches</span> <span class="op">=</span> <span class="ident">VariantDict::new</span>(<span class="prelude-val">None</span>);
         <span class="ident">new_window</span>(<span class="ident">app</span>, <span class="ident">matches</span>.<span class="ident">to_owned</span>());
     });
 
-    <span class="ident">application</span>.<span class="ident">run</span>(<span class="kw-2">&amp;</span><span class="ident">args</span>().<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span><span class="op">&gt;</span>());
+    <span class="ident">application</span>.<span class="ident">connect_handle_local_options</span>(<span class="op">|</span><span class="ident">app</span>, <span class="ident">options</span><span class="op">|</span> {
+        <span class="kw">let</span> <span class="ident">matches</span> <span class="op">=</span> <span class="ident">options</span>.<span class="ident">to_owned</span>();
+        <span class="ident">new_window</span>(<span class="ident">app</span>, <span class="ident">matches</span>.<span class="ident">to_owned</span>());
+        <span class="number">0</span>
+    });
+
+    <span class="ident">application</span>.<span class="ident">run_with_args</span>(<span class="kw-2">&amp;</span><span class="ident">args</span>().<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span><span class="op">&gt;</span>());
 }
 
 <span class="doccomment">/// Create a new functional &amp; graphical browser window</span>
@@ -1503,92 +1619,92 @@
 <span class="doccomment">/// * `application` - The application data representing Oku</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// * `matches` - The launch arguments passed to Oku</span>
-<span class="kw">fn</span> <span class="ident">new_window</span>(<span class="ident">application</span>: <span class="kw-2">&amp;</span><span class="ident">gtk</span>::<span class="ident">Application</span>, <span class="ident">matches</span>: <span class="ident">clap</span>::<span class="ident">ArgMatches</span>) {
-    <span class="kw">if</span> <span class="ident">gtk</span>::<span class="ident">init</span>().<span class="ident">is_err</span>() {
-        <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;Failed to initialize GTK.&quot;</span>);
+<span class="kw">fn</span> <span class="ident">new_window</span>(<span class="ident">application</span>: <span class="kw-2">&amp;</span><span class="ident">gtk::Application</span>, <span class="ident">matches</span>: <span class="ident">VariantDict</span>) {
+    <span class="kw">if</span> <span class="ident">gtk::init</span>().<span class="ident">is_err</span>() {
+        <span class="macro">println!</span>(<span class="string">&quot;Failed to initialize GTK.&quot;</span>);
         <span class="kw">return</span>;
     }
 
-    <span class="kw">let</span> <span class="ident">initial_url</span>;
-    <span class="kw">match</span> <span class="ident">matches</span>.<span class="ident">value_of</span>(<span class="string">&quot;INPUT&quot;</span>)
+    <span class="kw">let</span> <span class="ident">initial_url</span>: <span class="ident">String</span>;
+    <span class="kw">match</span> <span class="ident">matches</span>.<span class="ident">lookup_value</span>(<span class="string">&quot;url&quot;</span>, <span class="prelude-val">Some</span>(<span class="ident">VariantTy::new</span>(<span class="string">&quot;s&quot;</span>).<span class="ident">unwrap</span>()))
     {
         <span class="prelude-val">Some</span>(<span class="ident">url</span>) <span class="op">=</span><span class="op">&gt;</span> {
-            <span class="ident">initial_url</span> <span class="op">=</span> <span class="ident">url</span>.<span class="ident">to_owned</span>();
+            <span class="ident">initial_url</span> <span class="op">=</span> <span class="ident">url</span>.<span class="ident">to_string</span>()[<span class="number">1</span>..<span class="ident">url</span>.<span class="ident">to_string</span>().<span class="ident">len</span>()<span class="op">-</span><span class="number">1</span>].<span class="ident">to_string</span>();
         }
         <span class="prelude-val">None</span> <span class="op">=</span><span class="op">&gt;</span> {
             <span class="ident">initial_url</span> <span class="op">=</span> <span class="string">&quot;about:blank&quot;</span>.<span class="ident">to_owned</span>();
         }
     }
 
-    <span class="kw">let</span> <span class="ident">is_private</span> <span class="op">=</span> <span class="ident">matches</span>.<span class="ident">is_present</span>(<span class="string">&quot;private&quot;</span>);
-    <span class="kw">let</span> <span class="ident">verbose</span> <span class="op">=</span> <span class="ident">matches</span>.<span class="ident">is_present</span>(<span class="string">&quot;verbose&quot;</span>);
+    <span class="kw">let</span> <span class="ident">is_private</span> <span class="op">=</span> <span class="ident">matches</span>.<span class="ident">contains</span>(<span class="string">&quot;private&quot;</span>);
+    <span class="kw">let</span> <span class="ident">verbose</span> <span class="op">=</span> <span class="ident">matches</span>.<span class="ident">contains</span>(<span class="string">&quot;verbose&quot;</span>);
     <span class="kw">let</span> <span class="ident">native</span> <span class="op">=</span> <span class="bool-val">true</span>;
 
-    <span class="kw">let</span> <span class="ident">glade_src</span> <span class="op">=</span> <span class="macro">include_str</span><span class="macro">!</span>(<span class="string">&quot;oku.glade&quot;</span>);
-    <span class="kw">let</span> <span class="ident">builder</span> <span class="op">=</span> <span class="ident">gtk</span>::<span class="ident">Builder</span>::<span class="ident">from_string</span>(<span class="ident">glade_src</span>);
+    <span class="kw">let</span> <span class="ident">glade_src</span> <span class="op">=</span> <span class="macro">include_str!</span>(<span class="string">&quot;oku.glade&quot;</span>);
+    <span class="kw">let</span> <span class="ident">builder</span> <span class="op">=</span> <span class="ident">gtk::Builder::from_string</span>(<span class="ident">glade_src</span>);
 
-    <span class="kw">let</span> <span class="ident">window</span>: <span class="ident">gtk</span>::<span class="ident">ApplicationWindow</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;window&quot;</span>).<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">window</span>: <span class="ident">gtk::ApplicationWindow</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">object</span>(<span class="string">&quot;window&quot;</span>).<span class="ident">unwrap</span>();
     <span class="ident">window</span>.<span class="ident">set_title</span>(<span class="string">&quot;Oku&quot;</span>);
 
-    <span class="kw">let</span> <span class="ident">downloads_button</span>: <span class="ident">gtk</span>::<span class="ident">Button</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;downloads_button&quot;</span>).<span class="ident">unwrap</span>();
-    <span class="kw">let</span> <span class="ident">downloads_popover</span>: <span class="ident">gtk</span>::<span class="ident">Popover</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;downloads_popover&quot;</span>).<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">downloads_button</span>: <span class="ident">gtk::Button</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">object</span>(<span class="string">&quot;downloads_button&quot;</span>).<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">downloads_popover</span>: <span class="ident">gtk::Popover</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">object</span>(<span class="string">&quot;downloads_popover&quot;</span>).<span class="ident">unwrap</span>();
 
-    <span class="kw">let</span> <span class="ident">find_button</span>: <span class="ident">gtk</span>::<span class="ident">Button</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;find_button&quot;</span>).<span class="ident">unwrap</span>();
-    <span class="kw">let</span> <span class="ident">find_popover</span>: <span class="ident">gtk</span>::<span class="ident">Popover</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;find_popover&quot;</span>).<span class="ident">unwrap</span>();
-    <span class="kw">let</span> <span class="ident">previous_find_button</span>: <span class="ident">gtk</span>::<span class="ident">Button</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;previous_find_button&quot;</span>).<span class="ident">unwrap</span>();
-    <span class="kw">let</span> <span class="ident">next_find_button</span>: <span class="ident">gtk</span>::<span class="ident">Button</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;next_find_button&quot;</span>).<span class="ident">unwrap</span>();
-    <span class="kw">let</span> <span class="ident">find_case_insensitive</span>: <span class="ident">gtk</span>::<span class="ident">ToggleButton</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;find_case_insensitive&quot;</span>).<span class="ident">unwrap</span>();
-    <span class="kw">let</span> <span class="ident">find_at_word_starts</span>: <span class="ident">gtk</span>::<span class="ident">ToggleButton</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;find_at_word_starts&quot;</span>).<span class="ident">unwrap</span>();
-    <span class="kw">let</span> <span class="ident">find_treat_medial_capital_as_word_start</span>: <span class="ident">gtk</span>::<span class="ident">ToggleButton</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;find_treat_medial_capital_as_word_start&quot;</span>).<span class="ident">unwrap</span>();
-    <span class="kw">let</span> <span class="ident">find_backwards</span>: <span class="ident">gtk</span>::<span class="ident">ToggleButton</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;find_backwards&quot;</span>).<span class="ident">unwrap</span>();
-    <span class="kw">let</span> <span class="ident">find_wrap_around</span>: <span class="ident">gtk</span>::<span class="ident">ToggleButton</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;find_wrap_around&quot;</span>).<span class="ident">unwrap</span>();
-    <span class="kw">let</span> <span class="ident">find_search_entry</span>: <span class="ident">gtk</span>::<span class="ident">SearchEntry</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;find_search_entry&quot;</span>).<span class="ident">unwrap</span>();
-    <span class="kw">let</span> <span class="ident">current_match_label</span>: <span class="ident">gtk</span>::<span class="ident">Label</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;current_match_label&quot;</span>).<span class="ident">unwrap</span>();
-    <span class="kw">let</span> <span class="ident">total_matches_label</span>: <span class="ident">gtk</span>::<span class="ident">Label</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;total_matches_label&quot;</span>).<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">find_button</span>: <span class="ident">gtk::Button</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">object</span>(<span class="string">&quot;find_button&quot;</span>).<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">find_popover</span>: <span class="ident">gtk::Popover</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">object</span>(<span class="string">&quot;find_popover&quot;</span>).<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">previous_find_button</span>: <span class="ident">gtk::Button</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">object</span>(<span class="string">&quot;previous_find_button&quot;</span>).<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">next_find_button</span>: <span class="ident">gtk::Button</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">object</span>(<span class="string">&quot;next_find_button&quot;</span>).<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">find_case_insensitive</span>: <span class="ident">gtk::ToggleButton</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">object</span>(<span class="string">&quot;find_case_insensitive&quot;</span>).<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">find_at_word_starts</span>: <span class="ident">gtk::ToggleButton</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">object</span>(<span class="string">&quot;find_at_word_starts&quot;</span>).<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">find_treat_medial_capital_as_word_start</span>: <span class="ident">gtk::ToggleButton</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">object</span>(<span class="string">&quot;find_treat_medial_capital_as_word_start&quot;</span>).<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">find_backwards</span>: <span class="ident">gtk::ToggleButton</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">object</span>(<span class="string">&quot;find_backwards&quot;</span>).<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">find_wrap_around</span>: <span class="ident">gtk::ToggleButton</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">object</span>(<span class="string">&quot;find_wrap_around&quot;</span>).<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">find_search_entry</span>: <span class="ident">gtk::SearchEntry</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">object</span>(<span class="string">&quot;find_search_entry&quot;</span>).<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">current_match_label</span>: <span class="ident">gtk::Label</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">object</span>(<span class="string">&quot;current_match_label&quot;</span>).<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">total_matches_label</span>: <span class="ident">gtk::Label</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">object</span>(<span class="string">&quot;total_matches_label&quot;</span>).<span class="ident">unwrap</span>();
 
-    <span class="kw">let</span> <span class="ident">menu_button</span>: <span class="ident">gtk</span>::<span class="ident">Button</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;menu_button&quot;</span>).<span class="ident">unwrap</span>();
-    <span class="kw">let</span> <span class="ident">menu</span>: <span class="ident">gtk</span>::<span class="ident">Popover</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;menu&quot;</span>).<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">menu_button</span>: <span class="ident">gtk::Button</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">object</span>(<span class="string">&quot;menu_button&quot;</span>).<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">menu</span>: <span class="ident">gtk::Popover</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">object</span>(<span class="string">&quot;menu&quot;</span>).<span class="ident">unwrap</span>();
 
-    <span class="kw">let</span> <span class="ident">back_button</span>: <span class="ident">gtk</span>::<span class="ident">Button</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;back_button&quot;</span>).<span class="ident">unwrap</span>();
-    <span class="kw">let</span> <span class="ident">forward_button</span>: <span class="ident">gtk</span>::<span class="ident">Button</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;forward_button&quot;</span>).<span class="ident">unwrap</span>();
-    <span class="kw">let</span> <span class="ident">refresh_button</span>: <span class="ident">gtk</span>::<span class="ident">Button</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;refresh_button&quot;</span>).<span class="ident">unwrap</span>();
-    <span class="kw">let</span> <span class="ident">add_tab</span>: <span class="ident">gtk</span>::<span class="ident">Button</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;add_tab&quot;</span>).<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">back_button</span>: <span class="ident">gtk::Button</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">object</span>(<span class="string">&quot;back_button&quot;</span>).<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">forward_button</span>: <span class="ident">gtk::Button</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">object</span>(<span class="string">&quot;forward_button&quot;</span>).<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">refresh_button</span>: <span class="ident">gtk::Button</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">object</span>(<span class="string">&quot;refresh_button&quot;</span>).<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">add_tab</span>: <span class="ident">gtk::Button</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">object</span>(<span class="string">&quot;add_tab&quot;</span>).<span class="ident">unwrap</span>();
 
-    <span class="kw">let</span> <span class="ident">tabs</span>: <span class="ident">gtk</span>::<span class="ident">Notebook</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;tabs&quot;</span>).<span class="ident">unwrap</span>();
-    <span class="kw">let</span> <span class="ident">nav_entry</span>: <span class="ident">gtk</span>::<span class="ident">Entry</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;nav_entry&quot;</span>).<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">tabs</span>: <span class="ident">gtk::Notebook</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">object</span>(<span class="string">&quot;tabs&quot;</span>).<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">nav_entry</span>: <span class="ident">gtk::Entry</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">object</span>(<span class="string">&quot;nav_entry&quot;</span>).<span class="ident">unwrap</span>();
 
-    <span class="kw">let</span> <span class="ident">zoomout_button</span>: <span class="ident">gtk</span>::<span class="ident">Button</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;zoomout_button&quot;</span>).<span class="ident">unwrap</span>();
-    <span class="kw">let</span> <span class="ident">zoomin_button</span>: <span class="ident">gtk</span>::<span class="ident">Button</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;zoomin_button&quot;</span>).<span class="ident">unwrap</span>();
-    <span class="kw">let</span> <span class="ident">zoomreset_button</span>: <span class="ident">gtk</span>::<span class="ident">Button</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;zoomreset_button&quot;</span>).<span class="ident">unwrap</span>();
-    <span class="kw">let</span> <span class="ident">fullscreen_button</span>: <span class="ident">gtk</span>::<span class="ident">Button</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;fullscreen_button&quot;</span>).<span class="ident">unwrap</span>();
-    <span class="kw">let</span> <span class="ident">screenshot_button</span>: <span class="ident">gtk</span>::<span class="ident">Button</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;screenshot_button&quot;</span>).<span class="ident">unwrap</span>();
-    <span class="kw">let</span> <span class="ident">new_window_button</span>: <span class="ident">gtk</span>::<span class="ident">Button</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;new_window_button&quot;</span>).<span class="ident">unwrap</span>();
-    <span class="kw">let</span> <span class="ident">_history_button</span>: <span class="ident">gtk</span>::<span class="ident">Button</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;history_button&quot;</span>).<span class="ident">unwrap</span>();
-    <span class="kw">let</span> <span class="ident">about_button</span>: <span class="ident">gtk</span>::<span class="ident">Button</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">get_object</span>(<span class="string">&quot;about_button&quot;</span>).<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">zoomout_button</span>: <span class="ident">gtk::Button</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">object</span>(<span class="string">&quot;zoomout_button&quot;</span>).<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">zoomin_button</span>: <span class="ident">gtk::Button</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">object</span>(<span class="string">&quot;zoomin_button&quot;</span>).<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">zoomreset_button</span>: <span class="ident">gtk::Button</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">object</span>(<span class="string">&quot;zoomreset_button&quot;</span>).<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">fullscreen_button</span>: <span class="ident">gtk::Button</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">object</span>(<span class="string">&quot;fullscreen_button&quot;</span>).<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">screenshot_button</span>: <span class="ident">gtk::Button</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">object</span>(<span class="string">&quot;screenshot_button&quot;</span>).<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">new_window_button</span>: <span class="ident">gtk::Button</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">object</span>(<span class="string">&quot;new_window_button&quot;</span>).<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">_history_button</span>: <span class="ident">gtk::Button</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">object</span>(<span class="string">&quot;history_button&quot;</span>).<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">about_button</span>: <span class="ident">gtk::Button</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">object</span>(<span class="string">&quot;about_button&quot;</span>).<span class="ident">unwrap</span>();
 
     <span class="ident">window</span>.<span class="ident">set_application</span>(<span class="prelude-val">Some</span>(<span class="ident">application</span>));
 
-    <span class="kw">if</span> <span class="ident">tabs</span>.<span class="ident">get_n_pages</span>() <span class="op">=</span><span class="op">=</span> <span class="number">0</span> {
+    <span class="kw">if</span> <span class="ident">tabs</span>.<span class="ident">n_pages</span>() <span class="op">=</span><span class="op">=</span> <span class="number">0</span> {
         <span class="ident">create_initial_tab</span>(<span class="kw-2">&amp;</span><span class="ident">builder</span>, <span class="kw-2">&amp;</span><span class="ident">tabs</span>, <span class="ident">initial_url</span>.<span class="ident">to_owned</span>(), <span class="ident">verbose</span>, <span class="ident">is_private</span>, <span class="ident">native</span>)
     }
 
-    <span class="ident">tabs</span>.<span class="ident">connect_property_page_notify</span>(
-        <span class="macro">clone</span><span class="macro">!</span>(@<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span>, @<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">window</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
-            <span class="kw">let</span> <span class="ident">web_view</span> <span class="op">=</span> <span class="ident">get_view</span>(<span class="kw-2">&amp;</span><span class="ident">tabs</span>);
+    <span class="ident">tabs</span>.<span class="ident">connect_page_notify</span>(
+        <span class="macro">clone!</span>(@<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span>, @<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">window</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
+            <span class="kw">let</span> <span class="ident">web_view</span> <span class="op">=</span> <span class="ident">view</span>(<span class="kw-2">&amp;</span><span class="ident">tabs</span>);
             <span class="ident">update_nav_bar</span>(<span class="kw-2">&amp;</span><span class="ident">nav_entry</span>, <span class="kw-2">&amp;</span><span class="ident">web_view</span>);
-            <span class="ident">window</span>.<span class="ident">set_title</span>(<span class="kw-2">&amp;</span><span class="ident">web_view</span>.<span class="ident">get_title</span>().<span class="ident">unwrap_or_else</span>(<span class="op">|</span><span class="op">|</span> <span class="ident">glib</span>::<span class="ident">GString</span>::<span class="ident">from</span>(<span class="string">&quot;Oku&quot;</span>)));
+            <span class="ident">window</span>.<span class="ident">set_title</span>(<span class="kw-2">&amp;</span><span class="ident">web_view</span>.<span class="ident">title</span>().<span class="ident">unwrap_or_else</span>(<span class="op">|</span><span class="op">|</span> <span class="ident">glib::GString::from</span>(<span class="string">&quot;Oku&quot;</span>)));
         }),
     );
 
     <span class="ident">tabs</span>.<span class="ident">connect_page_added</span>(
-        <span class="macro">clone</span><span class="macro">!</span>(@<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span>, @<span class="ident">weak</span> <span class="ident">tabs</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span>, <span class="kw">_</span>, <span class="kw">_</span><span class="op">|</span> {
-            <span class="kw">match</span> <span class="ident">tabs</span>.<span class="ident">get_n_pages</span>()
+        <span class="macro">clone!</span>(@<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span>, @<span class="ident">weak</span> <span class="ident">tabs</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span>, <span class="kw">_</span>, <span class="kw">_</span><span class="op">|</span> {
+            <span class="kw">match</span> <span class="ident">tabs</span>.<span class="ident">n_pages</span>()
             {
                 <span class="number">1</span> <span class="op">=</span><span class="op">&gt;</span> {
                     <span class="ident">tabs</span>.<span class="ident">set_show_tabs</span>(<span class="bool-val">false</span>);
                 }
                 <span class="kw">_</span> <span class="op">=</span><span class="op">&gt;</span> {
-                    <span class="kw">if</span> <span class="op">!</span><span class="ident">tabs</span>.<span class="ident">get_show_tabs</span>()
+                    <span class="kw">if</span> <span class="op">!</span><span class="ident">tabs</span>.<span class="ident">shows_tabs</span>()
                     {
                         <span class="ident">tabs</span>.<span class="ident">set_show_tabs</span>(<span class="bool-val">true</span>);
                     }
@@ -1598,8 +1714,8 @@
     );
 
     <span class="ident">tabs</span>.<span class="ident">connect_page_removed</span>(
-        <span class="macro">clone</span><span class="macro">!</span>(@<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span>, @<span class="ident">weak</span> <span class="ident">tabs</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span>, <span class="kw">_</span>, <span class="kw">_</span><span class="op">|</span> {
-            <span class="kw">match</span> <span class="ident">tabs</span>.<span class="ident">get_n_pages</span>()
+        <span class="macro">clone!</span>(@<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span>, @<span class="ident">weak</span> <span class="ident">tabs</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span>, <span class="kw">_</span>, <span class="kw">_</span><span class="op">|</span> {
+            <span class="kw">match</span> <span class="ident">tabs</span>.<span class="ident">n_pages</span>()
             {
                 <span class="number">0</span> <span class="op">=</span><span class="op">&gt;</span> {
                     <span class="ident">nav_entry</span>.<span class="ident">set_text</span>(<span class="string">&quot;&quot;</span>);
@@ -1609,7 +1725,7 @@
                     <span class="ident">tabs</span>.<span class="ident">set_show_tabs</span>(<span class="bool-val">false</span>);
                 }
                 <span class="kw">_</span> <span class="op">=</span><span class="op">&gt;</span> {
-                    <span class="kw">if</span> <span class="op">!</span><span class="ident">tabs</span>.<span class="ident">get_show_tabs</span>()
+                    <span class="kw">if</span> <span class="op">!</span><span class="ident">tabs</span>.<span class="ident">shows_tabs</span>()
                     {
                         <span class="ident">tabs</span>.<span class="ident">set_show_tabs</span>(<span class="bool-val">true</span>);
                     }
@@ -1618,91 +1734,91 @@
         }),
     );
 
-    <span class="ident">nav_entry</span>.<span class="ident">connect_activate</span>(<span class="macro">clone</span><span class="macro">!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span>, @<span class="ident">weak</span> <span class="ident">window</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
-        <span class="kw">let</span> <span class="ident">web_view</span> <span class="op">=</span> <span class="ident">get_view</span>(<span class="kw-2">&amp;</span><span class="ident">tabs</span>);
+    <span class="ident">nav_entry</span>.<span class="ident">connect_activate</span>(<span class="macro">clone!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span>, @<span class="ident">weak</span> <span class="ident">window</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
+        <span class="kw">let</span> <span class="ident">web_view</span> <span class="op">=</span> <span class="ident">view</span>(<span class="kw-2">&amp;</span><span class="ident">tabs</span>);
         <span class="ident">connect</span>(<span class="kw-2">&amp;</span><span class="ident">nav_entry</span>, <span class="kw-2">&amp;</span><span class="ident">web_view</span>);
-        <span class="ident">web_view</span>.<span class="ident">connect_property_title_notify</span>(<span class="macro">clone</span><span class="macro">!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">web_view</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
+        <span class="ident">web_view</span>.<span class="ident">connect_title_notify</span>(<span class="macro">clone!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">web_view</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
             <span class="ident">update_title</span>(<span class="kw-2">&amp;</span><span class="ident">web_view</span>, <span class="kw-2">&amp;</span><span class="ident">tabs</span>)
         }));
-        <span class="ident">web_view</span>.<span class="ident">connect_property_uri_notify</span>(<span class="macro">clone</span><span class="macro">!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">web_view</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
+        <span class="ident">web_view</span>.<span class="ident">connect_uri_notify</span>(<span class="macro">clone!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">web_view</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
             <span class="ident">update_nav_bar</span>(<span class="kw-2">&amp;</span><span class="ident">nav_entry</span>, <span class="kw-2">&amp;</span><span class="ident">web_view</span>)
         }));
-        <span class="ident">web_view</span>.<span class="ident">connect_property_estimated_load_progress_notify</span>(<span class="macro">clone</span><span class="macro">!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">web_view</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
+        <span class="ident">web_view</span>.<span class="ident">connect_estimated_load_progress_notify</span>(<span class="macro">clone!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">web_view</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
             <span class="ident">update_load_progress</span>(<span class="kw-2">&amp;</span><span class="ident">nav_entry</span>, <span class="kw-2">&amp;</span><span class="ident">web_view</span>)
         }));
-        <span class="ident">web_view</span>.<span class="ident">connect_property_favicon_notify</span>(<span class="macro">clone</span><span class="macro">!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">web_view</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
+        <span class="ident">web_view</span>.<span class="ident">connect_favicon_notify</span>(<span class="macro">clone!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">web_view</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
             <span class="ident">update_favicon</span>(<span class="kw-2">&amp;</span><span class="ident">web_view</span>, <span class="kw-2">&amp;</span><span class="ident">tabs</span>)
         }));
-        <span class="ident">web_view</span>.<span class="ident">connect_load_changed</span>(<span class="macro">clone</span><span class="macro">!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">web_view</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">window</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span>, <span class="kw">_</span><span class="op">|</span> {
-            <span class="ident">window</span>.<span class="ident">set_title</span>(<span class="kw-2">&amp;</span><span class="ident">web_view</span>.<span class="ident">get_title</span>().<span class="ident">unwrap_or_else</span>(<span class="op">|</span><span class="op">|</span> <span class="ident">glib</span>::<span class="ident">GString</span>::<span class="ident">from</span>(<span class="string">&quot;Oku&quot;</span>)));
+        <span class="ident">web_view</span>.<span class="ident">connect_load_changed</span>(<span class="macro">clone!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">web_view</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">window</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span>, <span class="kw">_</span><span class="op">|</span> {
+            <span class="ident">window</span>.<span class="ident">set_title</span>(<span class="kw-2">&amp;</span><span class="ident">web_view</span>.<span class="ident">title</span>().<span class="ident">unwrap_or_else</span>(<span class="op">|</span><span class="op">|</span> <span class="ident">glib::GString::from</span>(<span class="string">&quot;Oku&quot;</span>)));
         }));
     }));
 
-    <span class="ident">add_tab</span>.<span class="ident">connect_clicked</span>(<span class="macro">clone</span><span class="macro">!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
-        <span class="kw">let</span> <span class="ident">web_view</span> <span class="op">=</span> <span class="ident">new_tab_page</span>(<span class="kw-2">&amp;</span><span class="ident">builder</span>, <span class="kw-2">&amp;</span><span class="ident">tabs</span>, <span class="ident">tabs</span>.<span class="ident">get_n_pages</span>(), <span class="ident">verbose</span>, <span class="ident">is_private</span>, <span class="ident">native</span>);
-        <span class="kw">let</span> <span class="ident">current_tab_label</span>: <span class="ident">gtk</span>::<span class="ident">Box</span> <span class="op">=</span> <span class="ident">tabs</span>.<span class="ident">get_tab_label</span>(<span class="kw-2">&amp;</span><span class="ident">web_view</span>).<span class="ident">unwrap</span>().<span class="ident">downcast</span>().<span class="ident">unwrap</span>();
-        <span class="kw">let</span> <span class="ident">close_button_widget</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">current_tab_label</span>.<span class="ident">get_children</span>()[<span class="number">2</span>];
-        <span class="kw">let</span> <span class="ident">close_button</span>: <span class="ident">gtk</span>::<span class="ident">Button</span> <span class="op">=</span> <span class="ident">close_button_widget</span>.<span class="ident">clone</span>().<span class="ident">downcast</span>().<span class="ident">unwrap</span>();
-        <span class="ident">close_button</span>.<span class="ident">connect_clicked</span>(<span class="macro">clone</span><span class="macro">!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
+    <span class="ident">add_tab</span>.<span class="ident">connect_clicked</span>(<span class="macro">clone!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
+        <span class="kw">let</span> <span class="ident">web_view</span> <span class="op">=</span> <span class="ident">new_tab_page</span>(<span class="kw-2">&amp;</span><span class="ident">builder</span>, <span class="kw-2">&amp;</span><span class="ident">tabs</span>, <span class="ident">tabs</span>.<span class="ident">n_pages</span>(), <span class="ident">verbose</span>, <span class="ident">is_private</span>, <span class="ident">native</span>);
+        <span class="kw">let</span> <span class="ident">current_tab_label</span>: <span class="ident">gtk::Box</span> <span class="op">=</span> <span class="ident">tabs</span>.<span class="ident">tab_label</span>(<span class="kw-2">&amp;</span><span class="ident">web_view</span>).<span class="ident">unwrap</span>().<span class="ident">downcast</span>().<span class="ident">unwrap</span>();
+        <span class="kw">let</span> <span class="ident">close_button_widget</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">current_tab_label</span>.<span class="ident">children</span>()[<span class="number">2</span>];
+        <span class="kw">let</span> <span class="ident">close_button</span>: <span class="ident">gtk::Button</span> <span class="op">=</span> <span class="ident">close_button_widget</span>.<span class="ident">clone</span>().<span class="ident">downcast</span>().<span class="ident">unwrap</span>();
+        <span class="ident">close_button</span>.<span class="ident">connect_clicked</span>(<span class="macro">clone!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
             <span class="ident">tabs</span>.<span class="ident">remove_page</span>(<span class="ident">tabs</span>.<span class="ident">page_num</span>(<span class="kw-2">&amp;</span><span class="ident">web_view</span>));
         }));
     }));
 
     <span class="ident">back_button</span>.<span class="ident">connect_clicked</span>(
-        <span class="macro">clone</span><span class="macro">!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
-            <span class="kw">let</span> <span class="ident">web_view</span> <span class="op">=</span> <span class="ident">get_view</span>(<span class="kw-2">&amp;</span><span class="ident">tabs</span>);
+        <span class="macro">clone!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
+            <span class="kw">let</span> <span class="ident">web_view</span> <span class="op">=</span> <span class="ident">view</span>(<span class="kw-2">&amp;</span><span class="ident">tabs</span>);
             <span class="ident">web_view</span>.<span class="ident">go_back</span>()
         }),
     );
 
     <span class="ident">forward_button</span>.<span class="ident">connect_clicked</span>(
-        <span class="macro">clone</span><span class="macro">!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
-            <span class="kw">let</span> <span class="ident">web_view</span> <span class="op">=</span> <span class="ident">get_view</span>(<span class="kw-2">&amp;</span><span class="ident">tabs</span>);
+        <span class="macro">clone!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
+            <span class="kw">let</span> <span class="ident">web_view</span> <span class="op">=</span> <span class="ident">view</span>(<span class="kw-2">&amp;</span><span class="ident">tabs</span>);
             <span class="ident">web_view</span>.<span class="ident">go_forward</span>()
         }),
     );
 
     <span class="ident">refresh_button</span>.<span class="ident">connect_clicked</span>(
-        <span class="macro">clone</span><span class="macro">!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
-            <span class="kw">let</span> <span class="ident">web_view</span> <span class="op">=</span> <span class="ident">get_view</span>(<span class="kw-2">&amp;</span><span class="ident">tabs</span>);
+        <span class="macro">clone!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
+            <span class="kw">let</span> <span class="ident">web_view</span> <span class="op">=</span> <span class="ident">view</span>(<span class="kw-2">&amp;</span><span class="ident">tabs</span>);
             <span class="ident">web_view</span>.<span class="ident">reload_bypass_cache</span>()
         }),
     );
 
     <span class="ident">downloads_button</span>.<span class="ident">connect_clicked</span>(
-        <span class="macro">clone</span><span class="macro">!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
+        <span class="macro">clone!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
             <span class="ident">downloads_popover</span>.<span class="ident">popup</span>();
         }),
     );
 
     <span class="ident">find_button</span>.<span class="ident">connect_clicked</span>(
-        <span class="macro">clone</span><span class="macro">!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span>, @<span class="ident">weak</span> <span class="ident">find_popover</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
+        <span class="macro">clone!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span>, @<span class="ident">weak</span> <span class="ident">find_popover</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
             <span class="ident">find_popover</span>.<span class="ident">popup</span>();
         }),
     );
     <span class="ident">find_search_entry</span>.<span class="ident">connect_search_changed</span>(
-        <span class="macro">clone</span><span class="macro">!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span>, @<span class="ident">weak</span> <span class="ident">find_search_entry</span>, @<span class="ident">weak</span> <span class="ident">find_popover</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
-            <span class="kw">let</span> <span class="ident">web_view</span> <span class="op">=</span> <span class="ident">get_view</span>(<span class="kw-2">&amp;</span><span class="ident">tabs</span>);
-            <span class="kw">let</span> <span class="ident">find_controller</span> <span class="op">=</span> <span class="ident">web_view</span>.<span class="ident">get_find_controller</span>().<span class="ident">unwrap</span>();
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">find_options</span> <span class="op">=</span> <span class="ident">webkit2gtk</span>::<span class="ident">FindOptions</span>::<span class="ident">empty</span>();
-            <span class="ident">find_options</span>.<span class="ident">set</span>(<span class="ident">webkit2gtk</span>::<span class="ident">FindOptions</span>::<span class="ident">CASE_INSENSITIVE</span>, <span class="ident">find_case_insensitive</span>.<span class="ident">get_active</span>());
-            <span class="ident">find_options</span>.<span class="ident">set</span>(<span class="ident">webkit2gtk</span>::<span class="ident">FindOptions</span>::<span class="ident">AT_WORD_STARTS</span>, <span class="ident">find_at_word_starts</span>.<span class="ident">get_active</span>());
-            <span class="ident">find_options</span>.<span class="ident">set</span>(<span class="ident">webkit2gtk</span>::<span class="ident">FindOptions</span>::<span class="ident">TREAT_MEDIAL_CAPITAL_AS_WORD_START</span>, <span class="ident">find_treat_medial_capital_as_word_start</span>.<span class="ident">get_active</span>());
-            <span class="ident">find_options</span>.<span class="ident">set</span>(<span class="ident">webkit2gtk</span>::<span class="ident">FindOptions</span>::<span class="ident">BACKWARDS</span>, <span class="ident">find_backwards</span>.<span class="ident">get_active</span>());
-            <span class="ident">find_options</span>.<span class="ident">set</span>(<span class="ident">webkit2gtk</span>::<span class="ident">FindOptions</span>::<span class="ident">WRAP_AROUND</span>, <span class="ident">find_wrap_around</span>.<span class="ident">get_active</span>());
-            <span class="kw">let</span> <span class="ident">max_match_count</span> <span class="op">=</span> <span class="ident">find_controller</span>.<span class="ident">get_max_match_count</span>();
-            <span class="ident">find_controller</span>.<span class="ident">count_matches</span>(<span class="kw-2">&amp;</span><span class="ident">find_search_entry</span>.<span class="ident">get_text</span>(), <span class="ident">find_options</span>.<span class="ident">bits</span>(), <span class="ident">max_match_count</span>);
-            <span class="ident">find_controller</span>.<span class="ident">search</span>(<span class="kw-2">&amp;</span><span class="ident">find_search_entry</span>.<span class="ident">get_text</span>(), <span class="ident">find_options</span>.<span class="ident">bits</span>(), <span class="ident">max_match_count</span>);
-            <span class="ident">find_controller</span>.<span class="ident">connect_counted_matches</span>(<span class="macro">clone</span><span class="macro">!</span>(@<span class="ident">weak</span> <span class="ident">web_view</span>, @<span class="ident">weak</span> <span class="ident">find_controller</span>, @<span class="ident">weak</span> <span class="ident">find_search_entry</span>, @<span class="ident">weak</span> <span class="ident">total_matches_label</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span>, <span class="ident">total_matches</span><span class="op">|</span> {
-                <span class="kw">if</span> <span class="ident">total_matches</span> <span class="op">&lt;</span> <span class="ident">u32</span>::<span class="ident">MAX</span>
+        <span class="macro">clone!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span>, @<span class="ident">weak</span> <span class="ident">find_search_entry</span>, @<span class="ident">weak</span> <span class="ident">find_popover</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
+            <span class="kw">let</span> <span class="ident">web_view</span> <span class="op">=</span> <span class="ident">view</span>(<span class="kw-2">&amp;</span><span class="ident">tabs</span>);
+            <span class="kw">let</span> <span class="ident">find_controller</span> <span class="op">=</span> <span class="ident">web_view</span>.<span class="ident">find_controller</span>().<span class="ident">unwrap</span>();
+            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">find_options</span> <span class="op">=</span> <span class="ident">webkit2gtk::FindOptions::empty</span>();
+            <span class="ident">find_options</span>.<span class="ident">set</span>(<span class="ident">webkit2gtk::FindOptions::CASE_INSENSITIVE</span>, <span class="ident">find_case_insensitive</span>.<span class="ident">is_active</span>());
+            <span class="ident">find_options</span>.<span class="ident">set</span>(<span class="ident">webkit2gtk::FindOptions::AT_WORD_STARTS</span>, <span class="ident">find_at_word_starts</span>.<span class="ident">is_active</span>());
+            <span class="ident">find_options</span>.<span class="ident">set</span>(<span class="ident">webkit2gtk::FindOptions::TREAT_MEDIAL_CAPITAL_AS_WORD_START</span>, <span class="ident">find_treat_medial_capital_as_word_start</span>.<span class="ident">is_active</span>());
+            <span class="ident">find_options</span>.<span class="ident">set</span>(<span class="ident">webkit2gtk::FindOptions::BACKWARDS</span>, <span class="ident">find_backwards</span>.<span class="ident">is_active</span>());
+            <span class="ident">find_options</span>.<span class="ident">set</span>(<span class="ident">webkit2gtk::FindOptions::WRAP_AROUND</span>, <span class="ident">find_wrap_around</span>.<span class="ident">is_active</span>());
+            <span class="kw">let</span> <span class="ident">max_match_count</span> <span class="op">=</span> <span class="ident">find_controller</span>.<span class="ident">max_match_count</span>();
+            <span class="ident">find_controller</span>.<span class="ident">count_matches</span>(<span class="kw-2">&amp;</span><span class="ident">find_search_entry</span>.<span class="ident">text</span>(), <span class="ident">find_options</span>.<span class="ident">bits</span>(), <span class="ident">max_match_count</span>);
+            <span class="ident">find_controller</span>.<span class="ident">search</span>(<span class="kw-2">&amp;</span><span class="ident">find_search_entry</span>.<span class="ident">text</span>(), <span class="ident">find_options</span>.<span class="ident">bits</span>(), <span class="ident">max_match_count</span>);
+            <span class="ident">find_controller</span>.<span class="ident">connect_counted_matches</span>(<span class="macro">clone!</span>(@<span class="ident">weak</span> <span class="ident">web_view</span>, @<span class="ident">weak</span> <span class="ident">find_controller</span>, @<span class="ident">weak</span> <span class="ident">find_search_entry</span>, @<span class="ident">weak</span> <span class="ident">total_matches_label</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span>, <span class="ident">total_matches</span><span class="op">|</span> {
+                <span class="kw">if</span> <span class="ident">total_matches</span> <span class="op">&lt;</span> <span class="ident">u32::MAX</span>
                 {
                     <span class="ident">total_matches_label</span>.<span class="ident">set_text</span>(<span class="kw-2">&amp;</span><span class="ident">total_matches</span>.<span class="ident">to_string</span>());
                 }
             }));
-            <span class="ident">find_search_entry</span>.<span class="ident">connect_activate</span>(<span class="macro">clone</span><span class="macro">!</span>(@<span class="ident">weak</span> <span class="ident">web_view</span>, @<span class="ident">weak</span> <span class="ident">find_controller</span>, @<span class="ident">weak</span> <span class="ident">find_search_entry</span>, @<span class="ident">weak</span> <span class="ident">current_match_label</span>, @<span class="ident">weak</span> <span class="ident">total_matches_label</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
+            <span class="ident">find_search_entry</span>.<span class="ident">connect_activate</span>(<span class="macro">clone!</span>(@<span class="ident">weak</span> <span class="ident">web_view</span>, @<span class="ident">weak</span> <span class="ident">find_controller</span>, @<span class="ident">weak</span> <span class="ident">find_search_entry</span>, @<span class="ident">weak</span> <span class="ident">current_match_label</span>, @<span class="ident">weak</span> <span class="ident">total_matches_label</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
                 <span class="ident">find_controller</span>.<span class="ident">search_next</span>();
-                <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">current_match</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="ident">current_match_label</span>.<span class="ident">get_text</span>().<span class="ident">parse</span>().<span class="ident">unwrap</span>();
-                <span class="kw">let</span> <span class="ident">total_matches</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="ident">total_matches_label</span>.<span class="ident">get_text</span>().<span class="ident">parse</span>().<span class="ident">unwrap</span>();
+                <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">current_match</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="ident">current_match_label</span>.<span class="ident">text</span>().<span class="ident">parse</span>().<span class="ident">unwrap</span>();
+                <span class="kw">let</span> <span class="ident">total_matches</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="ident">total_matches_label</span>.<span class="ident">text</span>().<span class="ident">parse</span>().<span class="ident">unwrap</span>();
                 <span class="ident">current_match</span> <span class="op">+</span><span class="op">=</span> <span class="number">1</span>;
                 <span class="kw">if</span> <span class="ident">current_match</span> <span class="op">&gt;</span> <span class="ident">total_matches</span>
                 {
@@ -1710,12 +1826,12 @@
                 }
                 <span class="ident">current_match_label</span>.<span class="ident">set_text</span>(<span class="kw-2">&amp;</span><span class="ident">current_match</span>.<span class="ident">to_string</span>());
                 <span class="ident">find_search_entry</span>.<span class="ident">set_progress_fraction</span>(<span class="ident">current_match</span> <span class="kw">as</span> <span class="ident">f64</span> <span class="op">/</span> <span class="ident">total_matches</span> <span class="kw">as</span> <span class="ident">f64</span>);
-                <span class="ident">find_search_entry</span>.<span class="ident">set_tooltip_text</span>(<span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;{} / {} matches&quot;</span>, <span class="ident">current_match</span>, <span class="ident">total_matches</span>)));
+                <span class="ident">find_search_entry</span>.<span class="ident">set_tooltip_text</span>(<span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="macro">format!</span>(<span class="string">&quot;{} / {} matches&quot;</span>, <span class="ident">current_match</span>, <span class="ident">total_matches</span>)));
             }));
-            <span class="ident">next_find_button</span>.<span class="ident">connect_clicked</span>(<span class="macro">clone</span><span class="macro">!</span>(@<span class="ident">weak</span> <span class="ident">web_view</span>, @<span class="ident">weak</span> <span class="ident">find_controller</span>, @<span class="ident">weak</span> <span class="ident">find_search_entry</span>, @<span class="ident">weak</span> <span class="ident">current_match_label</span>, @<span class="ident">weak</span> <span class="ident">total_matches_label</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
+            <span class="ident">next_find_button</span>.<span class="ident">connect_clicked</span>(<span class="macro">clone!</span>(@<span class="ident">weak</span> <span class="ident">web_view</span>, @<span class="ident">weak</span> <span class="ident">find_controller</span>, @<span class="ident">weak</span> <span class="ident">find_search_entry</span>, @<span class="ident">weak</span> <span class="ident">current_match_label</span>, @<span class="ident">weak</span> <span class="ident">total_matches_label</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
                 <span class="ident">find_controller</span>.<span class="ident">search_next</span>();
-                <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">current_match</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="ident">current_match_label</span>.<span class="ident">get_text</span>().<span class="ident">parse</span>().<span class="ident">unwrap</span>();
-                <span class="kw">let</span> <span class="ident">total_matches</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="ident">total_matches_label</span>.<span class="ident">get_text</span>().<span class="ident">parse</span>().<span class="ident">unwrap</span>();
+                <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">current_match</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="ident">current_match_label</span>.<span class="ident">text</span>().<span class="ident">parse</span>().<span class="ident">unwrap</span>();
+                <span class="kw">let</span> <span class="ident">total_matches</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="ident">total_matches_label</span>.<span class="ident">text</span>().<span class="ident">parse</span>().<span class="ident">unwrap</span>();
                 <span class="ident">current_match</span> <span class="op">+</span><span class="op">=</span> <span class="number">1</span>;
                 <span class="kw">if</span> <span class="ident">current_match</span> <span class="op">&gt;</span> <span class="ident">total_matches</span>
                 {
@@ -1723,12 +1839,12 @@
                 }
                 <span class="ident">current_match_label</span>.<span class="ident">set_text</span>(<span class="kw-2">&amp;</span><span class="ident">current_match</span>.<span class="ident">to_string</span>());
                 <span class="ident">find_search_entry</span>.<span class="ident">set_progress_fraction</span>(<span class="ident">current_match</span> <span class="kw">as</span> <span class="ident">f64</span> <span class="op">/</span> <span class="ident">total_matches</span> <span class="kw">as</span> <span class="ident">f64</span>);
-                <span class="ident">find_search_entry</span>.<span class="ident">set_tooltip_text</span>(<span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;{} / {} matches&quot;</span>, <span class="ident">current_match</span>, <span class="ident">total_matches</span>)));
+                <span class="ident">find_search_entry</span>.<span class="ident">set_tooltip_text</span>(<span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="macro">format!</span>(<span class="string">&quot;{} / {} matches&quot;</span>, <span class="ident">current_match</span>, <span class="ident">total_matches</span>)));
             }));
-            <span class="ident">previous_find_button</span>.<span class="ident">connect_clicked</span>(<span class="macro">clone</span><span class="macro">!</span>(@<span class="ident">weak</span> <span class="ident">web_view</span>, @<span class="ident">weak</span> <span class="ident">find_controller</span>, @<span class="ident">weak</span> <span class="ident">find_search_entry</span>, @<span class="ident">weak</span> <span class="ident">current_match_label</span>, @<span class="ident">weak</span> <span class="ident">total_matches_label</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
+            <span class="ident">previous_find_button</span>.<span class="ident">connect_clicked</span>(<span class="macro">clone!</span>(@<span class="ident">weak</span> <span class="ident">web_view</span>, @<span class="ident">weak</span> <span class="ident">find_controller</span>, @<span class="ident">weak</span> <span class="ident">find_search_entry</span>, @<span class="ident">weak</span> <span class="ident">current_match_label</span>, @<span class="ident">weak</span> <span class="ident">total_matches_label</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
                 <span class="ident">find_controller</span>.<span class="ident">search_previous</span>();
-                <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">current_match</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="ident">current_match_label</span>.<span class="ident">get_text</span>().<span class="ident">parse</span>().<span class="ident">unwrap</span>();
-                <span class="kw">let</span> <span class="ident">total_matches</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="ident">total_matches_label</span>.<span class="ident">get_text</span>().<span class="ident">parse</span>().<span class="ident">unwrap</span>();
+                <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">current_match</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="ident">current_match_label</span>.<span class="ident">text</span>().<span class="ident">parse</span>().<span class="ident">unwrap</span>();
+                <span class="kw">let</span> <span class="ident">total_matches</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="ident">total_matches_label</span>.<span class="ident">text</span>().<span class="ident">parse</span>().<span class="ident">unwrap</span>();
                 <span class="ident">current_match</span> <span class="op">-</span><span class="op">=</span> <span class="number">1</span>;
                 <span class="kw">if</span> <span class="ident">current_match</span> <span class="op">&lt;</span> <span class="number">1</span>
                 {
@@ -1736,10 +1852,10 @@
                 }
                 <span class="ident">current_match_label</span>.<span class="ident">set_text</span>(<span class="kw-2">&amp;</span><span class="ident">current_match</span>.<span class="ident">to_string</span>());
                 <span class="ident">find_search_entry</span>.<span class="ident">set_progress_fraction</span>(<span class="ident">current_match</span> <span class="kw">as</span> <span class="ident">f64</span> <span class="op">/</span> <span class="ident">total_matches</span> <span class="kw">as</span> <span class="ident">f64</span>);
-                <span class="ident">find_search_entry</span>.<span class="ident">set_tooltip_text</span>(<span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;{} / {} matches&quot;</span>, <span class="ident">current_match</span>, <span class="ident">total_matches</span>)));
+                <span class="ident">find_search_entry</span>.<span class="ident">set_tooltip_text</span>(<span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="macro">format!</span>(<span class="string">&quot;{} / {} matches&quot;</span>, <span class="ident">current_match</span>, <span class="ident">total_matches</span>)));
             }));
             <span class="ident">find_popover</span>.<span class="ident">connect_closed</span>(
-                <span class="macro">clone</span><span class="macro">!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span>, @<span class="ident">weak</span> <span class="ident">current_match_label</span>, @<span class="ident">weak</span> <span class="ident">total_matches_label</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
+                <span class="macro">clone!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span>, @<span class="ident">weak</span> <span class="ident">current_match_label</span>, @<span class="ident">weak</span> <span class="ident">total_matches_label</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
                     <span class="ident">find_controller</span>.<span class="ident">search_finish</span>();
                     <span class="ident">current_match_label</span>.<span class="ident">set_text</span>(<span class="string">&quot;0&quot;</span>);
                     <span class="ident">total_matches_label</span>.<span class="ident">set_text</span>(<span class="string">&quot;0&quot;</span>);
@@ -1749,73 +1865,75 @@
     );
 
     <span class="ident">menu_button</span>.<span class="ident">connect_clicked</span>(
-        <span class="macro">clone</span><span class="macro">!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
+        <span class="macro">clone!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
             <span class="ident">menu</span>.<span class="ident">popup</span>();
         }),
     );
 
     <span class="ident">about_button</span>.<span class="ident">connect_clicked</span>(
-        <span class="macro">clone</span><span class="macro">!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
+        <span class="macro">clone!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
             <span class="ident">new_about_dialog</span>()
         }),
     );
 
     <span class="ident">zoomin_button</span>.<span class="ident">connect_clicked</span>(
-        <span class="macro">clone</span><span class="macro">!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
-            <span class="kw">let</span> <span class="ident">web_view</span> <span class="op">=</span> <span class="ident">get_view</span>(<span class="kw-2">&amp;</span><span class="ident">tabs</span>);
-            <span class="kw">let</span> <span class="ident">current_zoom_level</span> <span class="op">=</span> <span class="ident">web_view</span>.<span class="ident">get_zoom_level</span>();
+        <span class="macro">clone!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
+            <span class="kw">let</span> <span class="ident">web_view</span> <span class="op">=</span> <span class="ident">view</span>(<span class="kw-2">&amp;</span><span class="ident">tabs</span>);
+            <span class="kw">let</span> <span class="ident">current_zoom_level</span> <span class="op">=</span> <span class="ident">web_view</span>.<span class="ident">zoom_level</span>();
             <span class="ident">web_view</span>.<span class="ident">set_zoom_level</span>(<span class="ident">current_zoom_level</span> <span class="op">+</span> <span class="number">0.1</span>);
         }),
     );
 
     <span class="ident">zoomout_button</span>.<span class="ident">connect_clicked</span>(
-        <span class="macro">clone</span><span class="macro">!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
-            <span class="kw">let</span> <span class="ident">web_view</span> <span class="op">=</span> <span class="ident">get_view</span>(<span class="kw-2">&amp;</span><span class="ident">tabs</span>);
-            <span class="kw">let</span> <span class="ident">current_zoom_level</span> <span class="op">=</span> <span class="ident">web_view</span>.<span class="ident">get_zoom_level</span>();
+        <span class="macro">clone!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
+            <span class="kw">let</span> <span class="ident">web_view</span> <span class="op">=</span> <span class="ident">view</span>(<span class="kw-2">&amp;</span><span class="ident">tabs</span>);
+            <span class="kw">let</span> <span class="ident">current_zoom_level</span> <span class="op">=</span> <span class="ident">web_view</span>.<span class="ident">zoom_level</span>();
             <span class="ident">web_view</span>.<span class="ident">set_zoom_level</span>(<span class="ident">current_zoom_level</span> <span class="op">-</span> <span class="number">0.1</span>);
         }),
     );
 
     <span class="ident">zoomreset_button</span>.<span class="ident">connect_clicked</span>(
-        <span class="macro">clone</span><span class="macro">!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
-            <span class="kw">let</span> <span class="ident">web_view</span> <span class="op">=</span> <span class="ident">get_view</span>(<span class="kw-2">&amp;</span><span class="ident">tabs</span>);
+        <span class="macro">clone!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
+            <span class="kw">let</span> <span class="ident">web_view</span> <span class="op">=</span> <span class="ident">view</span>(<span class="kw-2">&amp;</span><span class="ident">tabs</span>);
             <span class="ident">web_view</span>.<span class="ident">set_zoom_level</span>(<span class="number">1.0</span>);
         }),
     );
 
     <span class="ident">fullscreen_button</span>.<span class="ident">connect_clicked</span>(
-        <span class="macro">clone</span><span class="macro">!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
-            <span class="kw">let</span> <span class="ident">web_view</span> <span class="op">=</span> <span class="ident">get_view</span>(<span class="kw-2">&amp;</span><span class="ident">tabs</span>);
-            <span class="ident">web_view</span>.<span class="ident">run_javascript</span>(<span class="string">&quot;document.documentElement.webkitRequestFullscreen();&quot;</span>, <span class="ident">gio</span>::<span class="ident">NONE_CANCELLABLE</span>, <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
+        <span class="macro">clone!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
+            <span class="kw">let</span> <span class="ident">web_view</span> <span class="op">=</span> <span class="ident">view</span>(<span class="kw-2">&amp;</span><span class="ident">tabs</span>);
+            <span class="ident">web_view</span>.<span class="ident">run_javascript</span>(<span class="string">&quot;document.documentElement.webkitRequestFullscreen();&quot;</span>, <span class="ident">gio::NONE_CANCELLABLE</span>, <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
                 
             })
         }),
     );
 
     <span class="ident">screenshot_button</span>.<span class="ident">connect_clicked</span>(
-        <span class="macro">clone</span><span class="macro">!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
-            <span class="kw">let</span> <span class="ident">web_view</span> <span class="op">=</span> <span class="ident">get_view</span>(<span class="kw-2">&amp;</span><span class="ident">tabs</span>);
-            <span class="ident">web_view</span>.<span class="ident">get_snapshot</span>(<span class="ident">webkit2gtk</span>::<span class="ident">SnapshotRegion</span>::<span class="ident">FullDocument</span>, <span class="ident">webkit2gtk</span>::<span class="ident">SnapshotOptions</span>::<span class="ident">all</span>(), <span class="ident">gio</span>::<span class="ident">NONE_CANCELLABLE</span>, <span class="kw">move</span> <span class="op">|</span><span class="ident">snapshot</span><span class="op">|</span> {
-                <span class="kw">let</span> <span class="ident">snapshot_surface</span> <span class="op">=</span> <span class="ident">cairo</span>::<span class="ident">ImageSurface</span>::<span class="ident">try_from</span>(<span class="ident">snapshot</span>.<span class="ident">unwrap</span>()).<span class="ident">unwrap</span>();
-                <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">writer</span> <span class="op">=</span> <span class="ident">File</span>::<span class="ident">create</span>(<span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;{}/{}.png&quot;</span>, <span class="ident">PICTURES_DIR</span>.<span class="ident">to_owned</span>(), <span class="ident">Utc</span>::<span class="ident">now</span>())).<span class="ident">unwrap</span>();
+        <span class="macro">clone!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
+            <span class="kw">let</span> <span class="ident">web_view</span> <span class="op">=</span> <span class="ident">view</span>(<span class="kw-2">&amp;</span><span class="ident">tabs</span>);
+            <span class="ident">web_view</span>.<span class="ident">snapshot</span>(<span class="ident">webkit2gtk::SnapshotRegion::FullDocument</span>, <span class="ident">webkit2gtk::SnapshotOptions::all</span>(), <span class="ident">gio::NONE_CANCELLABLE</span>, <span class="kw">move</span> <span class="op">|</span><span class="ident">snapshot</span><span class="op">|</span> {
+                <span class="kw">let</span> <span class="ident">snapshot_surface</span> <span class="op">=</span> <span class="ident">cairo::ImageSurface::try_from</span>(<span class="ident">snapshot</span>.<span class="ident">unwrap</span>()).<span class="ident">unwrap</span>();
+                <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">writer</span> <span class="op">=</span> <span class="ident">File::create</span>(<span class="macro">format!</span>(<span class="string">&quot;{}/{}.png&quot;</span>, <span class="ident">PICTURES_DIR</span>.<span class="ident">to_owned</span>(), <span class="ident">Utc::now</span>())).<span class="ident">unwrap</span>();
                 <span class="ident">snapshot_surface</span>.<span class="ident">write_to_png</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">writer</span>).<span class="ident">unwrap</span>();
             });
         }),
     );
 
     <span class="ident">new_window_button</span>.<span class="ident">connect_clicked</span>(
-        <span class="macro">clone</span><span class="macro">!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span>, @<span class="ident">weak</span> <span class="ident">window</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
-            <span class="ident">new_window</span>(<span class="kw-2">&amp;</span><span class="ident">window</span>.<span class="ident">get_application</span>().<span class="ident">unwrap</span>(), <span class="ident">matches</span>.<span class="ident">to_owned</span>())
+        <span class="macro">clone!</span>(@<span class="ident">weak</span> <span class="ident">tabs</span>, @<span class="ident">weak</span> <span class="ident">nav_entry</span>, @<span class="ident">weak</span> <span class="ident">builder</span>, @<span class="ident">weak</span> <span class="ident">window</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
+            <span class="ident">matches</span>.<span class="ident">remove</span>(<span class="string">&quot;url&quot;</span>);
+            <span class="ident">new_window</span>(<span class="kw-2">&amp;</span><span class="ident">window</span>.<span class="ident">application</span>().<span class="ident">unwrap</span>(), <span class="ident">matches</span>.<span class="ident">to_owned</span>())
         }),
     );
 
     <span class="ident">window</span>.<span class="ident">show_all</span>();
     <span class="ident">window</span>.<span class="ident">connect_delete_event</span>(<span class="op">|</span><span class="kw">_</span>, <span class="kw">_</span><span class="op">|</span> {
-        <span class="ident">gtk</span>::<span class="ident">main_quit</span>();
+        <span class="ident">gtk::main_quit</span>();
         <span class="ident">Inhibit</span>(<span class="bool-val">false</span>)
     });
-    <span class="ident">gtk</span>::<span class="ident">main</span>();
+    <span class="ident">gtk::main</span>();
 }
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><div id="rustdoc-vars" data-root-path="../../" data-current-crate="oku"></div>
-    <script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script><script defer src="../../search-index.js"></script></body></html>
+</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../" data-current-crate="oku" data-search-index-js="../../search-index.js" data-search-js="../../search.js"></div>
+    <script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script>
+</body></html>
